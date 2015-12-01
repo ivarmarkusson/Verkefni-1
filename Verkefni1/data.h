@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include "userinterface.h"
 
 using namespace std;
 
@@ -22,19 +23,12 @@ class Data
         Data();
         void readPerson(const string &filename);
         void addToList(const string &filename);
-        //void getPersons(vector<string> v);
-
-        /*string findName();
-        void getName();
-
-        void findGender();
-        void getGender();
-
-        void findBirth();
-        void getBirth();
-
-        void findDeath();
-        void getDeath();*/
+        void printList();
+        void options();
+        bool validinputOptions(int x);
+        void print();
+        void search();
+        bool validinputPrintAndSearch(int x);
 
 
     private:
