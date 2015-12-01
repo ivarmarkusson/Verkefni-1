@@ -16,11 +16,12 @@ public:
 
     void MainMenu();
     bool validinput(int x);
-    void options();
+    int optionsMenu();
     bool validinputOptions(int x);
     void print();
-    void search();
+    int searchMenu();
     bool validinputPrintAndSearch(int x);
+    int printMenu();
 };
 
 #endif // USERINTERFACE_H

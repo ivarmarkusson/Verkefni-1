@@ -61,75 +61,26 @@ void Data::addToList(const string &filename)
 
 void Data::options()
 {
-    int input;
-
-
-    cout << "--- Options ---" << endl;
-    cout << "1. Print" << endl;
-    cout << "2. Search" << endl;
-
-    do
-    {
-        cin >> input;
-
-        if(!(validinputOptions(input)))
-            cout << "Input was not valid, try again" << endl;
-
-    }while(!(validinputOptions(input)));
+    UserInterface obj;
+    int input = obj.optionsMenu();
 
     if(input == 1)
-    {
-
         print();
-    }
     else
-    {
-
         search();
-    }
-
 
 }
 
-bool Data::validinputOptions(int x)
-{
-    if(x == 1 || x == 2)
-        return true;
-    else
-        return false;
-}
 
 void Data::print()
 {
-    cout << " --- PRINT --- " << endl;
+    UserInterface obj;
+    int input = obj.printMenu();
 
-    cout << "1. Current List" << endl;
-    cout << "2. By gender" << endl;
-    cout << "3. By Age " << endl;
-    cout << "4. Dead" << endl;
-
-    int input;
-
-    do
-    {
-        cin >> input;
-
-        if(!(validinputPrintAndSearch(input)))
-            cout << "Input was not valid, try again" << endl;
-
-    }while(!(validinputPrintAndSearch(input)));
-
-    if(input == 1)
-    {
-        printList();
-    }
-
-    /*
     switch (input)
     {
         case 1:
-            Data obj;
-            obj.printList();
+            printList();
         break;
         case 2:
             //raða eftir kyni
@@ -141,29 +92,12 @@ void Data::print()
             //er aðilin á lífi eða dauður
             break;
     }
-    */
-
 }
 
 void Data::search()
 {
-    cout << " --- SEARCH --- " << endl;
-
-    cout << "1. By Name" << endl;
-    cout << "2. By Gender" << endl;
-    cout << "3. By Year of Birth" << endl;
-    cout << "4. By Year of Death" << endl;
-
-    int input;
-
-    do
-    {
-        cin >> input;
-
-        if(!(validinputPrintAndSearch(input)))
-            cout << "Input was not valid, try again" << endl;
-
-    }while(!(validinputPrintAndSearch(input)));
+    UserInterface obj;
+    int input = obj.searchMenu();
 
     switch (input)
     {
@@ -180,14 +114,6 @@ void Data::search()
             //leita af dánar ári
             break;
     }
-}
-
-bool Data::validinputPrintAndSearch(int x)
-{
-    if(x == 1 || x == 2 || x == 3 || x == 4)
-        return true;
-    else
-        return false;
 }
 
 void Data::printList()

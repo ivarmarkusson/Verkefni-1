@@ -25,10 +25,8 @@ class Data
         void addToList(const string &filename);
         void printList();
         void options();
-        bool validinputOptions(int x);
         void print();
         void search();
-        bool validinputPrintAndSearch(int x);
 
 
     private:
