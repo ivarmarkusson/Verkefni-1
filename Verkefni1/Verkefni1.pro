@@ -8,12 +8,12 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    people.cpp \
     data.cpp \
-    userinterface.cpp
+    userinterface.cpp \
+    pionniers.cpp
 
 HEADERS += \
-    people.h \
     data.h \
-    userinterface.h
+    userinterface.h \
+    pionniers.h
 

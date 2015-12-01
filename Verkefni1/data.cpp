@@ -3,6 +3,8 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -10,31 +12,45 @@ Data::Data()
 {
 
 }
-void Data::getPersons(vector<string> v)
+/*void Data::getPersons(vector<string> v)
 {
     v = nextPerson;
 }
 
-/*string findName()
+string findName()
 {
 
     return name;
 }*/
 
-void Data::readPerson(const string &filename)
+void Data::readPerson(const string &ListOfPeople)
 {
-    ifstream open_file;
+    string strBirth, strDeath;
 
-    open_file.open(filename.c_str());
+    ifstream file;
+    file.open(ListOfPeople.c_str());
 
+    Person p;
     string next;
+    string temp;
+    stringstream convert;
 
-    while(open_file >> next)
+    while ( !( file>>next).eof() )
     {
-        getline(open_file, next, '\n');
-        nextPerson.push_back(next);
+        //Read line into string
+        //getline(file, next, '\n');
+        getline(file, p.name, '/');
+        getline(file, p.gender, '/');
+        getline(file, strBirth, '/');
+        getline(file, strDeath);
+        //breyta strBirth og strDeath yfir i int
+        p.birth = atoi(strBirth.c_str());
+        p.death = atoi(strDeath.c_str());
+
+        nextPerson.push_back(p);
     }
 
-    open_file.close();
+    file.close();
 }
+
 

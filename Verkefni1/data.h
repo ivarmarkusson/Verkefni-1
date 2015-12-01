@@ -7,13 +7,21 @@
 
 using namespace std;
 
+struct Person
+{
+    string name;
+    string gender;
+    int birth;
+    int death;
+};
+
 
 class Data
 {
     public:
         Data();
         void readPerson(const string &filename);
-        void getPersons(vector<string> v);
+        //void getPersons(vector<string> v);
 
         /*string findName();
         void getName();
@@ -29,11 +37,7 @@ class Data
 
 
     private:
-        vector<string> nextPerson;
-        string name;
-        string gender;
-        int birth;
-        int death;
+        vector<Person> nextPerson;
 };
 
 #endif // DATA_H
