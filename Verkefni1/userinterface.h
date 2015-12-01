@@ -20,8 +20,9 @@ public:
     bool validinputOptions(int x);
     void print();
     int searchMenu();
-    bool validinputPrintAndSearch(int x);
+    bool validinputSearch(int x);
     int printMenu();
+    bool validinputPrint(int x);
 };
 
 #endif // USERINTERFACE_H

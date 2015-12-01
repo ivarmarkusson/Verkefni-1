@@ -10,7 +10,7 @@ void UserInterface::MainMenu()
 {
     int input;
 
-    cout << "--- Choose ---" << endl;
+    cout << "--- MAIN MENU ---" << endl;
     cout << "1. Read Current Textfile" << endl;
     cout << "2. Add to Textfie" << endl;
 
@@ -23,6 +23,8 @@ void UserInterface::MainMenu()
                 cout << "Input was not valid, try again" << endl;
 
         }while(!(validinput(input)));
+
+    system("CLS");
 
     if(input == 1)
     {
@@ -52,9 +54,10 @@ int UserInterface::optionsMenu()
 {
     int input;
 
-    cout << "--- Options ---" << endl;
+    cout << "--- OPTIONS ---" << endl;
     cout << "1. Print" << endl;
     cout << "2. Search" << endl;
+    cout << "3. Back to Main" << endl;
 
     do
     {
@@ -65,12 +68,14 @@ int UserInterface::optionsMenu()
 
     }while(!(validinputOptions(input)));
 
+    system("CLS");
+
     return input;
 }
 
 bool UserInterface::validinputOptions(int x)
 {
-    if(x == 1 || x == 2)
+    if(x == 1 || x == 2 || x == 3)
         return true;
     else
         return false;
@@ -84,6 +89,7 @@ int UserInterface::printMenu()
     cout << "2. By gender" << endl;
     cout << "3. By Age " << endl;
     cout << "4. Dead" << endl;
+    cout << "5. Back to Main" << endl;
 
     int input;
 
@@ -91,10 +97,12 @@ int UserInterface::printMenu()
     {
         cin >> input;
 
-        if(!(validinputPrintAndSearch(input)))
+        if(!(validinputPrint(input)))
             cout << "Input was not valid, try again" << endl;
 
-    }while(!(validinputPrintAndSearch(input)));
+    }while(!(validinputPrint(input)));
+
+    system("CLS");
 
     return input;
 }
@@ -104,9 +112,9 @@ int UserInterface::searchMenu()
     cout << " --- SEARCH --- " << endl;
 
     cout << "1. By Name" << endl;
-    cout << "2. By Gender" << endl;
-    cout << "3. By Year of Birth" << endl;
-    cout << "4. By Year of Death" << endl;
+    cout << "2. By Year of Birth" << endl;
+    cout << "3. By Year of Death" << endl;
+    cout << "4. Back to Main" << endl;
 
     int input;
 
@@ -114,17 +122,27 @@ int UserInterface::searchMenu()
     {
         cin >> input;
 
-        if(!(validinputPrintAndSearch(input)))
+        if(!(validinputSearch(input)))
             cout << "Input was not valid, try again" << endl;
 
-    }while(!(validinputPrintAndSearch(input)));
+    }while(!(validinputSearch(input)));
+
+    system("CLS");
 
     return input;
 }
 
-bool UserInterface::validinputPrintAndSearch(int x)
+bool UserInterface::validinputSearch(int x)
 {
     if(x == 1 || x == 2 || x == 3 || x == 4)
+        return true;
+    else
+        return false;
+}
+
+bool UserInterface::validinputPrint(int x)
+{
+    if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5)
         return true;
     else
         return false;

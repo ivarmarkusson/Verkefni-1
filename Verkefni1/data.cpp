@@ -38,16 +38,19 @@ void Data::readPerson(const string &ListOfPeople)
     }
     file.close();
 
-    cout << nextPerson.size();
+
 }
 
 void Data::addToList(const string &filename)
 {
     string addPerson;
 
+    cout << endl;
     cout << "Enter name/gender/year-of-birth/year-of-death" << endl;
     cout << "Enter 0 in year-of-death if still alive" << endl;
     cin >> addPerson;
+
+    system("CLS");
 
     ofstream input_file;
     input_file.open(filename.c_str(),std::ios::app|std::ios::out);
@@ -65,8 +68,11 @@ void Data::options()
 
     if(input == 1)
         print();
-    else
+    else if(input == 2)
         search();
+    else
+        obj.MainMenu();
+
 
 }
 
@@ -82,13 +88,16 @@ void Data::print()
             printList();
         break;
         case 2:
-            //raða eftir kyni
+            printGender();
             break;
         case 3:
             //raða eftir aldri
             break;
         case 4:
             //er aðilin á lífi eða dauður
+            break;
+        case 5:
+            obj.MainMenu();
             break;
     }
 }
@@ -101,16 +110,16 @@ void Data::search()
     switch (input)
     {
         case 1:
-            //leita af nafni
+            searchName();
             break;
         case 2:
-            //leita af kyni
-            break;
-        case 3:
             //leita af fæðingar ári
             break;
+        case 3:
+            printDead();
+            break;
         case 4:
-            //leita af dánar ári
+            obj.MainMenu();
             break;
     }
 }
@@ -124,7 +133,86 @@ void Data::printList()
     {
         cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
              setw(15)<< nextPerson.at(i).death << endl;
-        //cout << endl;
     }
 }
+
+void Data::printGender()
+{
+    cout << setw(50) << " --- FEMALES --- "  << endl;
+    cout << endl;
+
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        if(nextPerson.at(i).gender == "female")
+        {
+            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+                 setw(15)<< nextPerson.at(i).death << endl;
+        }
+    }
+
+    cout << setw(50) << " --- MALES --- "  << endl;
+    cout << endl;
+
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        if(nextPerson.at(i).gender == "male")
+        {
+            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+                 setw(15)<< nextPerson.at(i).death << endl;
+        }
+    }
+}
+
+void Data::printAge()
+{
+
+}
+
+void Data::printDead()
+{
+    cout << endl;
+    cout << setw(55) <<  "--- LIST OF DEAD PEOPLE ---" << endl ;
+    cout << endl;
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        if (nextPerson.at(i).death > 0)
+        {
+            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+            setw(15)<< nextPerson.at(i).death << endl;
+        }
+    }
+}
+
+void Data::searchName()
+{
+    string n;
+    cout << endl;
+    cout << "Enter name: ";
+    cin >> n;
+    cout << endl;
+
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        string name = nextPerson.at(i).name ;
+        if (name.find(n) != string::npos)
+        {
+            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+            setw(15)<< nextPerson.at(i).death << endl;
+
+        }
+    }
+}
+
 

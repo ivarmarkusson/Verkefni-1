@@ -9,11 +9,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     data.cpp \
-    userinterface.cpp \
-    pionniers.cpp
+    userinterface.cpp
 
 HEADERS += \
     data.h \
-    userinterface.h \
-    pionniers.h
+    userinterface.h
 

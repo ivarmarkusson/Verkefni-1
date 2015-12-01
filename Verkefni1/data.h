@@ -27,6 +27,10 @@ class Data
         void options();
         void print();
         void search();
+        void printGender();
+        void printAge();
+        void printDead();
+        void searchName();
 
 
     private:
