@@ -20,6 +20,7 @@ public:
     bool validinputOptions(int x);
     void print();
     void search();
+    bool validinputPrintAndSearch(int x);
 };
 
 #endif // USERINTERFACE_H

@@ -12,4 +12,3 @@ John D. Carmack/male/1970/0
 Linus Torvalds/male/1969/0
 James Gosling/male/1955/0
 Dennis Ritchie/male/1941/2011
-
