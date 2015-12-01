@@ -34,6 +34,7 @@ void UserInterface::MainMenu()
     {
         Data next;
         next.addToList("ListOfPeople.txt");
+        next.readPerson("ListOfPeople.txt");
         next.options();
     }
 

@@ -22,14 +22,10 @@ void Data::readPerson(const string &ListOfPeople)
     file.open(ListOfPeople.c_str());
 
     Person p;
-    string next;
-    string temp;
-    stringstream convert;
 
-    while ( !( file>>next).eof() )
+    while ( !file.eof() )
     {
         //Read line into string
-        //getline(file, next, '\n');
         getline(file, p.name, '/');
         getline(file, p.gender, '/');
         getline(file, strBirth, '/');
@@ -41,6 +37,8 @@ void Data::readPerson(const string &ListOfPeople)
         nextPerson.push_back(p);
     }
     file.close();
+
+    cout << nextPerson.size();
 }
 
 void Data::addToList(const string &filename)
@@ -52,9 +50,10 @@ void Data::addToList(const string &filename)
     cin >> addPerson;
 
     ofstream input_file;
-    input_file.open(filename.c_str(),std::ios::app);
+    input_file.open(filename.c_str(),std::ios::app|std::ios::out);
 
-    input_file << addPerson;
+
+    input_file << "\n" << addPerson;
 
     input_file.close();
 }
