@@ -10,15 +10,15 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Data nextName;
+
     UserInterface obj;
 
     obj.MainMenu();
-    obj.options();
+    //obj.options();
 
 
 
-    nextName.readPerson("ListOfPeople.txt");
+
 
 
 

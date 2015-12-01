@@ -19,7 +19,7 @@ istream& operator >> (istream& ins, Pionniers& pionniers )
     getline(ins, p.name, '/');
     getline(ins, p.gender, '/');
     getline(ins, strBirth, '/');
-    getline(ins, strDeath, '/');
+    getline(ins, strDeath, '\n');
 
     p.birth = atoi(strBirth.c_str());
     p.death = atoi(strDeath.c_str());

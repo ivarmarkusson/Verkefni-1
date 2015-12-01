@@ -21,6 +21,7 @@ class Data
     public:
         Data();
         void readPerson(const string &filename);
+        void addToList(const string &filename);
         //void getPersons(vector<string> v);
 
         /*string findName();

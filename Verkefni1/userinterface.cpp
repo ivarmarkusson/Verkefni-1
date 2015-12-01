@@ -1,55 +1,58 @@
 #include "userinterface.h"
+#include "data.h"
 
 UserInterface::UserInterface()
 {
 
 }
 
+
+
 void UserInterface::MainMenu()
 {
     int input;
 
     cout << "--- Choose ---" << endl;
-    cout << "1. Current list" << endl;
-    cout << "2. Add to list" << endl;
+    cout << "1. Read Current Textfile" << endl;
+    cout << "2. Add to Textfie" << endl;
+    cout << "3. Open Options Menu" << endl;
 
     do
-    {
-        cin >> input;
+        {
+            cin >> input;
 
 
-        if(!(validinput(input)))
-            cout << "Input was not valid, try again" << endl;
+            if(!(validinput(input)))
+                cout << "Input was not valid, try again" << endl;
 
-    }while(!(validinput(input)));
+        }while(!(validinput(input)));
+
+
+
 
     if(input == 1)
     {
-        string line;
-        ifstream file("listOfPeople.txt");
-        if(file.is_open())
-        {
-            while(getline(file, line))
-            {
-                cout << line << setw(5) << endl;
-            }
-            file.close();
-        }
-
-
-
-
+        Data next;
+        next.readPerson("ListOfPeople.txt");
+        MainMenu();
     }
-    else
+    else if(input == 2)
     {
-        //bætir við listan.
+        Data next;
+        next.addToList("ListOfPeople.txt");
+        MainMenu();
     }
+    else if(input == 3)
+    {
+        options();
+    }
+
 
 }
 
 bool UserInterface::validinput(int x)
 {
-    if(x == 1 || x == 2)
+    if(x == 1 || x == 2 || x == 3)
         return true;
     else
         return false;
@@ -60,10 +63,8 @@ void UserInterface::options()
     int input;
 
     cout << "--- Options ---" << endl;
-    cout << "1. Show by name" << endl;
-    cout << "2. Show by gender" << endl;
-    cout << "3. Show by birthyear" << endl;
-    cout << "4. Show by year of death" << endl;
+    cout << "1. Print" << endl;
+    cout << "2. Search" << endl;
 
     do
     {
@@ -74,12 +75,42 @@ void UserInterface::options()
 
     }while(!(validinputOptions(input)));
 
+    if(input == 1)
+        print();
+    else
+        search();
+
+
 }
 
 bool UserInterface::validinputOptions(int x)
 {
-    if(x == 1 || x == 2 || x == 3 || x == 4)
+    if(x == 1 || x == 2)
         return true;
     else
         return false;
 }
+
+void UserInterface::print()
+{
+    cout << " --- PRINT --- " << endl;
+
+    cout << "1. Current List" << endl;
+    cout << "2. By gender" << endl;
+    cout << "3. By Age " << endl;
+    cout << "4. Dead" << endl;
+
+
+}
+
+void UserInterface::search()
+{
+    cout << " --- SEARCH --- " << endl;
+
+    cout << "1. By Name" << endl;
+    cout << "2. By Gender" << endl;
+    cout << "3. By Year of Birth" << endl;
+    cout << "4. By Year of Death" << endl;
+}
+
+

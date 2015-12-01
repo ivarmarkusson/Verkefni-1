@@ -13,10 +13,13 @@ class UserInterface
 {
 public:
     UserInterface();
+
     void MainMenu();
     bool validinput(int x);
     void options();
     bool validinputOptions(int x);
+    void print();
+    void search();
 };
 
 #endif // USERINTERFACE_H

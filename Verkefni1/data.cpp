@@ -12,16 +12,6 @@ Data::Data()
 {
 
 }
-/*void Data::getPersons(vector<string> v)
-{
-    v = nextPerson;
-}
-
-string findName()
-{
-
-    return name;
-}*/
 
 void Data::readPerson(const string &ListOfPeople)
 {
@@ -51,6 +41,27 @@ void Data::readPerson(const string &ListOfPeople)
     }
 
     file.close();
+
+    cout << nextPerson.size();
+
+}
+
+void Data::addToList(const string &filename)
+{
+    string addPerson;
+
+    cout << "Enter name/gender/year-of-birth/year-of-death" << endl;
+    cout << "Enter 0 in year-of-death if still alive" << endl;
+    cin >> addPerson;
+
+    ofstream input_file;
+    input_file.open(filename.c_str(),std::ios::app);
+
+    input_file << addPerson;
+
+    input_file.close();
+
+
 }
 
 
