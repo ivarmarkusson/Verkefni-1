@@ -117,14 +117,14 @@ void Data::search()
 
 void Data::printList()
 {
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
-        cout << "Name: " << nextPerson.at(i).name << endl;
-        cout << "Gender: " << nextPerson.at(i).gender << endl;
-        cout << "Birthyear: " << nextPerson.at(i).birth << endl;
-        cout << "Deathyear: " << nextPerson.at(i).death << endl;
-        cout << endl;
+        cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+             setw(15)<< nextPerson.at(i).death << endl;
+        //cout << endl;
     }
 }
 
