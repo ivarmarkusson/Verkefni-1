@@ -13,7 +13,7 @@ class Data
     public:
         Data();
         void readPerson(const string &filename);
-        void getPersons();
+        void getPersons(vector<string> v);
 
         /*string findName();
         void getName();

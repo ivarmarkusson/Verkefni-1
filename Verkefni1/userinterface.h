@@ -1,6 +1,11 @@
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 #include <iostream>
+#include <vector>
+#include "data.h"
+#include <fstream>
+#include <string>
+#include <iomanip>
 
 using namespace std;
 

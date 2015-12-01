@@ -17,10 +17,33 @@ void UserInterface::MainMenu()
     {
         cin >> input;
 
+
         if(!(validinput(input)))
             cout << "Input was not valid, try again" << endl;
 
     }while(!(validinput(input)));
+
+    if(input == 1)
+    {
+        string line;
+        ifstream file("listOfPeople.txt");
+        if(file.is_open())
+        {
+            while(getline(file, line))
+            {
+                cout << line << setw(5) << endl;
+            }
+            file.close();
+        }
+
+
+
+
+    }
+    else
+    {
+        //bætir við listan.
+    }
 
 }
 

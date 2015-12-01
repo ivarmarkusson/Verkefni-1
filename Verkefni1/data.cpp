@@ -10,6 +10,10 @@ Data::Data()
 {
 
 }
+void Data::getPersons(vector<string> v)
+{
+    v = nextPerson;
+}
 
 /*string findName()
 {
