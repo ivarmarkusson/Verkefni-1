@@ -23,6 +23,7 @@ public:
     bool validinputSearch(int x);
     int printMenu();
     bool validinputPrint(int x);
+    void printTableText();
 };
 
 #endif // USERINTERFACE_H

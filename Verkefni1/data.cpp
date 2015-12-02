@@ -53,7 +53,6 @@ void Data::addToList(const string &filename)
     ofstream input_file;
     input_file.open(filename.c_str(),std::ios::app|std::ios::out);
 
-
     input_file << "\n" << addPerson;
 
     input_file.close();
@@ -72,7 +71,6 @@ void Data::options()
         obj.MainMenu();
 }
 
-
 void Data::print()
 {
     UserInterface obj;
@@ -81,8 +79,8 @@ void Data::print()
     switch (input)
     {
         case 1:
-            printList();
-        break;
+            printCurrentList();
+            break;
         case 2:
             printGender();
             break;
@@ -120,19 +118,23 @@ void Data::search()
     }
 }
 
-void Data::printList()
+void Data::printList(int i)
 {
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    cout << left << setw(25) << nextPerson.at(i).name << setw(22)
+         << nextPerson.at(i).gender << setw(15) << nextPerson.at(i).birth
+         << right << setw(15) << nextPerson.at(i).death << endl;
+}
+
+void Data::printCurrentList()
+{
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
-        cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-             setw(15)<< nextPerson.at(i).death << endl;
+        printList(i);
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
 
@@ -141,47 +143,41 @@ void Data::printGender()
     cout << setw(50) << " --- FEMALES --- "  << endl;
     cout << endl;
 
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         if(nextPerson.at(i).gender == "female")
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-                 setw(15)<< nextPerson.at(i).death << endl;
+            printList(i);
         }
     }
 
     cout << setw(50) << " --- MALES --- "  << endl;
     cout << endl;
-
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         if(nextPerson.at(i).gender == "male")
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-                 setw(15)<< nextPerson.at(i).death << endl;
+            printList(i);
         }
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
 
 void Data::printAge()
 {
     Data temp;
-
+    //Copy current vector to a temporary one
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         temp.nextPerson.push_back(nextPerson.at(i));
     }
-
+    //Bubble sort to sort by year of birth
     for(unsigned int j = 0; j < nextPerson.size()-1; j++)
     {
         for(unsigned int i = 0; i < nextPerson.size()-1; i++)
@@ -196,82 +192,67 @@ void Data::printAge()
     }
     cout << setw(50) << " --- LIST BY YEAR OF BIRTH --- " << endl;
     cout << endl;
-
-    printList();
+    printCurrentList();
 
 }
 
 void Data::printDead()
 {
-    cout << endl;
     cout << setw(55) <<  "--- LIST OF DEAD PEOPLE ---" << endl ;
     cout << endl;
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         if (nextPerson.at(i).death > 0)
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-            setw(15)<< nextPerson.at(i).death << endl;
+            printList(i);
         }
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
 
 void Data::searchName()
 {
     string n;
-    cout << endl;
-    cout << "Enter name: ";
+    cout << "Enter Name: ";
     cin >> n;
     cout << endl;
 
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         string name = nextPerson.at(i).name ;
         if (name.find(n) != string::npos)
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-            setw(15)<< nextPerson.at(i).death << endl;
-
+            printList(i);
         }
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
 
 void Data::searchDeathYear()
 {
     int d;
-    cout << endl;
-    cout << "Enter year of death: ";
+    cout << "Enter Year of Death: ";
     cin >> d;
 
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         if (nextPerson.at(i).death == d)
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-            setw(15)<< nextPerson.at(i).death << endl;
-
+            printList(i);
         }
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
 
@@ -279,24 +260,20 @@ void Data::searchBirth()
 {
     int b;
     cout << endl;
-    cout << "Enter Year of birth: ";
+    cout << "Enter Year of Birth: ";
     cin >> b;
     cout << endl;
 
-    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    UserInterface obj;
+    obj.printTableText();
 
     for(unsigned int i = 0; i < nextPerson.size(); i++)
     {
         if(nextPerson.at(i).birth == b)
         {
-            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
-            setw(15)<< nextPerson.at(i).death << endl;
+            printList(i);
         }
     }
-
     cout << endl;
-    UserInterface obj;
     obj.MainMenu();
 }
-

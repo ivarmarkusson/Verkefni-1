@@ -23,7 +23,8 @@ class Data
         Data();
         void readPerson(const string &filename);
         void addToList(const string &filename);
-        void printList();
+        void printCurrentList();
+        void printList(int i);
         void options();
         void print();
         void search();

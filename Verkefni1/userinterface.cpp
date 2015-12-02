@@ -147,3 +147,11 @@ bool UserInterface::validinputPrint(int x)
     else
         return false;
 }
+
+void UserInterface::printTableText()
+{
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25)
+         << "Year of birth" << setw(25) << "Year of death" << endl;
+
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+}
