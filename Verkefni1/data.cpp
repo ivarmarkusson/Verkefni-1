@@ -130,6 +130,10 @@ void Data::printList()
         cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
              setw(15)<< nextPerson.at(i).death << endl;
     }
+
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 
 void Data::printGender()
@@ -163,6 +167,10 @@ void Data::printGender()
                  setw(15)<< nextPerson.at(i).death << endl;
         }
     }
+
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 
 void Data::printAge()
@@ -209,6 +217,10 @@ void Data::printDead()
             setw(15)<< nextPerson.at(i).death << endl;
         }
     }
+
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 
 void Data::searchName()
@@ -232,6 +244,10 @@ void Data::searchName()
 
         }
     }
+
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 
 void Data::searchDeathYear()
@@ -254,6 +270,9 @@ void Data::searchDeathYear()
         }
     }
 
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 
 void Data::searchBirth()
@@ -275,5 +294,9 @@ void Data::searchBirth()
             setw(15)<< nextPerson.at(i).death << endl;
         }
     }
+
+    cout << endl;
+    UserInterface obj;
+    obj.MainMenu();
 }
 

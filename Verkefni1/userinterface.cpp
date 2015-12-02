@@ -12,7 +12,7 @@ void UserInterface::MainMenu()
 
     cout << "--- MAIN MENU ---" << endl;
     cout << "1. Read Current Textfile" << endl;
-    cout << "2. Add to Textfle" << endl;
+    cout << "2. Add to Textfile" << endl;
 
     do
         {
