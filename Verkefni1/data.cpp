@@ -37,8 +37,6 @@ void Data::readPerson(const string &ListOfPeople)
         nextPerson.push_back(p);
     }
     file.close();
-
-
 }
 
 void Data::addToList(const string &filename)
@@ -72,8 +70,6 @@ void Data::options()
         search();
     else
         obj.MainMenu();
-
-
 }
 
 
@@ -91,7 +87,7 @@ void Data::print()
             printGender();
             break;
         case 3:
-            //raða eftir aldri
+            printAge();
             break;
         case 4:
             printDead();
@@ -171,6 +167,29 @@ void Data::printGender()
 
 void Data::printAge()
 {
+    Data temp;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        temp.nextPerson.push_back(nextPerson.at(i));
+    }
+
+    for(unsigned int j = 0; j < nextPerson.size()-1; j++)
+    {
+        for(unsigned int i = 0; i < nextPerson.size()-1; i++)
+        {
+            if(nextPerson.at(i).birth < nextPerson.at(i+1).birth)
+            {
+                temp.nextPerson.at(j) = nextPerson.at(i);
+                nextPerson.at(i) = nextPerson.at(i+1);
+                nextPerson.at(i+1) = temp.nextPerson.at(j);
+            }
+        }
+    }
+    cout << setw(50) << " --- LIST BY YEAR OF BIRTH --- " << endl;
+    cout << endl;
+
+    printList();
 
 }
 
@@ -237,7 +256,6 @@ void Data::searchDeathYear()
 
 }
 
-
 void Data::searchBirth()
 {
     int b;
@@ -257,7 +275,5 @@ void Data::searchBirth()
             setw(15)<< nextPerson.at(i).death << endl;
         }
     }
-
-
 }
 

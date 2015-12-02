@@ -14,13 +14,6 @@ int main(int argc, char *argv[])
     UserInterface obj;
 
     obj.MainMenu();
-    //obj.options();
-
-
-
-
-
-
 
     return a.exec();
 }

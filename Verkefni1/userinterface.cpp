@@ -12,7 +12,7 @@ void UserInterface::MainMenu()
 
     cout << "--- MAIN MENU ---" << endl;
     cout << "1. Read Current Textfile" << endl;
-    cout << "2. Add to Textfie" << endl;
+    cout << "2. Add to Textfle" << endl;
 
     do
         {
@@ -83,11 +83,11 @@ bool UserInterface::validinputOptions(int x)
 
 int UserInterface::printMenu()
 {
-    cout << " --- PRINT --- " << endl;
+    cout << " --- PRINT LIST --- " << endl;
 
     cout << "1. Current List" << endl;
-    cout << "2. By gender" << endl;
-    cout << "3. By Age " << endl;
+    cout << "2. Gender List" << endl;
+    cout << "3. Year Of Birth List" << endl;
     cout << "4. Dead" << endl;
     cout << "5. Back to Main" << endl;
 
