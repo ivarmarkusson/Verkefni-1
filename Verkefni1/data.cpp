@@ -113,7 +113,7 @@ void Data::search()
             searchName();
             break;
         case 2:
-            //leita af fæðingar ári
+            searchBirth();
             break;
         case 3:
             searchDeathYear();
@@ -234,6 +234,30 @@ void Data::searchDeathYear()
 
         }
     }
+
+}
+
+
+void Data::searchBirth()
+{
+    int b;
+    cout << endl;
+    cout << "Enter Year of birth: ";
+    cin >> b;
+    cout << endl;
+
+    cout << setw(10)<< "Name" << setw(20) << "Gender" << setw(25) << "Year of birth" << setw(25) << "Year of death" << endl;
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        if(nextPerson.at(i).birth == b)
+        {
+            cout << left << setw(25)<<  nextPerson.at(i).name << setw(22) << nextPerson.at(i).gender << setw(15)<< nextPerson.at(i).birth << right <<
+            setw(15)<< nextPerson.at(i).death << endl;
+        }
+    }
+
 
 }
 

@@ -32,6 +32,7 @@ class Data
         void printDead();
         void searchName();
         void searchDeathYear();
+        void searchBirth();
 
 
     private:
