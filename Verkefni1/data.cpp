@@ -6,6 +6,9 @@
 #include <sstream>
 #include <stdlib.h>
 #include "userinterface.h"
+#include <algorithm>
+#include <functional>
+
 
 using namespace std;
 
@@ -276,4 +279,66 @@ void Data::searchBirth()
     }
     cout << endl;
     obj.MainMenu();
+}
+
+void Data::Order()
+{
+    UserInterface obj;
+    int input = obj.OrderMenu();
+
+    switch (input)
+    {
+        case 1:
+            ChangeOrderNameAscending();
+            break;
+        case 2:
+            // Name desc
+            break;
+        case 3:
+            // Birth asc
+            break;
+        case 4:
+            // Birth desc
+            break;
+        case 5:
+            // Death asc
+            break;
+        case 6:
+            // Death desc
+            break;
+    }
+
+    obj.MainMenu();
+}
+
+void Data::ChangeOrderNameAscending()
+{
+    vector<string> name;
+    string next;
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        next = nextPerson.at(i).name;
+        name.push_back(next);
+    }
+    sort(name.begin(),name.end(), greater<string>());
+
+    for(unsigned int i = 0; i < nextPerson.size(); i++)
+    {
+        for(unsigned int n = 0; i < nextPerson.size(); i++)
+        {
+            if(nextPerson.at(n).name == name.at(i))
+            {
+                nextPerson.at(i).name = nextPerson.at(n).name;
+                nextPerson.at(i).gender = nextPerson.at(n).gender;
+                nextPerson.at(i).birth = nextPerson.at(n).birth;
+                nextPerson.at(i).death = nextPerson.at(n).death;
+            }
+        }
+    }
+
+
+
+
+
 }

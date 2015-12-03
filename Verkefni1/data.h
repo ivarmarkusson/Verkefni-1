@@ -34,6 +34,10 @@ class Data
         void searchName();
         void searchDeathYear();
         void searchBirth();
+        void Order();
+        void ChangeOrderNameAscending();
+
+
 
 
     private:

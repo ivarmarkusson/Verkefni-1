@@ -15,15 +15,16 @@ public:
     UserInterface();
 
     void MainMenu();
-    bool validinput(int x);
     int optionsMenu();
-    bool validinputOptions(int x);
+    bool validinputOptionsAndMainMenu(int x);
     void print();
     int searchMenu();
     bool validinputSearch(int x);
     int printMenu();
     bool validinputPrint(int x);
     void printTableText();
+    int OrderMenu();
+    bool validinputOrder(int x);
 };
 
 #endif // USERINTERFACE_H
