@@ -30,7 +30,7 @@ int Computer::getYearBuilt_Computer()
     return c_yearBuilt;
 }
 
-bool Computer::getBuilt_Computer()
+string Computer::getBuilt_Computer()
 {
     return c_built;
 }

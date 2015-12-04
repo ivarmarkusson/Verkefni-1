@@ -13,3 +13,7 @@ Data::Data()
 
 }
 
+vector<Computer> Data::getComputerVector()
+{
+    return computer;
+}

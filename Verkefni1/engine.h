@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include <string>
+#include "data.h"
 using namespace std;
 
 class Engine
@@ -11,7 +12,7 @@ public:
 
     bool sqlConnect();
     void sqlAddComputer();
-
+    void printComputer();
 
     int userInput();
 };

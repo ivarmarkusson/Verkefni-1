@@ -13,7 +13,7 @@ public:
     string getName_Computer();
     string getType_Computer();
     int getYearBuilt_Computer();
-    bool getBuilt_Computer();
+    string getBuilt_Computer();
     //Set og Get föll fyrir private breytur
     void setName_Computer(string n);
     void setType_Computer(string t);
@@ -23,7 +23,7 @@ private:
     string c_name;
     string c_type;
     int c_yearBuilt;
-    bool c_built;
+    string c_built;
     //Þarf að bæta við breytum
 };
 

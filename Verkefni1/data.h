@@ -15,7 +15,7 @@ class Data
         Data();
         // Er ekki alveg búinn að sjá hvað kemur hér
         // En vectorarnir í private eiga að vera
-
+        vector<Computer> getComputerVector();
 
 
 

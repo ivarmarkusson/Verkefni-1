@@ -33,6 +33,20 @@ void Engine::sqlAddComputer()
 //    INSERT INTO computers(id, Name, Year, Type, Built);
 }
 
+void Engine::printComputer()
+{
+    Data object;
+    cout << "id" << "Name" << "Year" << "Type" << "Built";
+
+    for(unsigned int i = 0; i < object.getComputerVector().size(); i++)
+    {
+      cout << object.getComputerVector().at(i).getName_Computer();
+      cout << object.getComputerVector().at(i).getType_Computer();
+      cout << object.getComputerVector().at(i).getYearBuilt_Computer();
+      cout << object.getComputerVector().at(i).getBuilt_Computer();
+    }
+}
+
 
 
 int Engine::userInput()
