@@ -191,6 +191,7 @@ Makefile: Verkefni1.pro C:/Qt/5.5/mingw492_32/mkspecs/win32-g++/qmake.conf C:/Qt
 		C:/Qt/5.5/mingw492_32/mkspecs/features/yacc.prf \
 		C:/Qt/5.5/mingw492_32/mkspecs/features/lex.prf \
 		Verkefni1.pro \
+		C:/Qt/5.5/mingw492_32/lib/Qt5Sql.prl \
 		C:/Qt/5.5/mingw492_32/lib/Qt5Core.prl
 	$(QMAKE) -spec win32-g++ -o Makefile Verkefni1.pro
 C:/Qt/5.5/mingw492_32/mkspecs/features/spec_pre.prf:
@@ -325,6 +326,7 @@ C:/Qt/5.5/mingw492_32/mkspecs/features/exceptions.prf:
 C:/Qt/5.5/mingw492_32/mkspecs/features/yacc.prf:
 C:/Qt/5.5/mingw492_32/mkspecs/features/lex.prf:
 Verkefni1.pro:
+C:/Qt/5.5/mingw492_32/lib/Qt5Sql.prl:
 C:/Qt/5.5/mingw492_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile Verkefni1.pro

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "ui.h"
+#include "data.h"
+#include "engine.h"
 
 using namespace std;
 
@@ -7,6 +9,9 @@ int main()
 {
 
     UI user;
+    Engine obj;
+
+    obj.sqlConnect();
     user.startProgram();
 
     return 0;

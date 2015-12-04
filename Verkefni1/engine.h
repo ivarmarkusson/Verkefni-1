@@ -9,6 +9,10 @@ class Engine
 public:
     Engine();
 
+    bool sqlConnect();
+    void sqlAddComputer();
+
+
     int userInput();
 };
 
