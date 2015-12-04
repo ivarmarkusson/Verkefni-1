@@ -3,6 +3,8 @@
 
 #include <string>
 #include "data.h"
+#include "computer.h"
+#include <vector>
 using namespace std;
 
 class Engine
@@ -13,6 +15,7 @@ public:
     bool sqlConnect();
     void sqlAddComputer();
     void printComputer();
+    //vector<Computer>inputFromSql();
 
     int userInput();
 };

@@ -1,6 +1,10 @@
+#include <QCoreApplication>
 #include "engine.h"
 #include <iostream>
 #include <QtSql>
+#include <string>
+#include "string"
+#include "computer.h"
 
 using namespace std;
 
@@ -56,3 +60,32 @@ int Engine::userInput()
     cin.ignore();
     return i;
 }
+
+/*vector<Computer> Engine::inputFromSql()
+{
+    vector<Computer> tmp;
+    QSqlQuery query;
+    string str ;
+
+    query.exec("Select * FROM Computers WHERE id = :id);");
+    query.bindValue(":id", QString::fromStdString(str));
+
+    query.exec();
+
+    while(query.next())
+    {
+        Computer c;
+
+        qDebug() << query.lastQuery();
+        c.getId_Computer()         = query.value(0).toUInt();
+        c.getName_Computer()       = query.value("Name").toString().toStdString();
+        c.getYearBuilt_Computer()  = query.value("Year").toUInt();
+        c.getType_Computer()       = query.value("Type").toString().toStdString();
+        c.getBuilt_Computer()      = query.value("Built").toUInt();
+
+        tmp.push_back(c);
+    }
+
+    return tmp;
+}
+*/
