@@ -11,6 +11,8 @@ public:
     void mainMenu(); //Main Menu
     void displayScientistsMenu();
     void displayComputersMenu();
+    void editScientistsMenu();
+    void editComputersMenu();
 
     Engine e_obj;
 };

@@ -40,15 +40,39 @@ void UI::startProgram()
             startProgram();
             break;
         case 3:
-            //Add Scientists
-            //Vantar fall, það á að koma hér <-
+            //Edit Scientists
+
+            editScientistsMenu();
+            input =e_obj.userInput();
+            if(input == 1)
+            {
+                //hérna á að koma fall sem bætir
+                // við scientist
+            }
+            else if(input == 2)
+            {
+                //Hér á að koma fall sem eyðir
+                //scientist
+            }
             system("cls");
             startProgram();
             break;
         case 4:
-            //Add Computer
-            e_obj.sqlAddComputer();
-            //Fallið er tómt
+            //Edit Computer
+
+            editComputersMenu();
+            input =e_obj.userInput();
+            if(input == 1)
+            {
+                //hérna á að koma fall sem bætir
+                // við scientist
+                e_obj.sqlAddComputer();
+            }
+            else if(input == 2)
+            {
+                //Hér á að koma fall sem eyðir
+                //Computer
+            }
             system("cls");
             startProgram();
             break;
@@ -84,8 +108,8 @@ void UI::mainMenu()
     cout << endl;
     cout << "1. Display Scientists. \n";
     cout << "2. Display Computers. \n";
-    cout << "3. Add Scientist. \n";
-    cout << "4. Add Computer. \n";
+    cout << "3. Edit Scientist. \n";
+    cout << "4. Edit Computer. \n";
     cout << "5. Search Scientists. \n";
     cout << "6. Search Computers. \n";
     cout << "7. Quit Program. \n";
@@ -117,7 +141,19 @@ void UI::displayComputersMenu()
     cout << "8. Built in Descending Order" << endl;
 }
 
+void UI::editScientistsMenu()
+{
+    cout << "EDIT COMPUTERSCIENTISTS" << endl << endl;
+    cout << "1. Add ComputerScientist." << endl;
+    cout << "2. Remove ComputerScientist." << endl;
+}
 
+void UI::editComputersMenu()
+{
+    cout << "EDIT COMPUTERS" << endl << endl;
+    cout << "1. Add Computer." << endl;
+    cout << "2. Remove Computer." << endl;
+}
 
 
 

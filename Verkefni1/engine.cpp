@@ -34,7 +34,22 @@ bool Engine::sqlConnect()
 
 void Engine::sqlAddComputer()
 {
-//    INSERT INTO computers(id, Name, Year, Type, Built);
+    int id, Year;
+    string Name, Type, Built;
+    QSqlQuery query;
+
+    cout << "ID: ";
+    cin >> id;
+    cout << "Name: ";
+    cin >> Name;
+    cout << "Year Built: ";
+    cin >> Year;
+    cout << "Type of Computer: ";
+    cin >> Type;
+    cout << "Was The computer built(Yes,No): ";
+    cin >> Built;
+
+    query.exec("insert into computers values(id, Name, Year, Type, Built)");
 }
 
 /*
