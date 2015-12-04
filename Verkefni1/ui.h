@@ -9,8 +9,8 @@ public:
     UI();
     void startProgram(); //Starts Runnig the Program
     void mainMenu(); //Main Menu
-    void displaySciMenu();
-    void displayComMenu();
+    void displayScientistsMenu();
+    void displayComputersMenu();
 
     Engine e_obj;
 };

@@ -14,7 +14,7 @@ public:
 
     bool sqlConnect();
     void sqlAddComputer();
-    void printComputer();
+    //void printComputer();
     //vector<Computer>inputFromSql();
 
     int userInput();

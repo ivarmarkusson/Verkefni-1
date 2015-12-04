@@ -37,6 +37,7 @@ void Engine::sqlAddComputer()
 //    INSERT INTO computers(id, Name, Year, Type, Built);
 }
 
+/*
 void Engine::printComputer()
 {
     Data object;
@@ -50,7 +51,7 @@ void Engine::printComputer()
       cout << object.getComputerVector().at(i).getBuilt_Computer();
     }
 }
-
+*/
 
 
 int Engine::userInput()
