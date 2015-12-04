@@ -4,44 +4,24 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include "userinterface.h"
+#include "scientist.h"
+#include "computer.h"
 
 using namespace std;
-
-struct Person
-{
-    string name;
-    string gender;
-    int birth;
-    int death;
-};
-
 
 class Data
 {
     public:
         Data();
-        void readPerson(const string &filename);
-        void addToList(const string &filename);
-        void printCurrentList();
-        void printList(int i);
-        void options();
-        void print();
-        void search();
-        void printGender();
-        void printAge();
-        void printDead();
-        void searchName();
-        void searchDeathYear();
-        void searchBirth();
-        void Order();
-        void ChangeOrderNameAscending();
+        // Er ekki alveg búinn að sjá hvað kemur hér
+        // En vectorarnir í private eiga að vera
 
 
 
 
     private:
-        vector<Person> nextPerson;
+        vector<Scientist> scientist;
+        vector<Computer> computer;
 };
 
 #endif // DATA_H

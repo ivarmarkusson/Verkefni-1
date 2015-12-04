@@ -1,20 +1,31 @@
-#include <QCoreApplication>
 #include <iostream>
-#include <string>
-#include "data.h"
-#include <fstream>
-#include "userinterface.h"
+#include "ui.h"
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
 
-    UserInterface obj;
+    UI user;
+    user.startProgram();
 
-    obj.MainMenu();
-
-    return a.exec();
+    return 0;
 }
 
+/*
+ * hér eru 3 layer
+ *
+ * 1.layer er UI
+ * 2.layer er Engine sem reiknar allt gerir alla vinnu
+ * 3.layer er Data sem heldur utan um data
+ *
+ * Svo eru tveir klasar í viðbót, Scientist og
+ * Computer.
+ *
+ * Þetta er bara grunnur að valmöguleikum í UI vegna
+ * þess að ég held að það sé best að fá allavega eina
+ * virkni til að virka áður en við höldum áfram að
+ * fjölga möguleikum í forritinu.
+ *
+ *
+*/

@@ -9,9 +9,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     data.cpp \
-    userinterface.cpp
+    scientist.cpp \
+    ui.cpp \
+    engine.cpp \
+    computer.cpp
 
 HEADERS += \
     data.h \
-    userinterface.h
+    scientist.h \
+    ui.h \
+    engine.h \
+    computer.h
 
