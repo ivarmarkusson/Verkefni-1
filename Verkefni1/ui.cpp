@@ -29,17 +29,14 @@ void UI::startProgram()
             //Birtir Tölvunarfræðinga
             displayScientistsMenu();
             input = e_obj.userInput();
-            scientistMenu(input);
-            //þar sem hvert case framkvæmir hverja skipun
-
+            displayScientistExecution(input);
             startProgram();
             break;
         case 2:
             //Birtir Tölvur
             displayComputersMenu();
             input = e_obj.userInput();
-            //Hér vantar fall sem er með switch
-            //þar sem hvert case framkvæmir hverja skipun
+            displayComputersExecution(input);
             system("cls"); // Þarf að útfæra betur
             startProgram();
             break;
@@ -50,11 +47,13 @@ void UI::startProgram()
             input =e_obj.userInput();
             if(input == 1)
             {
+                //ADD SCIENTIST
                 //hérna á að koma fall sem bætir
                 // við scientist
             }
             else if(input == 2)
             {
+                //REMOVE SCIENTIST
                 //Hér á að koma fall sem eyðir
                 //scientist
             }
@@ -68,12 +67,14 @@ void UI::startProgram()
             input =e_obj.userInput();
             if(input == 1)
             {
+                //ADD COMPUTER
                 //hérna á að koma fall sem bætir
-                // við scientist
+                // við Computer
                 //e_obj.sqlAddComputer();
             }
             else if(input == 2)
             {
+                //REMOVE COMPUTER
                 //Hér á að koma fall sem eyðir
                 //Computer
             }
@@ -159,7 +160,7 @@ void UI::editComputersMenu()
     cout << "2. Remove Computer." << endl;
 }
 
-void UI::scientistMenu(int i)
+void UI::displayScientistExecution(int i)
 {
     switch (i)
     {
@@ -168,10 +169,96 @@ void UI::scientistMenu(int i)
             printSciVector(e_obj.readAscSciDatabase());
             break;
         case 2:
-
+            //Hér á að koma fall sem byrtir nöfn
+            //Scientists í öfugri röð(Descending)
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 3:
+            //Hér á að koma fall sem byrtir kyn
+            //Scientists í Ascending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 4:
+            //Hér á að koma fall sem byrtir kyn
+            //Scientists í descending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 5:
+            //Hér á að koma fall sem byrtir fæðingar ár
+            //Í Ascending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 6:
+            //Hér á að koma fall sem byrtir fæðingar ár
+            //Í Descending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 7:
+            //Hér á að koma fall sem byrtir dánar ár
+            //Í Ascending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        case 8:
+            //Hér á að koma fall sem byrtir dánar ár
+            //Í Descending Order
+            //Þetta eru tvö föll annað raðar hitt prentar
+            break;
+        default:
+            cout << "Invalid Input, Try Again!" << endl;
             break;
     }
 }
+
+void UI::displayComputersExecution(int i)
+{
+    switch (i)
+    {
+        case 1:
+            //Hér á að koma fall sem raðar
+            //Nöfnum í Computers Í Ascending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 2:
+            //Hér á að koma fall sem raðar
+            //Nöfnum í Computers Í Descending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 3:
+            //Hér á að koma fall sem raðar
+            //Type í Computers Í Ascending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 4:
+            //Hér á að koma fall sem raðar
+            //Type í Computers Í Descending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 5:
+            //Hér á að koma fall sem raðar
+            //Year built í Computers Í Ascending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 6:
+            //Hér á að koma fall sem raðar
+            //Year built í Computers Í Descending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 7:
+            //Hér á að koma fall sem raðar
+            //Built í Computers Í Ascending Order
+            //Og annað hér sem prentar Computers
+            break;
+        case 8:
+            //Hér á að koma fall sem raðar
+            //Built í Computers Í Ascending Order
+            //Og annað hér sem prentar Computers
+            break;
+        default:
+            cout << "Invalid Input, Try Again!" << endl;
+            break;
+    }
+}
+
 
 void UI::printSciVector(vector<Scientist> sci)
 {

@@ -10,7 +10,9 @@ public:
     UI();
     void startProgram(); //Starts Runnig the Program
     void mainMenu(); //Main Menu
-    void scientistMenu(int i);
+
+    void displayScientistExecution(int i);
+    void displayComputersExecution(int i);
 
     void displayScientistsMenu();
     void displayComputersMenu();
