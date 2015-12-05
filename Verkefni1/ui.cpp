@@ -2,6 +2,10 @@
 #include "engine.h"
 #include <iostream>
 #include <stdlib.h>
+#include <ostream>
+#include "scientist.h"
+#include <vector>
+#include "data.h"
 using namespace std;
 
 UI::UI()
@@ -25,9 +29,9 @@ void UI::startProgram()
             //Birtir Tölvunarfræðinga
             displayScientistsMenu();
             input = e_obj.userInput();
-            //Hér vantar fall sem er með switch
+            scientistMenu(input);
             //þar sem hvert case framkvæmir hverja skipun
-            system("cls"); // Þarf að útfæra betur
+
             startProgram();
             break;
         case 2:
@@ -66,7 +70,7 @@ void UI::startProgram()
             {
                 //hérna á að koma fall sem bætir
                 // við scientist
-                e_obj.sqlAddComputer();
+                //e_obj.sqlAddComputer();
             }
             else if(input == 2)
             {
@@ -155,10 +159,30 @@ void UI::editComputersMenu()
     cout << "2. Remove Computer." << endl;
 }
 
+void UI::scientistMenu(int i)
+{
+    switch (i)
+    {
+        case 1:
+            e_obj.readAscSciDatabase();
+            printSciVector(e_obj.readAscSciDatabase());
+            break;
+        case 2:
 
+            break;
+    }
+}
 
-
-
-
+void UI::printSciVector(vector<Scientist> sci)
+{
+    for(unsigned int i = 0; i < sci.size(); i++)
+    {
+        cout << "ID: " << sci.at(i).getID_Scientist() << endl;
+        cout << "Name: " << sci.at(i).getName_Scientist() << endl;
+        cout << "Birth: " << sci.at(i).getBirth_Scientist() << endl;
+        cout << "Death: " << sci.at(i).getDeath_Scientist() << endl;
+        cout << "Gender: " << sci.at(i).getGender_Scientist() << endl;
+    }
+}
 
 

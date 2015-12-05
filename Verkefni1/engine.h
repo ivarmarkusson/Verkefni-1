@@ -5,6 +5,8 @@
 #include "data.h"
 #include "computer.h"
 #include <vector>
+#include <QtSql>
+#include <algorithm>
 using namespace std;
 
 class Engine
@@ -14,10 +16,13 @@ public:
 
     bool sqlConnect();
     void sqlAddComputer();
-    //void printComputer();
-    //vector<Computer>inputFromSql();
+
+    //QSqlDatabase startDatabase();
+    vector<Scientist> readAscSciDatabase();
 
     int userInput();
+
+    Data d_obj;
 };
 
 #endif // ENGINE_H

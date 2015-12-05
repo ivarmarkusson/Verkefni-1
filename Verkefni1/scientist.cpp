@@ -1,5 +1,5 @@
 #include "scientist.h"
-
+#include <iostream>
 using namespace std;
 
 Scientist::Scientist()
@@ -7,12 +7,18 @@ Scientist::Scientist()
 
 }
 
-Scientist::Scientist(string n, string g, int b, int d)
+Scientist::Scientist(int i,string n, string g, int b, int d)
 {
+    s_ID = i;
     s_name = n;
     s_gender = g;
     s_birth = b;
     s_death = d;
+}
+
+int Scientist::getID_Scientist()
+{
+    return s_ID;
 }
 
 string Scientist::getName_Scientist()
@@ -35,14 +41,19 @@ int Scientist::getDeath_Scientist()
     return s_death;
 }
 
-void Scientist::setName_Scientist(string s)
+void Scientist::setID_Scientist(int i)
 {
-    s_name = s;
+    s_ID = i;
 }
 
-void Scientist::setGender_Scientist(string s)
+void Scientist::setName_Scientist(string n)
 {
-    s_gender = s;
+    s_name = n;
+}
+
+void Scientist::setGender_Scientist(string g)
+{
+    s_gender = g;
 }
 
 void Scientist::setBirth_Scientist(int i)
@@ -50,7 +61,7 @@ void Scientist::setBirth_Scientist(int i)
     s_birth = i;
 }
 
-void Scientist::setDeath_Scientist(int i)
+void Scientist::setDeath_Scientist(int d)
 {
-    s_death = i;
+    s_death = d;
 }

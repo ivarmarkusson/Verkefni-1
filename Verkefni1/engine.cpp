@@ -5,6 +5,9 @@
 #include <string>
 #include "string"
 #include "computer.h"
+#include "data.h"
+#include "scientist.h"
+
 
 using namespace std;
 
@@ -13,25 +16,72 @@ Engine::Engine()
 
 }
 
-bool Engine::sqlConnect()
+int Engine::userInput()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "C:\\Users\\Notandi\\Desktop\\Skil1\\Verkefni-1\\Verkefni1\\computers.sql";
-    db.setDatabaseName(dbName);
+    int i;
+    cin >> i;
+    cin.ignore();
+    return i;
+}
+/*
+QSqlDatabase Engine::startDatabase()
+{
+     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+     QString dbName = "C:\\Users\\Notandi\\Desktop\\week-2\\Verkefni-1\\Verkefni1\\FrægirEinstakl.sqlite";
+     db.setDatabaseName(dbName);
+     db.open();
+     if (!db.open())
+     {
+         cout << "badshit" << endl;
+     }
 
+     else
+     {
+         cout << "goodshit" << endl;
+     }
+
+     return db;
+}
+*/
+vector<Scientist> Engine::readAscSciDatabase()
+ {
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "FrægirEinstakl.sqlite";
+    db.setDatabaseName(dbName);
+    db.open();
     if (!db.open())
     {
         cout << "badshit" << endl;
-        return false;
     }
 
     else
     {
         cout << "goodshit" << endl;
-        return true;
     }
-}
 
+     QSqlQuery query(dbName);
+
+     query.prepare("Select * FROM People ORDER BY Name ASC");
+
+     while(query.next())
+     {
+
+         qDebug() << query.lastQuery();
+         int id = query.value(0).toUInt();
+         string name = query.value("Name").toString().toStdString();
+         string gender = query.value("Gender").toString().toStdString();
+         int birth = query.value("Birth").toUInt();
+         int death = query.value("Death").toUInt();
+
+         Scientist sci(id,name,gender,birth,death);
+         d_obj.getSciVector().push_back(sci);
+     }
+
+     return d_obj.getSciVector();
+ }
+
+
+/*
 void Engine::sqlAddComputer()
 {
     int id, Year;
@@ -52,7 +102,7 @@ void Engine::sqlAddComputer()
     query.exec("insert into computers values(id, Name, Year, Type, Built)");
 }
 
-/*
+
 void Engine::printComputer()
 {
     Data object;
@@ -69,13 +119,7 @@ void Engine::printComputer()
 */
 
 
-int Engine::userInput()
-{
-    int i;
-    cin >> i;
-    cin.ignore();
-    return i;
-}
+
 
 /*vector<Computer> Engine::inputFromSql()
 {

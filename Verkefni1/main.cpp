@@ -9,9 +9,7 @@ int main()
 {
 
     UI user;
-    Engine obj;
 
-    obj.sqlConnect();
     user.startProgram();
 
     return 0;

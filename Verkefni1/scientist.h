@@ -8,18 +8,21 @@ class Scientist
 {
 public:
     Scientist();
-    Scientist(string n, string g, int b, int d);
+    Scientist(int i,string n, string g, int b, int d);
     //Hér þarf að gera constructor með færibreytum
+    int getID_Scientist();
     string getName_Scientist();
     string getGender_Scientist();
     int getBirth_Scientist();
     int getDeath_Scientist();
     //Set og Get föll fyrir private breytur
-    void setName_Scientist(string s);
-    void setGender_Scientist(string s);
-    void setBirth_Scientist(int i);
-    void setDeath_Scientist(int i);
+    void setID_Scientist(int i);
+    void setName_Scientist(string n);
+    void setGender_Scientist(string g);
+    void setBirth_Scientist(int b);
+    void setDeath_Scientist(int d);
 private:
+    int s_ID;
     string s_name;
     string s_gender;
     int s_birth;
