@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ostream>
 #include "scientist.h"
+#include "computer.h"
 #include <vector>
 #include "data.h"
 using namespace std;
@@ -166,45 +167,53 @@ void UI::displayScientistExecution(int i)
     {
         case 1:
             e_obj.readAscSciDatabase();
-            printSciVector(e_obj.readAscSciDatabase());
+            printScientistsVector(e_obj.readAscSciDatabase());
             break;
         case 2:
             //Hér á að koma fall sem byrtir nöfn
             //Scientists í öfugri röð(Descending)
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 3:
             //Hér á að koma fall sem byrtir kyn
             //Scientists í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 4:
             //Hér á að koma fall sem byrtir kyn
             //Scientists í descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 5:
             //Hér á að koma fall sem byrtir fæðingar ár
             //Í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 6:
             //Hér á að koma fall sem byrtir fæðingar ár
             //Í Descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 7:
             //Hér á að koma fall sem byrtir dánar ár
             //Í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         case 8:
             //Hér á að koma fall sem byrtir dánar ár
             //Í Descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
+            printScientistsVector(d_obj.getSciVector());
             break;
         default:
             cout << "Invalid Input, Try Again!" << endl;
+            startProgram();
             break;
     }
 }
@@ -216,59 +225,87 @@ void UI::displayComputersExecution(int i)
         case 1:
             //Hér á að koma fall sem raðar
             //Nöfnum í Computers Í Ascending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 2:
             //Hér á að koma fall sem raðar
             //Nöfnum í Computers Í Descending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 3:
             //Hér á að koma fall sem raðar
             //Type í Computers Í Ascending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 4:
             //Hér á að koma fall sem raðar
             //Type í Computers Í Descending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 5:
             //Hér á að koma fall sem raðar
             //Year built í Computers Í Ascending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 6:
             //Hér á að koma fall sem raðar
             //Year built í Computers Í Descending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 7:
             //Hér á að koma fall sem raðar
             //Built í Computers Í Ascending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         case 8:
             //Hér á að koma fall sem raðar
             //Built í Computers Í Ascending Order
+            printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
             break;
         default:
             cout << "Invalid Input, Try Again!" << endl;
+            startProgram();
             break;
     }
 }
 
 
-void UI::printSciVector(vector<Scientist> sci)
+void UI::printScientistsVector(vector<Scientist> sci)
 {
+    //Það á eftir að nota setwid til þess að fá bil á milli
+    cout << "Id" << "Name" << "Birth Year" << "Year of Death" << "Gender" << endl
+         << "------------------------------------------";
     for(unsigned int i = 0; i < sci.size(); i++)
     {
-        cout << "ID: " << sci.at(i).getID_Scientist() << endl;
-        cout << "Name: " << sci.at(i).getName_Scientist() << endl;
-        cout << "Birth: " << sci.at(i).getBirth_Scientist() << endl;
-        cout << "Death: " << sci.at(i).getDeath_Scientist() << endl;
-        cout << "Gender: " << sci.at(i).getGender_Scientist() << endl;
+        cout << sci.at(i).getID_Scientist()
+             << sci.at(i).getName_Scientist()
+             << sci.at(i).getBirth_Scientist()
+             << sci.at(i).getDeath_Scientist()
+             << sci.at(i).getGender_Scientist() << endl;
+    }
+}
+
+void UI::printComputersVector(vector<Computer> comp)
+{
+    //Sjá fallið printscientistsVector
+    //Þarf að hafa þetta fall á sama formati :)
+    cout << "Id" << "Name" << "Year Built" << "Type" << "Built" << endl
+         << "------------------------------------------";
+    for(unsigned int i = 0; i < comp.size(); i++)
+    {
+        cout << "ID: " << comp.at(i).getID_Computer() << endl;
+        cout << "Name: " << comp.at(i).getName_Computer() << endl;
+        cout << "Year Built: " << comp.at(i).getYearBuilt_Computer() << endl;
+        cout << "Type: " << comp.at(i).getType_Computer() << endl;
+        cout << "Built: " << comp.at(i).getBuilt_Computer() << endl;
     }
 }
 

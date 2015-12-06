@@ -20,9 +20,10 @@ public:
     void editScientistsMenu();
     void editComputersMenu();
 
-    void printSciVector(vector<Scientist> sci);
-
+    void printScientistsVector(vector<Scientist> sci);
+    void printComputersVector(vector<Computer> sci);
     Engine e_obj;
+    Data d_obj;
 };
 
 #endif // UI_H
