@@ -31,15 +31,14 @@ void UI::startProgram()
             displayScientistsMenu();
             input = e_obj.userInput();
             displayScientistExecution(input);
-            startProgram();
+            runAgain();
             break;
         case 2:
             //Birtir Tölvur
             displayComputersMenu();
             input = e_obj.userInput();
             displayComputersExecution(input);
-            system("cls"); // Þarf að útfæra betur
-            startProgram();
+            runAgain();
             break;
         case 3:
             //Edit Scientists
@@ -58,8 +57,7 @@ void UI::startProgram()
                 //Hér á að koma fall sem eyðir
                 //scientist
             }
-            system("cls");
-            startProgram();
+            runAgain();
             break;
         case 4:
             //Edit Computer
@@ -79,20 +77,17 @@ void UI::startProgram()
                 //Hér á að koma fall sem eyðir
                 //Computer
             }
-            system("cls");
-            startProgram();
+            runAgain();
             break;
         case 5:
             //Search Scientists
             //Vantar fall, það á að koma hér <-
-            system("cls");
-            startProgram();
+            runAgain();
             break;
         case 6:
             //Search Computers
             //Vantar fall, það á að koma hér <-
-            system("cls");
-            startProgram();
+            runAgain();
             break;
         case 7:
             exit(1);
@@ -168,52 +163,62 @@ void UI::displayScientistExecution(int i)
         case 1:
             e_obj.readAscSciDatabase();
             printScientistsVector(e_obj.readAscSciDatabase());
+            runAgain();
             break;
         case 2:
             //Hér á að koma fall sem byrtir nöfn
             //Scientists í öfugri röð(Descending)
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 3:
             //Hér á að koma fall sem byrtir kyn
             //Scientists í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 4:
             //Hér á að koma fall sem byrtir kyn
             //Scientists í descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 5:
             //Hér á að koma fall sem byrtir fæðingar ár
             //Í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 6:
             //Hér á að koma fall sem byrtir fæðingar ár
             //Í Descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 7:
             //Hér á að koma fall sem byrtir dánar ár
             //Í Ascending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         case 8:
             //Hér á að koma fall sem byrtir dánar ár
             //Í Descending Order
             //Þetta eru tvö föll annað raðar hitt prentar
             printScientistsVector(d_obj.getSciVector());
+            runAgain();
             break;
         default:
             cout << "Invalid Input, Try Again!" << endl;
-            startProgram();
+            int input;
+            cin >> input;
+            displayScientistExecution(input);
             break;
     }
 }
@@ -227,52 +232,62 @@ void UI::displayComputersExecution(int i)
             //Nöfnum í Computers Í Ascending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 2:
             //Hér á að koma fall sem raðar
             //Nöfnum í Computers Í Descending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 3:
             //Hér á að koma fall sem raðar
             //Type í Computers Í Ascending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 4:
             //Hér á að koma fall sem raðar
             //Type í Computers Í Descending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 5:
             //Hér á að koma fall sem raðar
             //Year built í Computers Í Ascending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 6:
             //Hér á að koma fall sem raðar
             //Year built í Computers Í Descending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 7:
             //Hér á að koma fall sem raðar
             //Built í Computers Í Ascending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         case 8:
             //Hér á að koma fall sem raðar
             //Built í Computers Í Ascending Order
             printComputersVector(d_obj.getComputerVector());
             //Og annað hér sem prentar Computers
+            runAgain();
             break;
         default:
             cout << "Invalid Input, Try Again!" << endl;
-            startProgram();
+            int input;
+            cin >> input;
+            displayComputersExecution(input);
             break;
     }
 }
@@ -309,4 +324,32 @@ void UI::printComputersVector(vector<Computer> comp)
     }
 }
 
+void UI::runAgain()
+{
+    string input;
 
+    cout << endl << endl;
+    cout << "Do You Want To Go Back To Start(Yes/No): ";
+
+    do
+    {
+        cin >> input;
+        if(input != "yes" && input != "Yes" && input != "no" && input != "No")
+        {
+            cout << "Invalid Input, Try Again!" << endl;
+        }
+    }while(input != "yes" && input != "Yes" && input != "no" && input != "No");
+
+    system("cls");
+
+    if(input == "Yes" || input == "yes")
+    {
+        startProgram();
+    }
+    else
+    {
+        exit(1);
+    }
+
+
+}
