@@ -1,6 +1,7 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+#include <QCoreApplication>
 #include <string>
 #include "data.h"
 #include "computer.h"
@@ -18,6 +19,8 @@ public:
 
     void sqlAddScientist();               //Á eftir að útfæra <-
     void sqlAddComputer();
+    void printComputer();
+    //string addPerson(const string &name, const int &birth, const int  &death, const string &gender);
 
     //Vantar remove Scientist og Computer föll
     //Heyrði að það væri gott að láta föllin bara fela upplýsingarnar

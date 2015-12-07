@@ -1,4 +1,4 @@
-#include <QCoreApplication>
+
 #include "engine.h"
 #include <iostream>
 #include <QtSql>
@@ -46,7 +46,7 @@ QSqlDatabase Engine::startDatabase()
 vector<Scientist> Engine::readAscSciDatabase()
  {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "FrægirEinstakl.sqlite";
+    QString dbName = "Persons.sqlite";
     db.setDatabaseName(dbName);
     db.open();
     if (!db.open())
@@ -149,3 +149,44 @@ void Engine::printComputer()
     return tmp;
 }
 */
+
+//Add Person
+
+/*string Engine::addPerson(const string &name, const int &birth, const int  &death, const string &gender)
+{
+    QSqlDatabase db;
+
+    if (db.open())
+    {
+        QSqlQuery query;
+
+        QString n = QString::fromStdString(name);
+        QString i = QString::fromStdString(birth);
+        QString d = QString::fromStdString(death);
+        QString g = QString::fromStdString(gender);
+
+        query.prepare("INSERT INTO persons (Name, Birth, Death, Gender) "
+                      "VALUES (:name, :birth, :death, :gender)");
+
+        //bindValue- is a alternative way to pass data to the database
+        query.bindValue(":name",n);
+        query.bindValue(":birth",i);
+        query.bindValue(":dead",d);
+        query.bindValue(":gender",g);
+
+        if(!query.exec())
+        {
+            return query.lastError().text().toStdString();
+        }
+
+        db.close();
+        return 0;
+
+    }
+
+    else
+    {
+        return "no conection to database";
+    }
+
+}*/

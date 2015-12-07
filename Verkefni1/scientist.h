@@ -1,6 +1,7 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
 
+#include <QCoreApplication>
 #include <string>
 using namespace std;
 

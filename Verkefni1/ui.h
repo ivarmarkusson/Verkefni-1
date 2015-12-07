@@ -1,6 +1,7 @@
 #ifndef UI_H
 #define UI_H
 
+#include <QCoreApplication>
 #include "engine.h"
 
 class UI

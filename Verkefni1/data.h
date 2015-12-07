@@ -1,5 +1,7 @@
 #ifndef DATA_H
 #define DATA_H
+
+#include <QCoreApplication>
 #include <iostream>
 #include <vector>
 #include <fstream>

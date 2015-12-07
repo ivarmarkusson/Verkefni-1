@@ -1,6 +1,7 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
 
+#include <QCoreApplication>
 #include <string>
 using namespace std;
 
