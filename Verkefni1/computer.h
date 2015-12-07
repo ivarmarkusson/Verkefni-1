@@ -10,13 +10,17 @@ class Computer
 public:
     Computer();
     Computer(int i, string n, string t, int y, bool b);
+
     //Hér þarf að gera constructor með færibreytum
+
     int getID_Computer();
     string getName_Computer();
     string getType_Computer();
     int getYearBuilt_Computer();
     string getBuilt_Computer();
+
     //Set og Get föll fyrir private breytur
+
     void setID_Computer(int i);
     void setName_Computer(string n);
     void setType_Computer(string t);

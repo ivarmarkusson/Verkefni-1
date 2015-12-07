@@ -13,14 +13,12 @@ SOURCES += main.cpp \
     scientist.cpp \
     ui.cpp \
     engine.cpp \
-    computer.cpp \
-    sql.cpp
+    computer.cpp
 
 HEADERS += \
     data.h \
     scientist.h \
     ui.h \
     engine.h \
-    computer.h \
-    sql.h
+    computer.h
 

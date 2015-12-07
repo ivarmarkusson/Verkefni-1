@@ -8,32 +8,35 @@
 #include <vector>
 #include <QtSql>
 #include <algorithm>
+#include <iomanip>
+
 using namespace std;
 
-class Engine
+class Scientist;
+class Computer;
+
+
+class Engine:Data
 {
 public:
     Engine();
 
-    void printComputer();
-    //string addPerson(const string &name, const int &birth, const int  &death, const string &gender);
-
-    void sortSientists();               //Á eftir að útfæra <-
+    void sortSientists(int i);
+    void sortComputers(int i);
     //fallið á einungis að endurraða
     //Scientists vectornum í data
     //áður en hann er prentaður út
-    void sortComputers();               //Á eftir að útfæra <-
+    //void sortComputers();               //Á eftir að útfæra <-
     //fallið á einungis að endurraða
     //Computers vectornum í data
     //áður en hann er prentaður út
 
+    void printScientistsVector(vector<Scientist> sci);
 
-    //QSqlDatabase startDatabase();
-    vector<Scientist> readAscSciDatabase();
+
+    void printComputersVector(vector<Computer> sci);
 
     int userInput();
-
-    Data d_obj;
 
 };
 

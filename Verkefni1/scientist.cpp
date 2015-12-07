@@ -7,7 +7,9 @@ Scientist::Scientist()
 
 }
 
-Scientist::Scientist(int i,string n, string g, int b, int d)
+//Const
+
+Scientist::Scientist(int i, string n, int b, int d, string g)
 {
     s_ID = i;
     s_name = n;
@@ -15,6 +17,9 @@ Scientist::Scientist(int i,string n, string g, int b, int d)
     s_birth = b;
     s_death = d;
 }
+
+
+//Get functions go get private variables
 
 int Scientist::getID_Scientist()
 {
@@ -40,6 +45,9 @@ int Scientist::getDeath_Scientist()
 {
     return s_death;
 }
+
+
+//Set functions to set private variables
 
 void Scientist::setID_Scientist(int i)
 {

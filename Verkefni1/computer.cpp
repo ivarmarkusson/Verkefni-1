@@ -16,6 +16,9 @@ Computer::Computer(int i, string n, string t, int y, bool b)
     c_built = b;
 }
 
+
+//Get functions go get private variables
+
 int Computer::getID_Computer()
 {
     return c_ID;
@@ -40,6 +43,9 @@ string Computer::getBuilt_Computer()
 {
     return c_built;
 }
+
+
+//Set functions to set private variables
 
 void Computer::setID_Computer(int i)
 {

@@ -3,13 +3,17 @@
 #include <iostream>
 #include <QtSql>
 #include <string>
+#include <vector>
 #include "string"
 #include "computer.h"
 #include "data.h"
 #include "scientist.h"
+#include "ui.h"
 
 
 using namespace std;
+
+
 
 Engine::Engine()
 {
@@ -24,150 +28,136 @@ int Engine::userInput()
     return i;
 }
 
-/*
-QSqlDatabase Engine::startDatabase()
+void Engine::sortSientists(int i)
 {
-     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-     QString dbName = "C:\\Users\\Notandi\\Desktop\\week-2\\Verkefni-1\\Verkefni1\\FrægirEinstakl.sqlite";
-     db.setDatabaseName(dbName);
-     db.open();
-     if (!db.open())
-     {
-         cout << "badshit" << endl;
-     }
+    vector<Scientist> temp;
 
-     else
-     {
-         cout << "goodshit" << endl;
-     }
-
-     return db;
-}
-*/
-vector<Scientist> Engine::readAscSciDatabase()
- {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "Persons.sqlite";
-    db.setDatabaseName(dbName);
-    db.open();
-    if (!db.open())
-    {
-        cout << "badshit" << endl;
-    }
-
-    else
-    {
-        cout << "goodshit" << endl;
-    }
-
-     QSqlQuery query(dbName);
-
-     query.prepare("Select * FROM People ORDER BY Name ASC");
-
-     while(query.next())
-     {
-
-         qDebug() << query.lastQuery();
-         int id = query.value(0).toUInt();
-         string name = query.value("Name").toString().toStdString();
-         string gender = query.value("Gender").toString().toStdString();
-         int birth = query.value("Birth").toUInt();
-         int death = query.value("Death").toUInt();
-
-         Scientist sci(id,name,gender,birth,death);
-         d_obj.getSciVector().push_back(sci);
-     }
-
-     return d_obj.getSciVector();
- }
-
-
-
-/*
-void Engine::printComputer()
-{
-    Data object;
-    cout << "id" << "Name" << "Year" << "Type" << "Built";
-
-    for(unsigned int i = 0; i < object.getComputerVector().size(); i++)
-    {
-      cout << object.getComputerVector().at(i).getName_Computer();
-      cout << object.getComputerVector().at(i).getType_Computer();
-      cout << object.getComputerVector().at(i).getYearBuilt_Computer();
-      cout << object.getComputerVector().at(i).getBuilt_Computer();
-    }
-}
-*/
-
-
-
-
-/*vector<Computer> Engine::inputFromSql()
-{
-    vector<Computer> tmp;
-    QSqlQuery query;
-    string str ;
-
-    query.exec("Select * FROM Computers WHERE id = :id);");
-    query.bindValue(":id", QString::fromStdString(str));
-
-    query.exec();
-
-    while(query.next())
-    {
-        Computer c;
-
-        qDebug() << query.lastQuery();
-        c.getId_Computer()         = query.value(0).toUInt();
-        c.getName_Computer()       = query.value("Name").toString().toStdString();
-        c.getYearBuilt_Computer()  = query.value("Year").toUInt();
-        c.getType_Computer()       = query.value("Type").toString().toStdString();
-        c.getBuilt_Computer()      = query.value("Built").toUInt();
-
-        tmp.push_back(c);
-    }
-
-    return tmp;
-}
-*/
-
-//Add Person
-
-/*string Engine::addPerson(const string &name, const int &birth, const int  &death, const string &gender)
-{
-    QSqlDatabase db;
-
-    if (db.open())
-    {
-        QSqlQuery query;
-
-        QString n = QString::fromStdString(name);
-        QString i = QString::fromStdString(birth);
-        QString d = QString::fromStdString(death);
-        QString g = QString::fromStdString(gender);
-
-        query.prepare("INSERT INTO persons (Name, Birth, Death, Gender) "
-                      "VALUES (:name, :birth, :death, :gender)");
-
-        //bindValue- is a alternative way to pass data to the database
-        query.bindValue(":name",n);
-        query.bindValue(":birth",i);
-        query.bindValue(":dead",d);
-        query.bindValue(":gender",g);
-
-        if(!query.exec())
-        {
-            return query.lastError().text().toStdString();
+    switch (i) {
+        case 1:
+            temp = SortSci("Select * FROM Persons Order By Name ASC");
+            printScientistsVector(temp);
+            break;
+        case 2:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Name DESC");
+            printScientistsVector(temp);
+            break;
+        case 3:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Gender ASC");
+            printScientistsVector(temp);
+            break;
+        case 4:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Gender DESC");
+            printScientistsVector(temp);
+            break;
+        case 5:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Birth ASC");
+            printScientistsVector(temp);
+            break;
+        case 6:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Birth DESC");
+            printScientistsVector(temp);
+            break;
+        case 7:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Death ASC");
+            printScientistsVector(temp);
+            break;
+        case 8:
+            temp = SortSci("SELECT * FROM Persons ORDER BY Death DESC");
+            printScientistsVector(temp);
+            break;
+        default:
+            break;
         }
 
-        db.close();
-        return 0;
+    clearSciVector();
+    temp.clear();
+    close();
+}
 
-    }
+void Engine::sortComputers(int i)
+{
+    //Þetta er bara copy af sortScientists falli, þarf að útfæra
+    //6 case í switch setn
 
-    else
+    vector<Computer> temp;
+
+    switch (i) {
+        case 1:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+
+            break;
+        case 2:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            break;
+        case 3:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            break;
+        case 4:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            break;
+        case 5:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            break;
+        case 6:
+            //temp = //hér kemur vector fall sortCom(QString str);
+            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            break;
+        default:
+            break;
+        }
+
+    //clearComVector(); Hér er fall í Data Class sem eyðir vector sjá clearSciVector();
+    temp.clear();
+    close();
+}
+
+
+
+
+void Engine::printScientistsVector(vector<Scientist> sci)
+{
+    //Þarf að laga setw dótið ég sucka í því kv Lúlli
+
+    cout << setw(3) << "ID." << setw(10) << "Name" << setw(30)
+         << "Year of birth" << setw(15)<< "Year of death"
+         << setw(15) << "Gender" << endl;
+
+    cout << setfill ('-') << setw(100)<< "-" << endl;
+    cout << setfill(' ');
+
+    for(unsigned int i = 0; i < sci.size(); i++)
     {
-        return "no conection to database";
+        cout << left << setw(3) << sci.at(i).getID_Scientist()
+             << setw(20) << sci.at(i).getName_Scientist()
+             << setw(15) << sci.at(i).getBirth_Scientist()
+             << setw(15) << sci.at(i).getDeath_Scientist()
+             << setw(15) << sci.at(i).getGender_Scientist() << endl;
     }
+}
 
-}*/
+/*
+void Engine::printComputersVector(vector<Computer> comp)
+{
+    //Sjá fallið printscientistsVector
+    //Þarf að hafa þetta fall á sama formati :)
+
+
+
+    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+
+    cout << "------------------------------------------";
+    for(unsigned int i = 0; i < comp.size(); i++)
+    {
+        cout << "ID: " << comp.at(i).getID_Computer() << endl;
+        cout << "Name: " << comp.at(i).getName_Computer() << endl;
+        cout << "Year Built: " << comp.at(i).getYearBuilt_Computer() << endl;
+        cout << "Type: " << comp.at(i).getType_Computer() << endl;
+        cout << "Built: " << comp.at(i).getBuilt_Computer() << endl;
+    }
+}
+*/

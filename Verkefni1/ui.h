@@ -3,8 +3,10 @@
 
 #include <QCoreApplication>
 #include "engine.h"
+#include <iomanip>
 
-class UI
+
+class UI:Engine
 {
 
 public:
@@ -22,11 +24,11 @@ public:
     void editScientistsMenu();
     void editComputersMenu();
 
-    void printScientistsVector(vector<Scientist> sci);
-    void printComputersVector(vector<Computer> sci);
 
-    Engine e_obj;
-    Data d_obj;
+
+
+
+
 };
 
 #endif // UI_H
