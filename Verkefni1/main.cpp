@@ -2,6 +2,7 @@
 #include "ui.h"
 #include "data.h"
 #include "engine.h"
+#include "sql.h"
 
 using namespace std;
 
@@ -9,6 +10,9 @@ int main()
 {
 
     UI user;
+    Sql obj;
+
+    obj.connect("Persons.sqlite");
 
     user.startProgram();
 
