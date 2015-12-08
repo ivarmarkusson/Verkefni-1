@@ -25,6 +25,8 @@ public:
     void sortComputers(int i);
     //Sort Functions, for sort choices
 
+    void editScientists(int i);
+
     //fallið á einungis að endurraða
     //Scientists vectornum í data
     //áður en hann er prentaður út
@@ -34,7 +36,7 @@ public:
     //áður en hann er prentaður út
 
     void printScientistsVector(vector<Scientist> sci);
-    void printComputersVector(vector<Computer> sci);
+    void printComputersVector(vector<Computer> comp);
     //Print Functions that print out the current vector
 
     int userInput();

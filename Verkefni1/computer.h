@@ -9,7 +9,7 @@ class Computer
 {
 public:
     Computer();
-    Computer(int i, string n, string t, int y, bool b);
+    Computer(int i, string n, int y, string t, string b);
 
     //Hér þarf að gera constructor með færibreytum
 

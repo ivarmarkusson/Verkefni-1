@@ -27,6 +27,7 @@ void UI::startProgram()
             //Birtir Tölvunarfræðinga
             displayScientistsMenu();
             input = userInput();
+            system("cls");
             sortSientists(input);
             runAgain();
             break;
@@ -34,16 +35,17 @@ void UI::startProgram()
             //Birtir Tölvur
             displayComputersMenu();
             input = userInput();
-            //Her kemur sortComputer(input); fall sem er hluti af Engine class
-            //Er mjög svipað og sortScientists(input) fallið, hægt að fara eftir því
+            system("cls");
+            sortComputers(input);
             runAgain();
             break;
         case 3:
             //Edit Scientists
             editScientistsMenu();
             input = userInput();
-
-            //Hér kemur editScientists(input); fall sem er hluti af Engine Class
+            system("cls");
+            //inputScientist();
+            //editScientists(input);
             //Þar inn yrði Switch setn með case 1: og case 2:
 
             runAgain();
@@ -53,7 +55,7 @@ void UI::startProgram()
 
             editComputersMenu();
             input = userInput();
-
+            system("cls");
             //Hér kemur editComputers(input); fall sem er hluti af Engine Class
             //Þar inn yrði Switch setn með case 1: og case 2:
 

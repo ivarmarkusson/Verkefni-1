@@ -47,6 +47,11 @@ void Data::clearSciVector()
     scientistVector.clear();
 }
 
+void Data::clearComVector()
+{
+    computerVector.clear();
+}
+
 vector<Scientist> Data::SortSci(QString str)
 {
     //ATH ef valið er t.d. ORDER BY Gender ASC þá þarf fallið fyrir neðan að vera:
@@ -74,9 +79,31 @@ vector<Scientist> Data::SortSci(QString str)
 
     return scientistVector;
 }
-/*
+
 vector<Computer> Data::SortCom(QString str)
 {
-    //hér kemur svipaður kóði og í SortSci(QString str) fallinu
+    QSqlQuery query(db);
+    query.prepare(str);
+    query.bindValue("Name", QString::fromStdString("dbName"));
+    query.exec(str);
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        string name = query.value("Name").toString().toStdString();
+        int year = query.value("Year").toUInt();
+        string type = query.value("Type").toString().toStdString();
+        string built = query.value("Built").toString().toStdString();
+
+        Computer com(id, name, year, type, built);
+
+        computerVector.push_back(com);
+    }
+
+    return computerVector;
+}
+/*
+bool Data::EditSci(QString str)
+{
+    QSqlQuery query(db);
 }
 */

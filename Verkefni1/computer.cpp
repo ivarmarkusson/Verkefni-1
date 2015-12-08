@@ -7,7 +7,7 @@ Computer::Computer()
 
 }
 
-Computer::Computer(int i, string n, string t, int y, bool b)
+Computer::Computer(int i, string n, int y, string t, string b)
 {
     c_ID = i;
     c_name = n;

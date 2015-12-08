@@ -62,6 +62,7 @@ void Engine::sortSientists(int i)
             printScientistsVector(temp);
             break;
         default:
+            //Hér þarf að koma villuskilaboð og notandi að fá að velja aftur
             break;
         }
 
@@ -72,45 +73,67 @@ void Engine::sortSientists(int i)
 
 void Engine::sortComputers(int i)
 {
-    //Þetta er bara copy af sortScientists falli, þarf að útfæra
-    //6 case í switch setn
-
     vector<Computer> temp;
 
     switch (i) {
         case 1:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
-
+            temp = SortCom("Select * FROM Computers Order By Name ASC");
+            printComputersVector(temp);
             break;
         case 2:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            temp = SortCom("SELECT * FROM Computers ORDER BY Name DESC");
+            printComputersVector(temp);
             break;
         case 3:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            temp = SortCom("SELECT * FROM Computers ORDER BY Type ASC");
+            printComputersVector(temp);
             break;
         case 4:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            temp = SortCom("SELECT * FROM Computers ORDER BY Type DESC");
+            printComputersVector(temp);
             break;
         case 5:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            temp = SortCom("SELECT * FROM Copmuters ORDER BY Year ASC");
+            printComputersVector(temp);
             break;
         case 6:
-            //temp = //hér kemur vector fall sortCom(QString str);
-            //printComputerVector(temp), Hér kemur fall sem er útfært í Data Class
+            temp = SortCom("SELECT * FROM Computers ORDER BY Year DESC");
+            printComputersVector(temp);
+            break;
+        case 7:
+            temp = SortCom("SELECT * FROM Computers ORDER BY Built ASC");
+            printComputersVector(temp);
+            break;
+        case 8:
+            temp = SortCom("SELECT * FROM Computers ORDER BY Built DESC");
+            printComputersVector(temp);
             break;
         default:
+            //Hér þarf að koma villuskilaboð og notandi að fá að velja aftur
             break;
         }
 
-    //clearComVector(); Hér er fall í Data Class sem eyðir vector sjá clearSciVector();
+    clearComVector();
     temp.clear();
     close();
 }
+
+/*
+void Engine::editScientists(int i)
+{
+    bool temp = false;
+
+    switch (i) {
+        case 1:
+            temp = EditSci("INSERT INTO Persons (Name, ");
+
+            break;
+        case 2:
+            break;
+    }
+}
+*/
+//PRINT FUNCTIONS TO PRINT VECTORS
 
 void Engine::printScientistsVector(vector<Scientist> sci)
 {
@@ -133,13 +156,14 @@ void Engine::printScientistsVector(vector<Scientist> sci)
     }
 }
 
-/*
 void Engine::printComputersVector(vector<Computer> comp)
 {
     //Sjá fallið printscientistsVector
     //Þarf að hafa þetta fall á sama formati :)
 
-
+    cout << setw(3) << "ID." << setw(10) << "Name" << setw(30)
+         << "Year Built" << setw(15)<< "Type"
+         << setw(15) << "Built" << endl;
 
     cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
 
@@ -153,4 +177,4 @@ void Engine::printComputersVector(vector<Computer> comp)
         cout << "Built: " << comp.at(i).getBuilt_Computer() << endl;
     }
 }
-*/
+

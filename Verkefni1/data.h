@@ -41,7 +41,10 @@ class Data
         vector<Computer> SortCom(QString str);
         //Runs SQL database and returns a vector to be printed out
 
+        bool EditSci(Scientist sci);
+
         void clearSciVector();
+        void clearComVector();
         //Clears vector in Data Class
 
         // Er ekki alveg búinn að sjá hvað kemur hér
