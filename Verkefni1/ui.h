@@ -4,7 +4,7 @@
 #include <QCoreApplication>
 #include "engine.h"
 #include <iomanip>
-#include <conio.h>
+//#include <conio.h>
 
 class UI:Engine
 {

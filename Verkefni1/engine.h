@@ -27,9 +27,11 @@ public:
 
     void searchScientists();
     void searchComputers();
+    //search for scientists or computers from the list.
 
     void editScientists(int i);
     void editComputers(int i);
+    //edit (add or remove) scientists or computers.
 
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);
