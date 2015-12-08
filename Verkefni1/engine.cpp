@@ -137,44 +137,44 @@ void Engine::editScientists(int i)
 
 void Engine::printScientistsVector(vector<Scientist> sci)
 {
-    //Þarf að laga setw dótið ég sucka í því kv Lúlli
+    //e-ð spes með gender breytuna stundum fer hun í næstu línu
 
-    cout << setw(3) << "ID." << setw(10) << "Name" << setw(30)
-         << "Year of birth" << setw(15)<< "Year of death"
-         << setw(15) << "Gender" << endl;
+    cout << setw(15) << left << "ID." << setw(20) << left << "Name" << setw(20)
+         << left << "Year of birth" << setw(20) << left << "Year of death"
+         << setw(20) << left << "Gender" << endl;
 
-    cout << setfill ('-') << setw(100)<< "-" << endl;
+    cout << setfill ('-') << setw(85)<< "-" << endl;
     cout << setfill(' ');
 
     for(unsigned int i = 0; i < sci.size(); i++)
     {
-        cout << left << setw(3) << sci.at(i).getID_Scientist()
-             << setw(20) << sci.at(i).getName_Scientist()
-             << setw(15) << sci.at(i).getBirth_Scientist()
-             << setw(15) << sci.at(i).getDeath_Scientist()
-             << setw(15) << sci.at(i).getGender_Scientist() << endl;
+        cout << setw(10) << left << sci.at(i).getID_Scientist()
+             << setw(30) << left << sci.at(i).getName_Scientist()
+             << setw(15) << left << sci.at(i).getBirth_Scientist()
+             << setw(10) << right << sci.at(i).getDeath_Scientist()
+             << setw(15) << right << sci.at(i).getGender_Scientist()
+             << endl;
     }
 }
 
 void Engine::printComputersVector(vector<Computer> comp)
 {
-    //Sjá fallið printscientistsVector
-    //Þarf að hafa þetta fall á sama formati :)
 
-    cout << setw(3) << "ID." << setw(10) << "Name" << setw(30)
-         << "Year Built" << setw(15)<< "Type"
-         << setw(15) << "Built" << endl;
+    cout << " " <<setw(15) << left  << "ID." << setw(25) << left << "Name"
+         << setw(20) << left << "Year Built" << setw(18) << left << "Type"
+         << setw(18) << left << "Built" << endl;
 
-    cout << setfill ('-') << setw(82)<< "-"<< setfill(' ' ) <<endl;
+    cout << setfill ('-') << setw(90)<< "-"<< setfill(' ' ) <<endl;
 
-    cout << "------------------------------------------";
     for(unsigned int i = 0; i < comp.size(); i++)
     {
-        cout << "ID: " << comp.at(i).getID_Computer() << endl;
-        cout << "Name: " << comp.at(i).getName_Computer() << endl;
-        cout << "Year Built: " << comp.at(i).getYearBuilt_Computer() << endl;
-        cout << "Type: " << comp.at(i).getType_Computer() << endl;
-        cout << "Built: " << comp.at(i).getBuilt_Computer() << endl;
+        cout << " "
+             << setw(5) << left << comp.at(i).getID_Computer()
+             << setw(37) << left << comp.at(i).getName_Computer()
+             << setw(15) << left << comp.at(i).getYearBuilt_Computer()
+             << setw(10) << right << comp.at(i).getType_Computer()
+             << setw(15) << right << comp.at(i).getBuilt_Computer()
+             << endl;
     }
 }
 
