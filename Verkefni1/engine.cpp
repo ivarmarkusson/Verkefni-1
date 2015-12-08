@@ -31,41 +31,34 @@ void Engine::sortSientists(int i)
     switch (i) {
         case 1:
             temp = SortSci("Select * FROM Persons Order By Name ASC");
-            printScientistsVector(temp);
             break;
         case 2:
             temp = SortSci("SELECT * FROM Persons ORDER BY Name DESC");
-            printScientistsVector(temp);
             break;
         case 3:
             temp = SortSci("SELECT * FROM Persons ORDER BY Gender ASC");
-            printScientistsVector(temp);
             break;
         case 4:
             temp = SortSci("SELECT * FROM Persons ORDER BY Gender DESC");
-            printScientistsVector(temp);
             break;
         case 5:
             temp = SortSci("SELECT * FROM Persons ORDER BY Birth ASC");
-            printScientistsVector(temp);
             break;
         case 6:
             temp = SortSci("SELECT * FROM Persons ORDER BY Birth DESC");
-            printScientistsVector(temp);
             break;
         case 7:
             temp = SortSci("SELECT * FROM Persons ORDER BY Death ASC");
-            printScientistsVector(temp);
             break;
         case 8:
             temp = SortSci("SELECT * FROM Persons ORDER BY Death DESC");
-            printScientistsVector(temp);
             break;
         default:
-            //Hér þarf að koma villuskilaboð og notandi að fá að velja aftur
+            cout << "Invalid Input! Try Again!" << endl;
+            return;
             break;
         }
-
+    printScientistsVector(temp);
     clearSciVector();
     temp.clear();
 }
@@ -76,61 +69,39 @@ void Engine::sortComputers(int i)
 
     switch (i) {
         case 1:
-            temp = SortCom("Select * FROM Computers Order By Name ASC");
-            printComputersVector(temp);
+            temp = SortCom("Select * FROM Computers Order By Name ASC");          
             break;
         case 2:
             temp = SortCom("SELECT * FROM Computers ORDER BY Name DESC");
-            printComputersVector(temp);
             break;
         case 3:
             temp = SortCom("SELECT * FROM Computers ORDER BY Type ASC");
-            printComputersVector(temp);
             break;
         case 4:
             temp = SortCom("SELECT * FROM Computers ORDER BY Type DESC");
-            printComputersVector(temp);
             break;
         case 5:
             temp = SortCom("SELECT * FROM Copmuters ORDER BY Year ASC");
-            printComputersVector(temp);
             break;
         case 6:
             temp = SortCom("SELECT * FROM Computers ORDER BY Year DESC");
-            printComputersVector(temp);
             break;
         case 7:
             temp = SortCom("SELECT * FROM Computers ORDER BY Built ASC");
-            printComputersVector(temp);
             break;
         case 8:
             temp = SortCom("SELECT * FROM Computers ORDER BY Built DESC");
-            printComputersVector(temp);
             break;
         default:
-            //Hér þarf að koma villuskilaboð og notandi að fá að velja aftur
+            cout << "Invalid Input! Try Again!" << endl;
+            return;
             break;
         }
 
+    printComputersVector(temp);
     clearComVector();
     temp.clear();
 }
-
-/*
-void Engine::editScientists(int i)
-{
-    bool temp = false;
-
-    switch (i) {
-        case 1:
-            temp = EditSci("INSERT INTO Persons (Name, ");
-
-            break;
-        case 2:
-            break;
-    }
-}
-*/
 
 void Engine::searchScientists()
 {
@@ -148,6 +119,19 @@ void Engine::searchScientists()
     scientistVector.clear();
 }
 
+void Engine::searchComputers()
+{
+    vector<Computer> temp = searchCom("SELECT * FROM Computers WHERE "
+                                       "(Name LIKE '%'||:Name||'%') "
+                                       "AND (Year LIKE '%'||:Year||'%') "
+                                       "AND (Type LIKE '%'||:Type||'%') "
+                                       "AND (Built LIKE '%'||:Built||'%')");
+
+    printComputersVector(temp);
+
+    temp.clear();
+    computerVector.clear();
+}
 
 //PRINT FUNCTIONS TO PRINT VECTORS
 

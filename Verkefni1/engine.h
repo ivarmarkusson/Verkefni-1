@@ -10,11 +10,12 @@
 #include <algorithm>
 #include <iomanip>
 
+
 using namespace std;
 
 class Scientist;
 class Computer;
-
+class UI;
 
 class Engine:Data
 {
@@ -25,7 +26,8 @@ public:
     void sortComputers(int i);
     //Sort Functions, for sort choices
 
-    void editScientists(int i);
+    void searchScientists();
+    void searchComputers();
 
     //fallið á einungis að endurraða
     //Scientists vectornum í data
@@ -35,7 +37,7 @@ public:
     //Computers vectornum í data
     //áður en hann er prentaður út
 
-    void searchScientists();
+
 
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);

@@ -50,10 +50,8 @@ class Data
         void clearComVector();
         //Clears vector in Data Class
 
-        // Er ekki alveg búinn að sjá hvað kemur hér
-        // En vectorarnir í private eiga að vera
-
         vector<Scientist> searchSci(QString str);
+        vector<Computer> searchCom(QString str);
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;

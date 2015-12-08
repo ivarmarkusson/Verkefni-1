@@ -9,7 +9,7 @@ Scientist::Scientist()
 
 //Const
 
-Scientist::Scientist(int i, string n, int b, int d, string g)
+Scientist::Scientist(int i, string n, string b, string d, string g)
 {
     s_ID = i;
     s_name = n;
@@ -36,12 +36,12 @@ string Scientist::getGender_Scientist()
     return s_gender;
 }
 
-int Scientist::getBirth_Scientist()
+string Scientist::getBirth_Scientist()
 {
     return s_birth;
 }
 
-int Scientist::getDeath_Scientist()
+string Scientist::getDeath_Scientist()
 {
     return s_death;
 }
@@ -64,12 +64,12 @@ void Scientist::setGender_Scientist(string g)
     s_gender = g;
 }
 
-void Scientist::setBirth_Scientist(int i)
+void Scientist::setBirth_Scientist(string i)
 {
     s_birth = i;
 }
 
-void Scientist::setDeath_Scientist(int d)
+void Scientist::setDeath_Scientist(string d)
 {
     s_death = d;
 }

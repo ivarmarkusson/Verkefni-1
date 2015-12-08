@@ -9,14 +9,14 @@ class Computer
 {
 public:
     Computer();
-    Computer(int i, string n, int y, string t, string b);
+    Computer(int i, string n, string y, string t, string b);
 
     //Hér þarf að gera constructor með færibreytum
 
     int getID_Computer();
     string getName_Computer();
     string getType_Computer();
-    int getYearBuilt_Computer();
+    string getYearBuilt_Computer();
     string getBuilt_Computer();
 
     //Set og Get föll fyrir private breytur
@@ -24,13 +24,13 @@ public:
     void setID_Computer(int i);
     void setName_Computer(string n);
     void setType_Computer(string t);
-    void setYearBuilt_Computer(int y);
-    void setBuilt_Computer(bool b);
+    void setYearBuilt_Computer(string y);
+    void setBuilt_Computer(string b);
 private:
     int c_ID;
     string c_name;
     string c_type;
-    int c_yearBuilt;
+    string c_yearBuilt;
     string c_built;
     //Þarf að bæta við breytum
 };

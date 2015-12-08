@@ -7,7 +7,7 @@ Computer::Computer()
 
 }
 
-Computer::Computer(int i, string n, int y, string t, string b)
+Computer::Computer(int i, string n, string y, string t, string b)
 {
     c_ID = i;
     c_name = n;
@@ -34,7 +34,7 @@ string Computer::getType_Computer()
     return c_type;
 }
 
-int Computer::getYearBuilt_Computer()
+string Computer::getYearBuilt_Computer()
 {
     return c_yearBuilt;
 }
@@ -62,12 +62,12 @@ void Computer::setType_Computer(string t)
     c_type = t;
 }
 
-void Computer::setYearBuilt_Computer(int y)
+void Computer::setYearBuilt_Computer(string y)
 {
     c_yearBuilt = y;
 }
 
-void Computer::setBuilt_Computer(bool b)
+void Computer::setBuilt_Computer(string b)
 {
     c_built = b;
 }

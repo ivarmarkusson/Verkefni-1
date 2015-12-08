@@ -62,19 +62,11 @@ void UI::startProgram()
             runAgain();
             break;
         case 5:
-            //Search Scientists
             searchScientists();
-            //Hér kemur searchScientists(); ekkert input því næsta fall hefur aðeins
-            //einn möguleika að leita, fall í Engine Class
-
             runAgain();
             break;
         case 6:
-            //Search Computers
-
-            //Hér kemur searchComputers(); ekkert input því næsta fall hefur aðeins
-            //einn möguleika að leita, fall í Engine Class
-
+            searchComputers();
             runAgain();
             break;
         case 7:

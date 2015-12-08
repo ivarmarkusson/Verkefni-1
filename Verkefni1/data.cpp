@@ -34,7 +34,7 @@ Data::Data()
 void Data::openDatabase()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = QString("database.sqlite");
+    QString dbName = QString("Database (4).sqlite");
     db.setDatabaseName(dbName);
     db.open();
 }
@@ -68,15 +68,18 @@ vector<Scientist> Data::SortSci(QString str)
     query.exec(str);
     while(query.next())
     {
-        int id = query.value("id").toUInt();
-        string name = query.value("Name").toString().toStdString();
-        int birth = query.value("Birth").toUInt();
-        int death = query.value("Death").toUInt();
-        string gender = query.value("Gender").toString().toStdString();
+        if(query.value("Hide")==false)
+        {
+            int id = query.value("id").toUInt();
+            string name = query.value("Name").toString().toStdString();
+            string birth = query.value("Birth").toString().toStdString();
+            string death = query.value("Death").toString().toStdString();
+            string gender = query.value("Gender").toString().toStdString();
 
-        Scientist sci(id, name, birth, death, gender);
+            Scientist sci(id, name, birth, death, gender);
 
-        scientistVector.push_back(sci);
+            scientistVector.push_back(sci);
+        }
     }
     closeDatabase();
     return scientistVector;
@@ -92,15 +95,18 @@ vector<Computer> Data::SortCom(QString str)
     query.exec(str);
     while(query.next())
     {
-        int id = query.value("id").toUInt();
-        string name = query.value("Name").toString().toStdString();
-        int year = query.value("Year").toUInt();
-        string type = query.value("Type").toString().toStdString();
-        string built = query.value("Built").toString().toStdString();
+        if(query.value("Hide")==false)
+        {
+            int id = query.value("id").toUInt();
+            string name = query.value("Name").toString().toStdString();
+            string year = query.value("Year").toString().toStdString();
+            string type = query.value("Type").toString().toStdString();
+            string built = query.value("Built").toString().toStdString();
 
-        Computer com(id, name, year, type, built);
+            Computer com(id, name, year, type, built);
 
-        computerVector.push_back(com);
+            computerVector.push_back(com);
+        }
     }
     closeDatabase();
     return computerVector;
@@ -112,48 +118,91 @@ vector<Scientist> Data::searchSci(QString str)
     openDatabase();
     QSqlQuery query(db);
 
-    //Muna að laga death search þegar input er = 0
-    string s,g;
-    int b,d;
+    string n,b,d,g;
     cout << "Search Name: ";
-    getline(cin,s,'\n');
+    getline(cin,n,'\n');
     cout << "Search Year of Birth: ";
-    cin >> b;
-    cout << "Search Year of Death (0 IF ALIVE): ";
-    cin >> d;
+    getline(cin,b,'\n');
+    cout << "Search Year of Death: ";
+    getline(cin,d,'\n');
     cout << "Search Gender: ";
     getline(cin,g,'\n');
 
 
     query.prepare(str);
 
-    query.bindValue(":Name",QString::fromStdString(s));
-    query.bindValue(":Birth",QString::number(b));
-    query.bindValue(":Death",QString::number(d));
+    query.bindValue(":Name",QString::fromStdString(n));
+    query.bindValue(":Birth",QString::fromStdString(b));
+    query.bindValue(":Death",QString::fromStdString(d));
     query.bindValue(":Gender",QString::fromStdString(g));
 
     query.exec();
 
     while(query.next())
     {
-        int id = query.value("id").toUInt();
-        string name = query.value("Name").toString().toStdString();
-        int birth = query.value("Birth").toUInt();
-        int death = query.value("Death").toUInt();
-        string gender = query.value("Gender").toString().toStdString();
+        if(query.value("Hide")==false)
+        {
+            int id = query.value("id").toUInt();
+            string name = query.value("Name").toString().toStdString();
+            string birth = query.value("Birth").toString().toStdString();
+            string death = query.value("Death").toString().toStdString();
+            string gender = query.value("Gender").toString().toStdString();
 
-        Scientist sci(id, name, birth, death, gender);
 
-        scientistVector.push_back(sci);
+            Scientist sci(id, name, birth, death, gender);
+
+            scientistVector.push_back(sci);
+        }
     }
-
+    system("CLS");
     query.clear();
     closeDatabase();
     return scientistVector;
 }
-/*
-bool Data::EditSci(QString str)
+
+vector<Computer> Data::searchCom(QString str)
 {
+    openDatabase();
     QSqlQuery query(db);
+
+    string n,y,t,b;
+    cout << "Search Name: ";
+    getline(cin,n,'\n');
+    cout << "Search Year of Build: ";
+    getline(cin,y,'\n');
+    cout << "Search Type: ";
+    getline(cin,t,'\n');
+    cout << "Search if Built: ";
+    getline(cin,b,'\n');
+
+
+    query.prepare(str);
+
+    query.bindValue(":Name",QString::fromStdString(n));
+    query.bindValue(":Year",QString::fromStdString(y));
+    query.bindValue(":Type",QString::fromStdString(t));
+    query.bindValue(":Built",QString::fromStdString(b));
+
+    query.exec();
+
+    while(query.next())
+    {
+        if(query.value("Hide")==false)
+        {
+            int id = query.value("id").toUInt();
+            string name = query.value("Name").toString().toStdString();
+            string year = query.value("Year").toString().toStdString();
+            string type = query.value("Type").toString().toStdString();
+            string built = query.value("built").toString().toStdString();
+
+            Computer com(id, name, year, type, built);
+
+            computerVector.push_back(com);
+        }
+    }
+    system("CLS");
+    query.clear();
+    closeDatabase();
+    return computerVector;
 }
-*/
+
