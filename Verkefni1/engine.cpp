@@ -8,6 +8,7 @@
 #include "data.h"
 #include "scientist.h"
 #include "ui.h"
+#include "globalstrings.h"
 
 using namespace std;
 
@@ -30,28 +31,28 @@ void Engine::sortSientists(int i)
 
     switch (i) {
         case 1:
-            temp = SortSci("Select * FROM Persons Order By Name ASC");
+            temp = SortSci(SCI_ORDER_BY_NAME_ASC);
             break;
         case 2:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Name DESC");
+            temp = SortSci(SCI_ORDER_BY_NAME_DESC);
             break;
         case 3:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Gender ASC");
+            temp = SortSci(SCI_ORDER_BY_GENDER_ASC);
             break;
         case 4:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Gender DESC");
+            temp = SortSci(SCI_ORDER_BY_GENDER_DESC);
             break;
         case 5:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Birth ASC");
+            temp = SortSci(SCI_ORDER_BY_BIRTH_ASC);
             break;
         case 6:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Birth DESC");
+            temp = SortSci(SCI_ORDER_BY_BIRTH_DESC);
             break;
         case 7:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Death ASC");
+            temp = SortSci(SCI_ORDER_BY_DEATH_ASC);
             break;
         case 8:
-            temp = SortSci("SELECT * FROM Persons ORDER BY Death DESC");
+            temp = SortSci(SCI_ORDER_BY_DEATH_DESC);
             break;
         default:
             cout << "Invalid Input! Try Again!" << endl;
@@ -69,28 +70,28 @@ void Engine::sortComputers(int i)
 
     switch (i) {
         case 1:
-            temp = SortCom("Select * FROM Computers Order By Name ASC");          
+            temp = SortCom(COM_ORDER_BY_NAME_ASC);
             break;
         case 2:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Name DESC");
+            temp = SortCom(COM_ORDER_BY_NAME_DESC);
             break;
         case 3:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Type ASC");
+            temp = SortCom(COM_ORDER_BY_TYPE_ASC);
             break;
         case 4:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Type DESC");
+            temp = SortCom(COM_ORDER_BY_TYPE_DESC);
             break;
         case 5:
-            temp = SortCom("SELECT * FROM Copmuters ORDER BY Year ASC");
+            temp = SortCom(COM_ORDER_BY_YEAR_ASC);
             break;
         case 6:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Year DESC");
+            temp = SortCom(COM_ORDER_BY_YEAR_DESC);
             break;
         case 7:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Built ASC");
+            temp = SortCom(COM_ORDER_BY_BUILT_ASC);
             break;
         case 8:
-            temp = SortCom("SELECT * FROM Computers ORDER BY Built DESC");
+            temp = SortCom(COM_ORDER_BY_BUILT_DESC);
             break;
         default:
             cout << "Invalid Input! Try Again!" << endl;
@@ -131,6 +132,40 @@ void Engine::searchComputers()
 
     temp.clear();
     computerVector.clear();
+}
+
+void Engine::editScientists(int i)
+{
+    switch(i)
+    {
+        case 1:
+            AddSci("INSERT INTO persons (Name, Birth, Death, Gender, Hide) VALUES (:Name, :Birth, :Death, :Gender, :Hide)");
+            break;
+        case 2:
+            //RemoveSci("str");
+            break;
+        default:
+            cout << "Invalid Input, Try again!" << endl;
+            return;
+    }
+
+}
+
+void Engine::editComputers(int i)
+{
+    switch(i)
+    {
+        case 1:
+            AddCom("INSERT INTO Computers (Name, Year, Type, Built, Hide) VALUES (:Name, :Year, :Type, :Built, :Hide)");
+            break;
+        case 2:
+            //RemoveCom("str");
+            break;
+        default:
+            cout << "Invalid Input, Try again!" << endl;
+            return;
+    }
+
 }
 
 //PRINT FUNCTIONS TO PRINT VECTORS

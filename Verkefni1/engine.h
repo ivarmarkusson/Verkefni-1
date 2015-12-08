@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <iomanip>
 
-
 using namespace std;
 
 class Scientist;
@@ -29,15 +28,8 @@ public:
     void searchScientists();
     void searchComputers();
 
-    //fallið á einungis að endurraða
-    //Scientists vectornum í data
-    //áður en hann er prentaður út
-    //void sortComputers();               //Á eftir að útfæra <-
-    //fallið á einungis að endurraða
-    //Computers vectornum í data
-    //áður en hann er prentaður út
-
-
+    void editScientists(int i);
+    void editComputers(int i);
 
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);

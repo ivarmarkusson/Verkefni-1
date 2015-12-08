@@ -44,10 +44,7 @@ void UI::startProgram()
             editScientistsMenu();
             input = userInput();
             system("cls");
-            //inputScientist();
-            //editScientists(input);
-            //Þar inn yrði Switch setn með case 1: og case 2:
-
+            editScientists(input);
             runAgain();
             break;
         case 4:
@@ -56,9 +53,7 @@ void UI::startProgram()
             editComputersMenu();
             input = userInput();
             system("cls");
-            //Hér kemur editComputers(input); fall sem er hluti af Engine Class
-            //Þar inn yrði Switch setn með case 1: og case 2:
-
+            editComputers(input);
             runAgain();
             break;
         case 5:

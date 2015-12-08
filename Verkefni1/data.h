@@ -44,7 +44,11 @@ class Data
 
         void pushScientistIntoVector(vector<Scientist>& v, QSqlQuery q);
 
-        bool EditSci(Scientist sci);
+        void AddSci(QString str);
+        void AddCom(QString str);
+
+        void RemoveSci(QString str);
+        void RemoveCom(QString str);
 
         void clearSciVector();
         void clearComVector();

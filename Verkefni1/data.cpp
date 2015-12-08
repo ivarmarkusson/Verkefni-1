@@ -21,6 +21,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <stdio.h>
+#include <cctype>
 
 using namespace std;
 
@@ -113,6 +114,77 @@ vector<Computer> Data::SortCom(QString str)
 
 }
 
+void Data::AddSci(QString str)
+{
+    openDatabase();
+    QSqlQuery query(db);
+    string Name, Birth, Death, Gender;
+    string Hide = "false";
+
+    //toupper fall fyrir name
+
+    cout << "Enter Firstname: ";
+    getline(cin, Name, '\n');
+    cout << "Enter Year Of Birth: ";
+    getline(cin, Birth, '\n');
+    cout << "Enter Year Of Death (Enter 'Alive' If The Person Is Not Dead): ";
+    getline(cin, Death, '\n');
+    cout << "Enter Gender: ";
+    getline(cin, Gender, '\n');
+
+    query.prepare(str);
+    query.bindValue(":Name", QString::fromStdString(Name));
+    query.bindValue(":Birth", QString::fromStdString(Birth));
+    query.bindValue(":Death", QString::fromStdString(Death));
+    query.bindValue(":Gender", QString::fromStdString(Gender));
+    query.bindValue(":Hide", QString::fromStdString(Hide));
+    query.exec();
+
+    closeDatabase();
+}
+
+void Data::AddCom(QString str)
+{
+    openDatabase();
+    QSqlQuery query(db);
+    string Name, Year, Type, Built;
+    string Hide = "false";
+
+    //toupper fall fyrir name
+
+    cout << "Enter Firstname: ";
+    getline(cin, Name, '\n');
+    cout << "Enter Build Year: ";
+    getline(cin, Year, '\n');
+    cout << "Enter Type: ";
+    getline(cin, Type, '\n');
+    cout << "Enter If Built(Yes) Or Not(No): ";
+    getline(cin, Built, '\n');
+    Built[0] = toupper(Built[0]);
+
+    query.prepare(str);
+    query.bindValue(":Name", QString::fromStdString(Name));
+    query.bindValue(":Year", QString::fromStdString(Year));
+    query.bindValue(":Type", QString::fromStdString(Type));
+    query.bindValue(":Built", QString::fromStdString(Built));
+    query.bindValue(":Hide", QString::fromStdString(Hide));
+    query.exec();
+
+    closeDatabase();
+}
+/*
+void Data::RemoveSci(QString str)
+{
+    openDatabase();
+    QSqlQuery query(db);
+}
+
+void Data::RemoveCom(QString str)
+{
+    openDatabase();
+    QSqlQuery query(db);
+}
+*/
 vector<Scientist> Data::searchSci(QString str)
 {
     openDatabase();
