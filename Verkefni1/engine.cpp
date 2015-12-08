@@ -1,4 +1,3 @@
-
 #include "engine.h"
 #include <iostream>
 #include <QtSql>
@@ -10,10 +9,7 @@
 #include "scientist.h"
 #include "ui.h"
 
-
 using namespace std;
-
-
 
 Engine::Engine()
 {
@@ -115,9 +111,6 @@ void Engine::sortComputers(int i)
     temp.clear();
     close();
 }
-
-
-
 
 void Engine::printScientistsVector(vector<Scientist> sci)
 {

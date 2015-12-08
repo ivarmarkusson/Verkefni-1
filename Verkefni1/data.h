@@ -35,18 +35,21 @@ class Data
         QSqlDatabase db;
 
         void close();
+        //Closes database
 
         vector<Scientist> SortSci(QString str);
         vector<Computer> SortCom(QString str);
+        //Runs SQL database and returns a vector to be printed out
 
         void clearSciVector();
+        //Clears vector in Data Class
 
         // Er ekki alveg búinn að sjá hvað kemur hér
         // En vectorarnir í private eiga að vera
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
-    private:
+        //Vectors that data is pushed into for printing
 
 
 };

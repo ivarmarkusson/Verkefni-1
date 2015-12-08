@@ -60,7 +60,8 @@ DIST          =  data.h \
 		scientist.h \
 		ui.h \
 		engine.h \
-		computer.h main.cpp \
+		computer.h \
+		globalstrings.h main.cpp \
 		data.cpp \
 		scientist.cpp \
 		ui.cpp \

@@ -1,0 +1,7 @@
+#ifndef GLOBALSTRINGS
+#define GLOBALSTRINGS
+
+
+
+#endif // GLOBALSTRINGS
+

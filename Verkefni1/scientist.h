@@ -10,20 +10,22 @@ class Scientist
 public:
     Scientist();
     Scientist(int i, string n, int b, int d, string g);
-    //Hér þarf að gera constructor með færibreytum
+    //Constructor with parameters
 
     int getID_Scientist();
     string getName_Scientist();
     string getGender_Scientist();
     int getBirth_Scientist();
     int getDeath_Scientist();
-    //Set og Get föll fyrir private breytur
+    //Get Functions to get private variables
 
     void setID_Scientist(int i);
     void setName_Scientist(string n);
     void setGender_Scientist(string g);
     void setBirth_Scientist(int b);
     void setDeath_Scientist(int d);
+    //Set Functions to set private variables
+
 private:
     int s_ID;
     string s_name;

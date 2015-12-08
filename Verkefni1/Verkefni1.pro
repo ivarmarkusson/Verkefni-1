@@ -20,5 +20,6 @@ HEADERS += \
     scientist.h \
     ui.h \
     engine.h \
-    computer.h
+    computer.h \
+    globalstrings.h
 
