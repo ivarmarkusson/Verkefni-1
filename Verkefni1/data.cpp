@@ -34,6 +34,13 @@ Data::Data()
     db.open();
 }
 
+QSqlQuery Data::getQuery()
+{
+    QSqlQuery query (db);
+    return query;
+
+}
+
 void Data::close(){
     QString connection;
     connection = db.connectionName();
@@ -50,6 +57,21 @@ void Data::clearSciVector()
 void Data::clearComVector()
 {
     computerVector.clear();
+}
+
+void pushScientistsIntoVector(vector<Scientist>& v, QSqlQuery q)
+{
+    Scientist next;
+    while(q.next())
+    {
+        next.setID_Scientist(q.value("ID").toInt());
+        next.setName_Scientist(q.value("Name").toString().toStdString());
+        next.setBirth_Scientist(q.value("Birth").toInt());
+        next.setDeath_Scientist(q.value("Death").toInt());
+        next.setGender_Scientist(q.value("Gender").toString().toStdString());
+
+        v.push_back(next);
+    }
 }
 
 vector<Scientist> Data::SortSci(QString str)
@@ -100,6 +122,27 @@ vector<Computer> Data::SortCom(QString str)
     }
 
     return computerVector;
+
+}
+
+vector<Scientist> Data::searchScientists(QString searchtext)
+{
+    //connect("Persons.sqlite");
+    QSqlQuery query = getQuery();
+    vector<Scientist> v;
+
+    query.prepare("SELECT * FROM People WHERE ((Name LIKE '%'||?||'%' ) OR (Birth LIKE '%'||?||'%') OR (Death LIKE '%'||?||'%')");
+    query.bindValue(1, searchtext);
+    query.bindValue(2, searchtext);
+    query.bindValue(3, searchtext);
+
+    query.exec();
+
+    pushScientistsIntoVector(v, query);
+
+    query.clear();
+    //disconnect();
+    return v;
 }
 /*
 bool Data::EditSci(QString str)

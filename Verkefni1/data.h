@@ -34,12 +34,17 @@ class Data
         Data();
         QSqlDatabase db;
 
+        QSqlQuery getQuery();
+
+
         void close();
         //Closes database
 
         vector<Scientist> SortSci(QString str);
         vector<Computer> SortCom(QString str);
         //Runs SQL database and returns a vector to be printed out
+
+        void pushScientistIntoVector(vector<Scientist>& v, QSqlQuery q);
 
         bool EditSci(Scientist sci);
 
@@ -49,6 +54,8 @@ class Data
 
         // Er ekki alveg búinn að sjá hvað kemur hér
         // En vectorarnir í private eiga að vera
+
+        vector<Scientist> searchScientists(QString searchtext);
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
