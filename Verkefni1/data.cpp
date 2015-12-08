@@ -69,7 +69,7 @@ vector<Scientist> Data::SortSci(QString str)
     query.exec(str);
     while(query.next())
     {
-        if(query.value("Hide")==false)
+        if(query.value("Hide") == "false")
         {
             int id = query.value("id").toUInt();
             string name = query.value("Name").toString().toStdString();
@@ -96,7 +96,7 @@ vector<Computer> Data::SortCom(QString str)
     query.exec(str);
     while(query.next())
     {
-        if(query.value("Hide")==false)
+        if(query.value("Hide") == "false")
         {
             int id = query.value("id").toUInt();
             string name = query.value("Name").toString().toStdString();
@@ -172,11 +172,85 @@ void Data::AddCom(QString str)
 
     closeDatabase();
 }
-/*
+
 void Data::RemoveSci(QString str)
 {
     openDatabase();
     QSqlQuery query(db);
+
+    string n,b,d,g;
+    cout << "Search Name: ";
+    getline(cin,n,'\n');
+    cout << "Search Year of Birth: ";
+    getline(cin,b,'\n');
+    cout << "Search Year of Death: ";
+    getline(cin,d,'\n');
+    cout << "Search Gender: ";
+    getline(cin,g,'\n');
+
+
+    query.prepare("SELECT * FROM Persons WHERE "
+                  "(Name LIKE '%'||:Name||'%') "
+                  "AND (Birth LIKE '%'||:Birth||'%') "
+                  "AND (Death LIKE '%'||:Death||'%') "
+                  "AND (Gender LIKE '%'||:Gender||'%')");
+
+    query.bindValue(":Name",QString::fromStdString(n));
+    query.bindValue(":Birth",QString::fromStdString(b));
+    query.bindValue(":Death",QString::fromStdString(d));
+    query.bindValue(":Gender",QString::fromStdString(g));
+
+    query.exec();
+
+    while(query.next())
+    {
+        if(query.value("Hide")== "false")
+        {
+            int id = query.value("id").toUInt();
+            string name = query.value("Name").toString().toStdString();
+            string birth = query.value("Birth").toString().toStdString();
+            string death = query.value("Death").toString().toStdString();
+            string gender = query.value("Gender").toString().toStdString();
+
+
+            Scientist sci(id, name, birth, death, gender);
+
+            scientistVector.push_back(sci);
+        }
+    }
+    if(scientistVector.size() < 1)
+    {
+        cout << "Scientist Not In Database" << endl;
+    }
+    else
+    {
+        for(unsigned int i = 0; i < scientistVector.size(); i++)
+        {
+            cout << setw(10) << left << i << ": "
+                 << setw(30) << left << scientistVector.at(i).getName_Scientist()
+                 << setw(15) << left << scientistVector.at(i).getBirth_Scientist()
+                 << setw(10) << right << scientistVector.at(i).getDeath_Scientist()
+                 << setw(15) << right << scientistVector.at(i).getGender_Scientist()
+                 << endl;
+        }
+        cout << "Select The Number Of Scientist You Want To Remove: ";
+        int input;
+        cin >> input;
+
+        int tempId = scientistVector.at(input).getID_Scientist();
+
+        cout << endl << scientistVector.at(input).getName_Scientist() << " Has Been Removed!" << endl;
+
+        query.clear();
+
+        query.prepare(str);
+        query.bindValue("Id",QString::number(tempId));
+        query.exec();
+    }
+
+
+    query.clear();
+    closeDatabase();
 }
 
 void Data::RemoveCom(QString str)
@@ -184,7 +258,7 @@ void Data::RemoveCom(QString str)
     openDatabase();
     QSqlQuery query(db);
 }
-*/
+
 vector<Scientist> Data::searchSci(QString str)
 {
     openDatabase();
@@ -212,7 +286,7 @@ vector<Scientist> Data::searchSci(QString str)
 
     while(query.next())
     {
-        if(query.value("Hide")==false)
+        if(query.value("Hide") == "false")
         {
             int id = query.value("id").toUInt();
             string name = query.value("Name").toString().toStdString();
@@ -259,7 +333,7 @@ vector<Computer> Data::searchCom(QString str)
 
     while(query.next())
     {
-        if(query.value("Hide")==false)
+        if(query.value("Hide") == "false")
         {
             int id = query.value("id").toUInt();
             string name = query.value("Name").toString().toStdString();

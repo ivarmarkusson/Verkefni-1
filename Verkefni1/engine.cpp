@@ -108,11 +108,7 @@ void Engine::searchScientists()
 {
 
 
-    vector<Scientist> temp = searchSci("SELECT * FROM Persons WHERE "
-                                       "(Name LIKE '%'||:Name||'%') "
-                                       "AND (Birth LIKE '%'||:Birth||'%') "
-                                       "AND (Death LIKE '%'||:Death||'%') "
-                                       "AND (Gender LIKE '%'||:Gender||'%')");
+    vector<Scientist> temp = searchSci(SEARCH_SCIENTIST);
 
     printScientistsVector(temp);
 
@@ -122,11 +118,7 @@ void Engine::searchScientists()
 
 void Engine::searchComputers()
 {
-    vector<Computer> temp = searchCom("SELECT * FROM Computers WHERE "
-                                       "(Name LIKE '%'||:Name||'%') "
-                                       "AND (Year LIKE '%'||:Year||'%') "
-                                       "AND (Type LIKE '%'||:Type||'%') "
-                                       "AND (Built LIKE '%'||:Built||'%')");
+    vector<Computer> temp = searchCom(SEARCH_COMPUTER);
 
     printComputersVector(temp);
 
@@ -139,10 +131,10 @@ void Engine::editScientists(int i)
     switch(i)
     {
         case 1:
-            AddSci("INSERT INTO persons (Name, Birth, Death, Gender, Hide) VALUES (:Name, :Birth, :Death, :Gender, :Hide)");
+            AddSci(INSERT_PERSON);
             break;
         case 2:
-            //RemoveSci("str");
+            RemoveSci("UPDATE persons SET Hide = 'true' WHERE ID = tempId");
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
@@ -156,10 +148,10 @@ void Engine::editComputers(int i)
     switch(i)
     {
         case 1:
-            AddCom("INSERT INTO Computers (Name, Year, Type, Built, Hide) VALUES (:Name, :Year, :Type, :Built, :Hide)");
+            AddCom(INSERT_COMPUTER);
             break;
         case 2:
-            //RemoveCom("str");
+            RemoveCom("str");
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
