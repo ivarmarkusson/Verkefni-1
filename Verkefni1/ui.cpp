@@ -65,8 +65,14 @@ void UI::startProgram()
             runAgain();
             break;
         case 7:
-            exit(1);
+            connectionMenu();
+            input = userInput();
+            connectScientistAndComputer(input);
+            runAgain();
             break;
+        case 8:
+             exit(1);
+             break;
         default:
             cout << "Invaldi Input, Try Again!" << endl;
             startProgram();
@@ -157,5 +163,11 @@ void UI::runAgain()
     {
         exit(1);
     }
+}
+
+void UI::connectionMenu()
+{
+    cout << "1. View Connections." << endl;
+    cout << "2. Add Connection." << endl;
 }
 

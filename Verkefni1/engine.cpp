@@ -184,6 +184,22 @@ void Engine::printScientistsVector(vector<Scientist> sci)
     }
 }
 
+void Engine::connectScientistAndComputer(int i)
+{
+    switch(i)
+        {
+            case 1:
+                //fall sem sýnir tengsl
+                break;
+            case 2:
+                //fall sem bætir við tengslum
+                break;
+            default:
+                cout << "Invalid Input, Try Again!" << endl;
+                break;
+        }
+}
+
 void Engine::printComputersVector(vector<Computer> comp)
 {
 

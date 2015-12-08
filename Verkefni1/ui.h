@@ -28,7 +28,8 @@ public:
     void editComputersMenu();
     //Displays Edit Menu For Scientists and Computers
 
-
+    void connectionMenu();
 };
+
 
 #endif // UI_H

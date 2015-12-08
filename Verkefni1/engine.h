@@ -33,6 +33,8 @@ public:
     void editComputers(int i);
     //edit (add or remove) scientists or computers.
 
+    void connectScientistAndComputer(int i);
+
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);
     //Print Functions that print out the current vector
