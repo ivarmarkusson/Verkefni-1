@@ -53,7 +53,7 @@ class Data
         // Er ekki alveg búinn að sjá hvað kemur hér
         // En vectorarnir í private eiga að vera
 
-        vector<Scientist> searchSci();
+        vector<Scientist> searchSci(QString str);
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;

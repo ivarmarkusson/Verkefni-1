@@ -68,7 +68,6 @@ void Engine::sortSientists(int i)
 
     clearSciVector();
     temp.clear();
-    closeDatabase();
 }
 
 void Engine::sortComputers(int i)
@@ -115,7 +114,6 @@ void Engine::sortComputers(int i)
 
     clearComVector();
     temp.clear();
-    closeDatabase();
 }
 
 /*
@@ -138,7 +136,12 @@ void Engine::searchScientists()
 {
 
 
-    vector<Scientist> temp = searchSci();
+    vector<Scientist> temp = searchSci("SELECT * FROM Persons WHERE "
+                                       "(Name LIKE '%'||:Name||'%') "
+                                       "AND (Birth LIKE '%'||:Birth||'%') "
+                                       "AND (Death LIKE '%'||:Death||'%') "
+                                       "AND (Gender LIKE '%'||:Gender||'%')");
+
     printScientistsVector(temp);
 
     temp.clear();

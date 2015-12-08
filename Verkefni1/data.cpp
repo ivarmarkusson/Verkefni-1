@@ -58,29 +58,10 @@ void Data::clearComVector()
     computerVector.clear();
 }
 
-void pushScientistsIntoVector(vector<Scientist>& v, QSqlQuery q)
-{
-    Scientist next;
-    while(q.next())
-    {
-        next.setID_Scientist(q.value("ID").toInt());
-        next.setName_Scientist(q.value("Name").toString().toStdString());
-        next.setBirth_Scientist(q.value("Birth").toInt());
-        next.setDeath_Scientist(q.value("Death").toInt());
-        next.setGender_Scientist(q.value("Gender").toString().toStdString());
-
-        v.push_back(next);
-    }
-}
 
 vector<Scientist> Data::SortSci(QString str)
 {
-    //ATH ef valið er t.d. ORDER BY Gender ASC þá þarf fallið fyrir neðan að vera:
-    //query.bindValue("Gender", QString::fromStdString("dbName"));
-    // á eftir að finna út því, líklegast að taka inn streng í parameter með "Gender"
-    //Þessi kóði virkar bara fyrir ORDER BY name in ASC
-    //Held það sé best að setja strengi inn í Switch setn í fallinu sorScientists í Engine class
-
+    openDatabase();
     QSqlQuery query(db);
     query.prepare(str);
     query.bindValue("Name", QString::fromStdString("dbName"));
@@ -97,12 +78,14 @@ vector<Scientist> Data::SortSci(QString str)
 
         scientistVector.push_back(sci);
     }
-
+    closeDatabase();
     return scientistVector;
 }
 
 vector<Computer> Data::SortCom(QString str)
 {
+
+    openDatabase();
     QSqlQuery query(db);
     query.prepare(str);
     query.bindValue("Name", QString::fromStdString("dbName"));
@@ -119,27 +102,35 @@ vector<Computer> Data::SortCom(QString str)
 
         computerVector.push_back(com);
     }
-
+    closeDatabase();
     return computerVector;
 
 }
 
-vector<Scientist> Data::searchSci()
+vector<Scientist> Data::searchSci(QString str)
 {
     openDatabase();
     QSqlQuery query(db);
 
-    //QString search = QString::fromStdString(searchText);
-    string s;
-    cout << "Search: ";
-    cin >> s;
+    //Muna að laga death search þegar input er = 0
+    string s,g;
+    int b,d;
+    cout << "Search Name: ";
+    getline(cin,s,'\n');
+    cout << "Search Year of Birth: ";
+    cin >> b;
+    cout << "Search Year of Death (0 IF ALIVE): ";
+    cin >> d;
+    cout << "Search Gender: ";
+    getline(cin,g,'\n');
 
-    query.prepare("SELECT * FROM Persons WHERE Name LIKE '%'||QString::fromStdString(s)||'%' ");
-    query.bindValue("ID",QString::fromStdString(s));
-    query.bindValue("Name",QString::fromStdString(s));
-    query.bindValue("Birth",QString::fromStdString(s));
-    query.bindValue("Death",QString::fromStdString(s));
-    query.bindValue("Gender",QString::fromStdString(s));
+
+    query.prepare(str);
+
+    query.bindValue(":Name",QString::fromStdString(s));
+    query.bindValue(":Birth",QString::number(b));
+    query.bindValue(":Death",QString::number(d));
+    query.bindValue(":Gender",QString::fromStdString(g));
 
     query.exec();
 
