@@ -68,7 +68,7 @@ void Engine::sortSientists(int i)
 
     clearSciVector();
     temp.clear();
-    close();
+    closeDatabase();
 }
 
 void Engine::sortComputers(int i)
@@ -115,7 +115,7 @@ void Engine::sortComputers(int i)
 
     clearComVector();
     temp.clear();
-    close();
+    closeDatabase();
 }
 
 /*
@@ -133,6 +133,19 @@ void Engine::editScientists(int i)
     }
 }
 */
+
+void Engine::searchScientists()
+{
+
+
+    vector<Scientist> temp = searchSci();
+    printScientistsVector(temp);
+
+    temp.clear();
+    scientistVector.clear();
+}
+
+
 //PRINT FUNCTIONS TO PRINT VECTORS
 
 void Engine::printScientistsVector(vector<Scientist> sci)
@@ -177,4 +190,3 @@ void Engine::printComputersVector(vector<Computer> comp)
              << endl;
     }
 }
-

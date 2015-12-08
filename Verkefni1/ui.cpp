@@ -63,7 +63,7 @@ void UI::startProgram()
             break;
         case 5:
             //Search Scientists
-
+            searchScientists();
             //Hér kemur searchScientists(); ekkert input því næsta fall hefur aðeins
             //einn möguleika að leita, fall í Engine Class
 

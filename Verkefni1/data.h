@@ -34,10 +34,8 @@ class Data
         Data();
         QSqlDatabase db;
 
-        QSqlQuery getQuery();
-
-
-        void close();
+        void openDatabase();
+        void closeDatabase();
         //Closes database
 
         vector<Scientist> SortSci(QString str);
@@ -55,13 +53,11 @@ class Data
         // Er ekki alveg búinn að sjá hvað kemur hér
         // En vectorarnir í private eiga að vera
 
-        vector<Scientist> searchScientists(QString searchtext);
+        vector<Scientist> searchSci();
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
         //Vectors that data is pushed into for printing
-
-
 };
 
 #endif // DATA_H

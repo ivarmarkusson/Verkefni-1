@@ -28,20 +28,19 @@ class Scientist;
 
 Data::Data()
 {
+
+}
+
+void Data::openDatabase()
+{
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = QString("database.sqlite");
     db.setDatabaseName(dbName);
     db.open();
 }
 
-QSqlQuery Data::getQuery()
+void Data::closeDatabase()
 {
-    QSqlQuery query (db);
-    return query;
-
-}
-
-void Data::close(){
     QString connection;
     connection = db.connectionName();
     db.close();
@@ -125,24 +124,41 @@ vector<Computer> Data::SortCom(QString str)
 
 }
 
-vector<Scientist> Data::searchScientists(QString searchtext)
+vector<Scientist> Data::searchSci()
 {
-    //connect("Persons.sqlite");
-    QSqlQuery query = getQuery();
-    vector<Scientist> v;
+    openDatabase();
+    QSqlQuery query(db);
 
-    query.prepare("SELECT * FROM People WHERE ((Name LIKE '%'||?||'%' ) OR (Birth LIKE '%'||?||'%') OR (Death LIKE '%'||?||'%')");
-    query.bindValue(1, searchtext);
-    query.bindValue(2, searchtext);
-    query.bindValue(3, searchtext);
+    //QString search = QString::fromStdString(searchText);
+    string s;
+    cout << "Search: ";
+    cin >> s;
+
+    query.prepare("SELECT * FROM Persons WHERE Name LIKE '%'||QString::fromStdString(s)||'%' ");
+    query.bindValue("ID",QString::fromStdString(s));
+    query.bindValue("Name",QString::fromStdString(s));
+    query.bindValue("Birth",QString::fromStdString(s));
+    query.bindValue("Death",QString::fromStdString(s));
+    query.bindValue("Gender",QString::fromStdString(s));
 
     query.exec();
 
-    pushScientistsIntoVector(v, query);
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        string name = query.value("Name").toString().toStdString();
+        int birth = query.value("Birth").toUInt();
+        int death = query.value("Death").toUInt();
+        string gender = query.value("Gender").toString().toStdString();
+
+        Scientist sci(id, name, birth, death, gender);
+
+        scientistVector.push_back(sci);
+    }
 
     query.clear();
-    //disconnect();
-    return v;
+    closeDatabase();
+    return scientistVector;
 }
 /*
 bool Data::EditSci(QString str)

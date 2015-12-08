@@ -35,6 +35,8 @@ public:
     //Computers vectornum í data
     //áður en hann er prentaður út
 
+    void searchScientists();
+
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);
     //Print Functions that print out the current vector
