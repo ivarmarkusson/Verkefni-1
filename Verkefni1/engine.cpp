@@ -165,7 +165,7 @@ void Engine::connectScientistAndComputer(int i)
     switch(i)
         {
             case 1:
-                temp = viewConnected("SELECT persons.Name, Computers.Name FROM Persons INNER JOIN tengitafla ON persons.ID = tengitafla.IDINNER JOIN Computers ON computers.ID = tengitafla.ID");
+                temp = viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER JOIN Computers ON computers.ID = tengitafla.ID");
                 printConnectionVector(temp);
                 break;
             case 2:

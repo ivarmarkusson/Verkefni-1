@@ -264,11 +264,13 @@ vector<Connection> Data::viewConnected(QString str)
     QSqlQuery query(db);
 
     query.prepare(str);
-    query.bindValue("Name", QString::fromStdString("dbName"));
-    query.exec(str);
+
+    query.exec();
+
     while(query.next())
     {
-        string s_name = query.value("Name").toString().toStdString();
+
+        string s_name = query.value("pName").toString().toStdString();
         string c_name = query.value("Name").toString().toStdString();
 
         Connection con(s_name, c_name);
