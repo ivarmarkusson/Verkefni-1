@@ -19,6 +19,7 @@
 #include <QVariant>
 #include "scientist.h"
 #include "computer.h"
+#include "connection.h"
 #include <stdlib.h>
 #include <string>
 #include <cstring>
@@ -27,6 +28,7 @@ using namespace std;
 
 class Scientist;
 class Computer;
+class Connection;
 
 class Data
 {
@@ -56,13 +58,17 @@ class Data
 
         void clearSciVector();
         void clearComVector();
+        void clearConnectVector();
         //Clears vector in Data Class
 
         vector<Scientist> searchSci(QString str);
         vector<Computer> searchCom(QString str);
 
+        vector<Connection> viewConnected(QString str);
+
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
+        vector<Connection> connectionVector;
         //Vectors that data is pushed into for printing
 };
 

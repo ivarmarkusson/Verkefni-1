@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     scientist.cpp \
     ui.cpp \
     engine.cpp \
-    computer.cpp
+    computer.cpp \
+    connection.cpp
 
 HEADERS += \
     data.h \
@@ -21,5 +22,6 @@ HEADERS += \
     ui.h \
     engine.h \
     computer.h \
-    globalstrings.h
+    globalstrings.h \
+    connection.h
 

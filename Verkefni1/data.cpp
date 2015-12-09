@@ -6,6 +6,7 @@
 #include <functional>
 #include "scientist.h"
 #include "engine.h"
+#include "connection.h"
 #include <string>
 #include <QtSql>
 #include <QDebug>
@@ -59,6 +60,10 @@ void Data::clearComVector()
     computerVector.clear();
 }
 
+void Data::clearConnectVector()
+{
+    connectionVector.clear();
+}
 
 vector<Scientist> Data::SortSci(QString str)
 {
@@ -253,12 +258,35 @@ void Data::RemoveSci(QString str)
     closeDatabase();
 }
 
+vector<Connection> Data::viewConnected(QString str)
+{
+    openDatabase();
+    QSqlQuery query(db);
+
+    query.prepare(str);
+    query.bindValue("Name", QString::fromStdString("dbName"));
+    query.exec(str);
+    while(query.next())
+    {
+        string s_name = query.value("Name").toString().toStdString();
+        string c_name = query.value("Name").toString().toStdString();
+
+        Connection con(s_name, c_name);
+
+        connectionVector.push_back(con);
+
+    }
+    closeDatabase();
+    return connectionVector;
+}
+
+/*
 void Data::RemoveCom(QString str)
 {
     openDatabase();
     QSqlQuery query(db);
 }
-
+*/
 vector<Scientist> Data::searchSci(QString str)
 {
     openDatabase();

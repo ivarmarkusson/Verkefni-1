@@ -106,8 +106,6 @@ void Engine::sortComputers(int i)
 
 void Engine::searchScientists()
 {
-
-
     vector<Scientist> temp = searchSci(SEARCH_SCIENTIST);
 
     printScientistsVector(temp);
@@ -134,7 +132,7 @@ void Engine::editScientists(int i)
             AddSci(INSERT_PERSON);
             break;
         case 2:
-            RemoveSci("UPDATE persons SET Hide = 'true' WHERE ID = tempId");
+            //RemoveSci("UPDATE persons SET Hide = 'true' WHERE ID = tempId");
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
@@ -151,13 +149,34 @@ void Engine::editComputers(int i)
             AddCom(INSERT_COMPUTER);
             break;
         case 2:
-            RemoveCom("str");
+            //RemoveCom("str");
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
             return;
     }
 
+}
+
+void Engine::connectScientistAndComputer(int i)
+{
+    vector<Connection> temp;
+
+    switch(i)
+        {
+            case 1:
+                temp = viewConnected("SELECT persons.Name, Computers.Name FROM Persons INNER JOIN tengitafla ON persons.ID = tengitafla.IDINNER JOIN Computers ON computers.ID = tengitafla.ID");
+                printConnectionVector(temp);
+                break;
+            case 2:
+                //fall sem bætir við tengslum
+                break;
+            default:
+                cout << "Invalid Input, Try Again!" << endl;
+                break;
+        }
+    clearConnectVector();
+    temp.clear();
 }
 
 //PRINT FUNCTIONS TO PRINT VECTORS
@@ -184,21 +203,7 @@ void Engine::printScientistsVector(vector<Scientist> sci)
     }
 }
 
-void Engine::connectScientistAndComputer(int i)
-{
-    switch(i)
-        {
-            case 1:
-                //fall sem sýnir tengsl
-                break;
-            case 2:
-                //fall sem bætir við tengslum
-                break;
-            default:
-                cout << "Invalid Input, Try Again!" << endl;
-                break;
-        }
-}
+
 
 void Engine::printComputersVector(vector<Computer> comp)
 {
@@ -218,5 +223,14 @@ void Engine::printComputersVector(vector<Computer> comp)
              << setw(10) << right << comp.at(i).getType_Computer()
              << setw(15) << right << comp.at(i).getBuilt_Computer()
              << endl;
+    }
+}
+
+void Engine::printConnectionVector(vector<Connection> con)
+{
+    for(unsigned int i = 0; i < con.size(); i++)
+    {
+        cout << con.at(i).getName_Sci() << endl;
+        cout << con.at(i).getName_Com() << endl;
     }
 }

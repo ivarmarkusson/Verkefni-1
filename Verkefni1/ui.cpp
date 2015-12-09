@@ -94,7 +94,8 @@ void UI::mainMenu()
     cout << "4. Edit Computer. \n";
     cout << "5. Search Scientists. \n";
     cout << "6. Search Computers. \n";
-    cout << "7. Quit Program. \n";
+    cout << "7. Connection Between Computers and Scientists. \n";
+    cout << "8. Quit Program. \n";
 }
 
 void UI::displayScientistsMenu()
@@ -137,6 +138,12 @@ void UI::editComputersMenu()
     cout << "2. Remove Computer." << endl;
 }
 
+void UI::connectionMenu()
+{
+    cout << "1. View Connections." << endl;
+    cout << "2. Add Connection." << endl;
+}
+
 void UI::runAgain()
 {
     string input;
@@ -165,9 +172,5 @@ void UI::runAgain()
     }
 }
 
-void UI::connectionMenu()
-{
-    cout << "1. View Connections." << endl;
-    cout << "2. Add Connection." << endl;
-}
+
 

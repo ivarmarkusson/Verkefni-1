@@ -14,6 +14,7 @@ using namespace std;
 
 class Scientist;
 class Computer;
+class Connection;
 class UI;
 
 class Engine:Data
@@ -37,6 +38,7 @@ public:
 
     void printScientistsVector(vector<Scientist> sci);
     void printComputersVector(vector<Computer> comp);
+    void printConnectionVector(vector<Connection> con);
     //Print Functions that print out the current vector
 
     int userInput();
