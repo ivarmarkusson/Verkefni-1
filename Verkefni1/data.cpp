@@ -132,7 +132,7 @@ void Data::AddSci(QString str)
     getline(cin, Name, '\n');
     cout << "Enter Year Of Birth: ";
     getline(cin, Birth, '\n');
-    cout << "Enter Year Of Death (Enter 'Alive' If The Person Is Not Dead): ";
+    cout << "Enter Year Of Death (Enter 'alive' If The Person Is Not Dead): ";
     getline(cin, Death, '\n');
     cout << "Enter Gender: ";
     getline(cin, Gender, '\n');
@@ -157,7 +157,7 @@ void Data::AddCom(QString str)
 
     //toupper fall fyrir name
 
-    cout << "Enter Firstname: ";
+    cout << "Enter Name of Computer: ";
     getline(cin, Name, '\n');
     cout << "Enter Build Year: ";
     getline(cin, Year, '\n');
@@ -178,6 +178,87 @@ void Data::AddCom(QString str)
     closeDatabase();
 }
 
+void Data::AddConnected(QString str)
+{
+
+    int input;
+    int c_tempId;
+    int s_tempId;
+
+    vector<Scientist> s_temp = searchSci("SELECT * FROM Persons WHERE "
+                                         "(Name LIKE '%'||:Name||'%') "
+                                         "AND (Birth LIKE '%'||:Birth||'%') "
+                                         "AND (Death LIKE '%'||:Death||'%') "
+                                         "AND (Gender LIKE '%'||:Gender||'%')");
+
+    vector<Computer> c_temp = searchCom("SELECT * FROM Computers WHERE "
+                                        "(Name LIKE '%'||:Name||'%') "
+                                        "AND (Year LIKE '%'||:Year||'%') "
+                                        "AND (Type LIKE '%'||:Type||'%') "
+                                        "AND (Built LIKE '%'||:Built||'%')");
+
+
+    if(s_temp.size() < 1)
+    {
+        cout << "Scientist Not In Database!" << endl;
+        return;
+    }
+    else
+    {
+        for(unsigned int i = 0; i < s_temp.size(); i++)
+        {
+            cout << setw(10) << left << i << ": "
+                 << setw(30) << left << s_temp.at(i).getName_Scientist()
+                 << setw(15) << left << s_temp.at(i).getBirth_Scientist()
+                 << setw(10) << right << s_temp.at(i).getDeath_Scientist()
+                 << setw(15) << right << s_temp.at(i).getGender_Scientist()
+                 << endl;
+        }
+        cout << "Select The Number Of Scientist You Want To Connect: ";
+        cin >> input;
+
+        s_tempId = s_temp.at(input).getID_Scientist();
+
+        cout << endl << s_temp.at(input).getName_Scientist() << " Has Been Selected!" << endl;
+    }
+
+    if(c_temp.size() < 1)
+    {
+        cout << "Computer Not In Database!" << endl;
+        return;
+    }
+    else
+    {
+        for(unsigned int i = 0; i < c_temp.size(); i++)
+        {
+            cout << setw(10) << left << i << ": "
+                 << setw(30) << left << c_temp.at(i).getName_Computer()
+                 << setw(15) << left << c_temp.at(i).getType_Computer()
+                 << setw(10) << right << c_temp.at(i).getYearBuilt_Computer()
+                 << setw(15) << right << c_temp.at(i).getBuilt_Computer()
+                 << endl;
+        }
+        cout << "Select The Number Of Computer You Want To Connect: ";
+        cin >> input;
+
+        c_tempId = c_temp.at(input).getID_Computer();
+
+        cout << endl << c_temp.at(input).getName_Computer() << " Has Been Selected!" << endl;
+    }
+
+    openDatabase();
+    QSqlQuery query(db);
+
+    query.prepare(str);
+
+    query.bindValue(":computers_id", QString::number(c_tempId));
+    query.bindValue(":persons_id", QString::number(s_tempId));
+    query.exec();
+    cout << "Connection Added!" << endl;
+    closeDatabase();
+}
+
+/*
 void Data::RemoveSci(QString str)
 {
     openDatabase();
@@ -257,7 +338,7 @@ void Data::RemoveSci(QString str)
     query.clear();
     closeDatabase();
 }
-
+*/
 vector<Connection> Data::viewConnected(QString str)
 {
     openDatabase();
@@ -293,6 +374,9 @@ vector<Scientist> Data::searchSci(QString str)
 {
     openDatabase();
     QSqlQuery query(db);
+
+    cout << "Press Enter to Get All" << endl;
+    cout << endl;
 
     string n,b,d,g;
     cout << "Search Name: ";
@@ -340,6 +424,9 @@ vector<Computer> Data::searchCom(QString str)
 {
     openDatabase();
     QSqlQuery query(db);
+
+    cout << "Press Enter to Get All" << endl;
+    cout << endl;
 
     string n,y,t,b;
     cout << "Search Name: ";

@@ -67,6 +67,7 @@ void UI::startProgram()
         case 7:
             connectionMenu();
             input = userInput();
+            system("CLS");
             connectScientistAndComputer(input);
             runAgain();
             break;

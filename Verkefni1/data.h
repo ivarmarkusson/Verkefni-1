@@ -50,7 +50,8 @@ class Data
 
         void AddSci(QString str);
         void AddCom(QString str);
-        //Adds new scientist or computer to the list.
+        void AddConnected(QString str);
+        //Adds new scientist, computer and connection to the list.
 
         void RemoveSci(QString str);
         void RemoveCom(QString str);

@@ -132,7 +132,7 @@ void Engine::editScientists(int i)
             AddSci(INSERT_PERSON);
             break;
         case 2:
-            //RemoveSci("UPDATE persons SET Hide = 'true' WHERE ID = tempId");
+            //RemoveSci();
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
@@ -149,7 +149,7 @@ void Engine::editComputers(int i)
             AddCom(INSERT_COMPUTER);
             break;
         case 2:
-            //RemoveCom("str");
+            //RemoveCom();
             break;
         default:
             cout << "Invalid Input, Try again!" << endl;
@@ -165,11 +165,11 @@ void Engine::connectScientistAndComputer(int i)
     switch(i)
         {
             case 1:
-                temp = viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER JOIN Computers ON computers.ID = tengitafla.ID");
+                temp = viewConnected(PRINT_CONNECTION);
                 printConnectionVector(temp);
                 break;
             case 2:
-                //fall sem bætir við tengslum
+                AddConnected(ADD_CONNECTION);
                 break;
             default:
                 cout << "Invalid Input, Try Again!" << endl;
@@ -178,6 +178,7 @@ void Engine::connectScientistAndComputer(int i)
     clearConnectVector();
     temp.clear();
 }
+
 
 //PRINT FUNCTIONS TO PRINT VECTORS
 
@@ -203,16 +204,14 @@ void Engine::printScientistsVector(vector<Scientist> sci)
     }
 }
 
-
-
 void Engine::printComputersVector(vector<Computer> comp)
 {
 
     cout << " " <<setw(15) << left  << "ID." << setw(25) << left << "Name"
-         << setw(20) << left << "Year Built" << setw(18) << left << "Type"
+         << setw(20) << left << "Year Built" << setw(21) << left << "Type"
          << setw(18) << left << "Built" << endl;
 
-    cout << setfill ('-') << setw(90)<< "-"<< setfill(' ' ) <<endl;
+    cout << setfill ('-') << setw(100)<< "-"<< setfill(' ' ) <<endl;
 
     for(unsigned int i = 0; i < comp.size(); i++)
     {
@@ -220,17 +219,19 @@ void Engine::printComputersVector(vector<Computer> comp)
              << setw(5) << left << comp.at(i).getID_Computer()
              << setw(37) << left << comp.at(i).getName_Computer()
              << setw(15) << left << comp.at(i).getYearBuilt_Computer()
-             << setw(10) << right << comp.at(i).getType_Computer()
-             << setw(15) << right << comp.at(i).getBuilt_Computer()
+             << setw(25) << left << comp.at(i).getType_Computer()
+             << setw(15) << left << comp.at(i).getBuilt_Computer()
              << endl;
     }
 }
 
 void Engine::printConnectionVector(vector<Connection> con)
 {
+    cout << "Scientist " << "\t\t\t" << "Computers" << endl;
+    cout << setfill('-') << setw(65) << "-" << setfill(' ') << endl;
+
     for(unsigned int i = 0; i < con.size(); i++)
     {
-        cout << con.at(i).getName_Sci() << endl;
-        cout << con.at(i).getName_Com() << endl;
+        cout << setw(30) << left<< con.at(i).getName_Sci() << setw(30) << left << con.at(i).getName_Com() << endl;
     }
 }
