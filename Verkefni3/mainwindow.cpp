@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->displayScientistsMenu_pushButton, SIGNAL(click()), this, SLOT(openDisplayScientistsWindow()));
+    connect(ui->displayScientistsMenu_pushButton, SIGNAL(clicked()), this, SLOT(openDisplayScientistsWindow()));
 }
 
 MainWindow::~MainWindow()
@@ -23,4 +23,5 @@ void MainWindow::openDisplayScientistsWindow()
 {
     displayScientistsWindowObj = new DisplayScientistsWindow(); // Be sure to destroy you window somewhere
     displayScientistsWindowObj->show();
+    this->close();
 }

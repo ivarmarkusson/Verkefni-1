@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "displayscientistswindow.h"
+#include <QPushButton>
 
 namespace Ui {
 class MainWindow;
@@ -11,17 +12,20 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-public slots:
-    void openDisplayScientistsWindow();
 
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-private slots:
-    void onDisplayScientistsMenu_buttonClicked();
+
+public slots:
+    void openDisplayScientistsWindow();
+
 private:
     Ui::MainWindow *ui;
     DisplayScientistsWindow *displayScientistsWindowObj;
+
+private slots:
+    void onDisplayScientistsMenu_buttonClicked();
 
 };
 
