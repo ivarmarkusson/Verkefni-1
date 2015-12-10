@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>418</width>
+    <height>402</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Welcome To Our DataBase&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="displayScientistsMenu_pushButton">
+      <property name="text">
+       <string>Display Computer Scientists</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="displayComputersMenu_pushButton">
+      <property name="text">
+       <string>Display Computers</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="editScientistsMenu_pushButton">
+      <property name="text">
+       <string>Edit Computer Scientists</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="editComputersMenu_pushButton">
+      <property name="text">
+       <string>Edit Computers</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="searchScientistsMenu_pushButton">
+      <property name="text">
+       <string>Search Computer Scientists</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="searchComputersMenu_pushButton">
+      <property name="text">
+       <string>Search Computers</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="connectionMenu_pushButton">
+      <property name="text">
+       <string>Connections</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="quit_pushButton">
+      <property name="text">
+       <string>Quit Program</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>418</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMain_Menu">
+    <property name="title">
+     <string>Main Menu</string>
+    </property>
+   </widget>
+   <addaction name="menuMain_Menu"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
