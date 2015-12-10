@@ -14,7 +14,6 @@ UI::UI()
 
 }
 
-//Starts Runnig the Program
 void UI::startProgram()
 {
     mainMenu();
@@ -24,7 +23,6 @@ void UI::startProgram()
     switch(input)
     {
         case 1:
-            //Birtir Tölvunarfræðinga
             displayScientistsMenu();
             input = userInput();
             system("cls");
@@ -32,7 +30,6 @@ void UI::startProgram()
             runAgain();
             break;
         case 2:
-            //Birtir Tölvur
             displayComputersMenu();
             input = userInput();
             system("cls");
@@ -40,7 +37,6 @@ void UI::startProgram()
             runAgain();
             break;
         case 3:
-            //Edit Scientists
             editScientistsMenu();
             input = userInput();
             system("cls");
@@ -48,8 +44,6 @@ void UI::startProgram()
             runAgain();
             break;
         case 4:
-            //Edit Computer
-
             editComputersMenu();
             input = userInput();
             system("cls");
@@ -75,9 +69,8 @@ void UI::startProgram()
              exit(1);
              break;
         default:
-            cout << "Invaldi Input, Try Again!" << endl;
+            cout << "Invalid Input, Try Again!" << endl;
             startProgram();
-
     }
 }
 
@@ -155,22 +148,23 @@ void UI::runAgain()
     do
     {
         cin >> input;
-        if(input != "yes" && input != "Yes" && input != "no" && input != "No")
+        if (input != "yes" && input != "Yes" && input != "no" && input != "No")
         {
             cout << "Invalid Input, Try Again!" << endl;
         }
-    }while(input != "yes" && input != "Yes" && input != "no" && input != "No");
-
-    system("cls");
-
-    if(input == "Yes" || input == "yes")
-    {
-        startProgram();
     }
-    else
-    {
-        exit(1);
-    }
+
+    while (input != "yes" && input != "Yes" && input != "no" && input != "No");
+    system ("cls");
+
+        if (input == "Yes" || input == "yes")
+        {
+            startProgram();
+        }
+        else
+        {
+            exit(1);
+        }
 }
 
 

@@ -28,11 +28,11 @@ public:
 
     void searchScientists();
     void searchComputers();
-    //search for scientists or computers from the list.
+    //Search for scientists or computers from the list
 
     void editScientists(int i);
     void editComputers(int i);
-    //edit (add or remove) scientists or computers.
+    //Edit (add or remove) scientists or computers
 
     void connectScientistAndComputer(int i);
 

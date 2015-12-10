@@ -18,7 +18,7 @@ public:
     //Main Menu
 
     void runAgain();
-    //Checks if you want to continue running the program.
+    //Checks if you want to continue running the program
 
     void displayScientistsMenu();
     void displayComputersMenu();
@@ -30,6 +30,5 @@ public:
 
     void connectionMenu();
 };
-
 
 #endif // UI_H

@@ -37,7 +37,7 @@ class Data
         QSqlDatabase db;
 
         void openDatabase();
-        //Opens database from SQL.
+        //Opens database from SQL
         void closeDatabase();
         //Closes database
 
@@ -46,16 +46,16 @@ class Data
         //Runs SQL database and returns a vector to be printed out
 
         void pushScientistIntoVector(vector<Scientist>& v, QSqlQuery q);
-        //push Scientist into vector.
+        //Push Scientist into vector
 
         void AddSci(QString str);
         void AddCom(QString str);
         void AddConnected(QString str);
-        //Adds new scientist, computer and connection to the list.
+        //Adds new scientist, computer and connection to the list
 
         void RemoveSci(QString str);
         void RemoveCom(QString str);
-        //Removes scientist or computer from the list.
+        //Removes scientist or computer from the list
 
         void clearSciVector();
         void clearComVector();

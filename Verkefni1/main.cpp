@@ -9,7 +9,6 @@ using namespace std;
 
 int main()
 {
-
     UI user;
 
     user.startProgram();
@@ -18,19 +17,11 @@ int main()
 }
 
 /*
- * hér eru 3 layer
+ * Here we have three layers
  *
- * 1.layer er UI
- * 2.layer er Engine sem reiknar allt gerir alla vinnu
- * 3.layer er Data sem heldur utan um data
+ * 1. layer (Presentation layer) is UI
+ * 2. layer (Domain layer) is Engine that calculates everything and does all the work
+ * 3. layer (Data layer) is Data which keeps track of data
  *
- * Svo eru tveir klasar í viðbót, Scientist og
- * Computer.
- *
- * Þetta er bara grunnur að valmöguleikum í UI vegna
- * þess að ég held að það sé best að fá allavega eina
- * virkni til að virka áður en við höldum áfram að
- * fjölga möguleikum í forritinu.
- *
- *
-*/
+ * Then we have two more clases Scientist and Computer
+ */

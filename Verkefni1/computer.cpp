@@ -44,7 +44,6 @@ string Computer::getBuilt_Computer()
     return c_built;
 }
 
-
 //Set functions to set private variables
 
 void Computer::setID_Computer(int i)

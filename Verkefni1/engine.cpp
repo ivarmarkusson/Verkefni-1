@@ -138,7 +138,6 @@ void Engine::editScientists(int i)
             cout << "Invalid Input, Try again!" << endl;
             return;
     }
-
 }
 
 void Engine::editComputers(int i)
@@ -155,7 +154,6 @@ void Engine::editComputers(int i)
             cout << "Invalid Input, Try again!" << endl;
             return;
     }
-
 }
 
 void Engine::connectScientistAndComputer(int i)
@@ -179,19 +177,16 @@ void Engine::connectScientistAndComputer(int i)
     temp.clear();
 }
 
-
 //PRINT FUNCTIONS TO PRINT VECTORS
 
 void Engine::printScientistsVector(vector<Scientist> sci)
 {
-    //e-ð spes með gender breytuna stundum fer hun í næstu línu
-
     cout << setw(15) << left << "ID." << setw(20) << left << "Name" << setw(20)
          << left << "Year of birth" << setw(20) << left << "Year of death"
          << setw(20) << left << "Gender" << endl;
 
-    cout << setfill ('-') << setw(85)<< "-" << endl;
-    cout << setfill(' ');
+    cout << setfill ('-') << setw(85) << "-" << endl;
+    cout << setfill (' ');
 
     for(unsigned int i = 0; i < sci.size(); i++)
     {
@@ -211,9 +206,9 @@ void Engine::printComputersVector(vector<Computer> comp)
          << setw(20) << left << "Year Built" << setw(21) << left << "Type"
          << setw(18) << left << "Built" << endl;
 
-    cout << setfill ('-') << setw(100)<< "-"<< setfill(' ' ) <<endl;
+    cout << setfill ('-') << setw (100)<< "-"<< setfill (' ' ) <<endl;
 
-    for(unsigned int i = 0; i < comp.size(); i++)
+    for (unsigned int i = 0; i < comp.size(); i++)
     {
         cout << " "
              << setw(5) << left << comp.at(i).getID_Computer()
@@ -228,7 +223,7 @@ void Engine::printComputersVector(vector<Computer> comp)
 void Engine::printConnectionVector(vector<Connection> con)
 {
     cout << "Scientist " << "\t\t\t" << "Computers" << endl;
-    cout << setfill('-') << setw(65) << "-" << setfill(' ') << endl;
+    cout << setfill ('-') << setw(65) << "-" << setfill(' ') << endl;
 
     for(unsigned int i = 0; i < con.size(); i++)
     {
