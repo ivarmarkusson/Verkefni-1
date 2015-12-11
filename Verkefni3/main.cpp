@@ -2,7 +2,6 @@
 #include <QApplication>
 #include "data.h"
 #include "engine.h"
-#include "sql.h"
 #include <QtSql>
 
 using namespace std;
