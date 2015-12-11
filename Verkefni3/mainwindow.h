@@ -2,13 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "displayscientistswindow.h"
-#include "displaycomputerswindow.h"
-#include "searchscientistswindow.h"
-#include "searchcomputerswindow.h"
-#include "editscientistswindow.h"
-#include "editcomputerswindow.h"
-#include "connectionswindow.h"
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
+#include "displaywindow.h"
 #include <QPushButton>
 
 namespace Ui {
@@ -24,42 +21,17 @@ public:
     ~MainWindow();
 
 public slots:
-    void openDisplayScientistsWindow();
-    void openDisplayComputersWindow();
-
-    void openSearchScientistsWindow();
-    void openSearchComputersWindow();
-
-    void openEditScientistsWindow();
-    void openEditComputersWindow();
-
-    void openConnectionsWindow();
+    void login_menu();
+    void open_display_window();
 
 private:
     Ui::MainWindow *ui;
-
-    DisplayScientistsWindow *displayScientistsWindowObj;
-    DisplayComputersWindow *displayComputersWindowObj;
-
-    SearchScientistsWindow *searchScientistsWindowObj;
-    SearchComputersWindow *searchComputersWindowObj;
-
-    EditScientistsWindow *editScientistsWindowObj;
-    EditComputersWindow *editComputersWindowObj;
-
-    ConnectionsWindow *connectionsWindowObj;
+    QSqlDatabase logindb;
+    DisplayWindow *displaywindow_object;
 
 private slots:
-    void onDisplayScientistsMenu_buttonClicked();
-    void onDisplayComputersMenu_buttonClicked();
 
-    void onSearchScientistsMenu_buttonClicked();
-    void onSearchComputersMenu_buttonClicked();
-
-    void onEditScientistsMenu_buttonClicked();
-    void onEditComputersMenu_buttonClicked();
-
-    void onConnectionsMenu_buttonClicked();
+    void on_pushButton_login_clicked();
 };
 
 #endif // MAINWINDOW_H

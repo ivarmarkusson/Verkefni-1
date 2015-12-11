@@ -35,71 +35,76 @@ public:
     QPushButton *pushButton_close;
     QTabWidget *tab_sci_com_conn;
     QWidget *tab_sci_main;
-    QLabel *label;
+    QGridLayout *gridLayout_2;
     QTabWidget *tab_sci_display_edit;
     QWidget *tab_sci_display;
     QTableWidget *table_display_sci;
     QLineEdit *line_search_sci;
     QWidget *tab_sci_edit;
-    QLineEdit *line_sci_name_add_remove_edit;
-    QLineEdit *line_sci_birth_add_remove_edit;
-    QLineEdit *line_sci_death_add_remove_edit;
-    QLineEdit *line_sci_gender_add_remove_edit;
+    QGridLayout *gridLayout_6;
     QTableWidget *table_edit_sci;
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
     QLabel *label_7;
+    QLineEdit *line_sci_name_add_remove_edit;
+    QLineEdit *line_sci_birth_add_remove_edit;
+    QLineEdit *line_sci_death_add_remove_edit;
+    QLineEdit *line_sci_gender_add_remove_edit;
     QPushButton *pushButton_add_sci;
     QPushButton *pushButton_remove_sci;
     QPushButton *pushButton_edit_sci;
+    QLabel *label;
     QWidget *tab_com;
+    QGridLayout *gridLayout_3;
     QTabWidget *tab_com_display_edit;
     QWidget *tab_com_display;
     QLineEdit *line_search_com;
     QTableWidget *table_display_com;
     QWidget *tab_com_edit;
-    QLabel *label_9;
-    QLineEdit *line_com_year_add_remove_edit;
-    QPushButton *pushButton_com_remove;
-    QLineEdit *line_com_built_add_remove_edit;
-    QLabel *label_10;
-    QLineEdit *line_com_name_add_remove_edit;
+    QGridLayout *gridLayout_7;
     QTableWidget *table_edit_com;
-    QLabel *label_11;
-    QPushButton *pushButton_com_edit;
-    QLineEdit *line_com_type_add_remove_edit;
-    QPushButton *pushButton_com_add;
     QLabel *label_12;
+    QLabel *label_11;
+    QLabel *label_10;
+    QLabel *label_9;
+    QLineEdit *line_com_name_add_remove_edit;
+    QLineEdit *line_com_year_add_remove_edit;
+    QLineEdit *line_com_type_add_remove_edit;
+    QLineEdit *line_com_built_add_remove_edit;
+    QPushButton *pushButton_com_add;
+    QPushButton *pushButton_com_remove;
+    QPushButton *pushButton_com_edit;
     QLabel *label_8;
     QWidget *tab_conn;
-    QLabel *label_3;
+    QGridLayout *gridLayout_4;
     QTabWidget *tab_connect_display_edit;
     QWidget *tab_conn_display;
+    QGridLayout *gridLayout_5;
     QLineEdit *line_connect_search;
     QTableWidget *table_display_connect;
     QWidget *tab_conn_edit;
-    QLabel *label_13;
-    QLineEdit *line_connect_sci_birth_edit;
-    QLabel *label_14;
+    QGridLayout *gridLayout_8;
     QLineEdit *line_connect_sci_gender_edit;
-    QLineEdit *line_connect_sci_name_edit;
-    QTableWidget *table_edit_connect_sci;
-    QLabel *label_15;
-    QLineEdit *line_connect_sci_death_edit;
-    QLabel *label_16;
-    QLabel *label_20;
-    QLineEdit *line_connect_com_year_edit;
     QTableWidget *table_edit_connect_com;
-    QLabel *label_17;
     QLabel *label_18;
+    QLineEdit *line_connect_sci_death_edit;
+    QLineEdit *line_connect_sci_name_edit;
+    QLineEdit *line_connect_sci_birth_edit;
     QLabel *label_19;
-    QLineEdit *line_connect_com_name_edit;
+    QLineEdit *line_connect_com_year_edit;
     QLineEdit *line_connect_com_type_edit;
+    QLabel *label_17;
+    QLabel *label_20;
     QLineEdit *line_connect_com_built_edit;
-    QLabel *label_2;
-    QLabel *label_21;
+    QLineEdit *line_connect_com_name_edit;
     QPushButton *pushButton_connect;
+    QLabel *label_14;
+    QLabel *label_13;
+    QLabel *label_16;
+    QLabel *label_15;
+    QTableWidget *table_edit_connect_sci;
+    QLabel *label_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -122,12 +127,10 @@ public:
         tab_sci_com_conn->setEnabled(true);
         tab_sci_main = new QWidget();
         tab_sci_main->setObjectName(QStringLiteral("tab_sci_main"));
-        label = new QLabel(tab_sci_main);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(220, 0, 321, 21));
+        gridLayout_2 = new QGridLayout(tab_sci_main);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         tab_sci_display_edit = new QTabWidget(tab_sci_main);
         tab_sci_display_edit->setObjectName(QStringLiteral("tab_sci_display_edit"));
-        tab_sci_display_edit->setGeometry(QRect(0, 0, 781, 471));
         tab_sci_display = new QWidget();
         tab_sci_display->setObjectName(QStringLiteral("tab_sci_display"));
         table_display_sci = new QTableWidget(tab_sci_display);
@@ -145,24 +148,18 @@ public:
         table_display_sci->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         table_display_sci->setObjectName(QStringLiteral("table_display_sci"));
         table_display_sci->setGeometry(QRect(0, 50, 771, 391));
+        table_display_sci->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_display_sci->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_display_sci->setSortingEnabled(true);
+        table_display_sci->horizontalHeader()->setStretchLastSection(true);
         line_search_sci = new QLineEdit(tab_sci_display);
         line_search_sci->setObjectName(QStringLiteral("line_search_sci"));
         line_search_sci->setGeometry(QRect(0, 10, 771, 31));
         tab_sci_display_edit->addTab(tab_sci_display, QString());
         tab_sci_edit = new QWidget();
         tab_sci_edit->setObjectName(QStringLiteral("tab_sci_edit"));
-        line_sci_name_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_name_add_remove_edit->setObjectName(QStringLiteral("line_sci_name_add_remove_edit"));
-        line_sci_name_add_remove_edit->setGeometry(QRect(10, 340, 321, 22));
-        line_sci_birth_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_birth_add_remove_edit->setObjectName(QStringLiteral("line_sci_birth_add_remove_edit"));
-        line_sci_birth_add_remove_edit->setGeometry(QRect(360, 340, 113, 22));
-        line_sci_death_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_death_add_remove_edit->setObjectName(QStringLiteral("line_sci_death_add_remove_edit"));
-        line_sci_death_add_remove_edit->setGeometry(QRect(500, 340, 113, 22));
-        line_sci_gender_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_gender_add_remove_edit->setObjectName(QStringLiteral("line_sci_gender_add_remove_edit"));
-        line_sci_gender_add_remove_edit->setGeometry(QRect(640, 340, 113, 22));
+        gridLayout_6 = new QGridLayout(tab_sci_edit);
+        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
         table_edit_sci = new QTableWidget(tab_sci_edit);
         if (table_edit_sci->columnCount() < 4)
             table_edit_sci->setColumnCount(4);
@@ -175,35 +172,80 @@ public:
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         table_edit_sci->setHorizontalHeaderItem(3, __qtablewidgetitem7);
         table_edit_sci->setObjectName(QStringLiteral("table_edit_sci"));
-        table_edit_sci->setGeometry(QRect(0, 40, 771, 271));
+
+        gridLayout_6->addWidget(table_edit_sci, 0, 0, 1, 6);
+
         label_4 = new QLabel(tab_sci_edit);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(20, 320, 55, 16));
+
+        gridLayout_6->addWidget(label_4, 1, 0, 1, 1);
+
         label_5 = new QLabel(tab_sci_edit);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(370, 320, 81, 16));
+
+        gridLayout_6->addWidget(label_5, 1, 3, 1, 1);
+
         label_6 = new QLabel(tab_sci_edit);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(510, 320, 81, 16));
+
+        gridLayout_6->addWidget(label_6, 1, 4, 1, 1);
+
         label_7 = new QLabel(tab_sci_edit);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(650, 320, 55, 16));
+
+        gridLayout_6->addWidget(label_7, 1, 5, 1, 1);
+
+        line_sci_name_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_name_add_remove_edit->setObjectName(QStringLiteral("line_sci_name_add_remove_edit"));
+
+        gridLayout_6->addWidget(line_sci_name_add_remove_edit, 2, 0, 1, 3);
+
+        line_sci_birth_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_birth_add_remove_edit->setObjectName(QStringLiteral("line_sci_birth_add_remove_edit"));
+
+        gridLayout_6->addWidget(line_sci_birth_add_remove_edit, 2, 3, 1, 1);
+
+        line_sci_death_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_death_add_remove_edit->setObjectName(QStringLiteral("line_sci_death_add_remove_edit"));
+
+        gridLayout_6->addWidget(line_sci_death_add_remove_edit, 2, 4, 1, 1);
+
+        line_sci_gender_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_gender_add_remove_edit->setObjectName(QStringLiteral("line_sci_gender_add_remove_edit"));
+
+        gridLayout_6->addWidget(line_sci_gender_add_remove_edit, 2, 5, 1, 1);
+
         pushButton_add_sci = new QPushButton(tab_sci_edit);
         pushButton_add_sci->setObjectName(QStringLiteral("pushButton_add_sci"));
-        pushButton_add_sci->setGeometry(QRect(10, 370, 93, 28));
+
+        gridLayout_6->addWidget(pushButton_add_sci, 3, 0, 1, 1);
+
         pushButton_remove_sci = new QPushButton(tab_sci_edit);
         pushButton_remove_sci->setObjectName(QStringLiteral("pushButton_remove_sci"));
-        pushButton_remove_sci->setGeometry(QRect(120, 370, 93, 28));
+
+        gridLayout_6->addWidget(pushButton_remove_sci, 3, 1, 1, 1);
+
         pushButton_edit_sci = new QPushButton(tab_sci_edit);
         pushButton_edit_sci->setObjectName(QStringLiteral("pushButton_edit_sci"));
-        pushButton_edit_sci->setGeometry(QRect(230, 370, 93, 28));
+
+        gridLayout_6->addWidget(pushButton_edit_sci, 3, 2, 1, 1);
+
         tab_sci_display_edit->addTab(tab_sci_edit, QString());
+
+        gridLayout_2->addWidget(tab_sci_display_edit, 0, 0, 1, 1);
+
+        label = new QLabel(tab_sci_main);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
+
         tab_sci_com_conn->addTab(tab_sci_main, QString());
         tab_com = new QWidget();
         tab_com->setObjectName(QStringLiteral("tab_com"));
+        gridLayout_3 = new QGridLayout(tab_com);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         tab_com_display_edit = new QTabWidget(tab_com);
         tab_com_display_edit->setObjectName(QStringLiteral("tab_com_display_edit"));
-        tab_com_display_edit->setGeometry(QRect(0, 0, 781, 471));
         tab_com_display = new QWidget();
         tab_com_display->setObjectName(QStringLiteral("tab_com_display"));
         line_search_com = new QLineEdit(tab_com_display);
@@ -225,24 +267,8 @@ public:
         tab_com_display_edit->addTab(tab_com_display, QString());
         tab_com_edit = new QWidget();
         tab_com_edit->setObjectName(QStringLiteral("tab_com_edit"));
-        label_9 = new QLabel(tab_com_edit);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(650, 320, 55, 16));
-        line_com_year_add_remove_edit = new QLineEdit(tab_com_edit);
-        line_com_year_add_remove_edit->setObjectName(QStringLiteral("line_com_year_add_remove_edit"));
-        line_com_year_add_remove_edit->setGeometry(QRect(360, 340, 113, 22));
-        pushButton_com_remove = new QPushButton(tab_com_edit);
-        pushButton_com_remove->setObjectName(QStringLiteral("pushButton_com_remove"));
-        pushButton_com_remove->setGeometry(QRect(120, 370, 93, 28));
-        line_com_built_add_remove_edit = new QLineEdit(tab_com_edit);
-        line_com_built_add_remove_edit->setObjectName(QStringLiteral("line_com_built_add_remove_edit"));
-        line_com_built_add_remove_edit->setGeometry(QRect(640, 340, 113, 22));
-        label_10 = new QLabel(tab_com_edit);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(510, 320, 81, 16));
-        line_com_name_add_remove_edit = new QLineEdit(tab_com_edit);
-        line_com_name_add_remove_edit->setObjectName(QStringLiteral("line_com_name_add_remove_edit"));
-        line_com_name_add_remove_edit->setGeometry(QRect(10, 340, 321, 22));
+        gridLayout_7 = new QGridLayout(tab_com_edit);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
         table_edit_com = new QTableWidget(tab_com_edit);
         if (table_edit_com->columnCount() < 4)
             table_edit_com->setColumnCount(4);
@@ -255,40 +281,89 @@ public:
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
         table_edit_com->setHorizontalHeaderItem(3, __qtablewidgetitem15);
         table_edit_com->setObjectName(QStringLiteral("table_edit_com"));
-        table_edit_com->setGeometry(QRect(0, 40, 771, 271));
-        label_11 = new QLabel(tab_com_edit);
-        label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setGeometry(QRect(370, 320, 81, 16));
-        pushButton_com_edit = new QPushButton(tab_com_edit);
-        pushButton_com_edit->setObjectName(QStringLiteral("pushButton_com_edit"));
-        pushButton_com_edit->setGeometry(QRect(230, 370, 93, 28));
-        line_com_type_add_remove_edit = new QLineEdit(tab_com_edit);
-        line_com_type_add_remove_edit->setObjectName(QStringLiteral("line_com_type_add_remove_edit"));
-        line_com_type_add_remove_edit->setGeometry(QRect(500, 340, 113, 22));
-        pushButton_com_add = new QPushButton(tab_com_edit);
-        pushButton_com_add->setObjectName(QStringLiteral("pushButton_com_add"));
-        pushButton_com_add->setGeometry(QRect(10, 370, 93, 28));
+
+        gridLayout_7->addWidget(table_edit_com, 0, 0, 1, 6);
+
         label_12 = new QLabel(tab_com_edit);
         label_12->setObjectName(QStringLiteral("label_12"));
-        label_12->setGeometry(QRect(20, 320, 55, 16));
+
+        gridLayout_7->addWidget(label_12, 1, 0, 1, 1);
+
+        label_11 = new QLabel(tab_com_edit);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        gridLayout_7->addWidget(label_11, 1, 3, 1, 1);
+
+        label_10 = new QLabel(tab_com_edit);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout_7->addWidget(label_10, 1, 4, 1, 1);
+
+        label_9 = new QLabel(tab_com_edit);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout_7->addWidget(label_9, 1, 5, 1, 1);
+
+        line_com_name_add_remove_edit = new QLineEdit(tab_com_edit);
+        line_com_name_add_remove_edit->setObjectName(QStringLiteral("line_com_name_add_remove_edit"));
+
+        gridLayout_7->addWidget(line_com_name_add_remove_edit, 2, 0, 1, 3);
+
+        line_com_year_add_remove_edit = new QLineEdit(tab_com_edit);
+        line_com_year_add_remove_edit->setObjectName(QStringLiteral("line_com_year_add_remove_edit"));
+
+        gridLayout_7->addWidget(line_com_year_add_remove_edit, 2, 3, 1, 1);
+
+        line_com_type_add_remove_edit = new QLineEdit(tab_com_edit);
+        line_com_type_add_remove_edit->setObjectName(QStringLiteral("line_com_type_add_remove_edit"));
+
+        gridLayout_7->addWidget(line_com_type_add_remove_edit, 2, 4, 1, 1);
+
+        line_com_built_add_remove_edit = new QLineEdit(tab_com_edit);
+        line_com_built_add_remove_edit->setObjectName(QStringLiteral("line_com_built_add_remove_edit"));
+
+        gridLayout_7->addWidget(line_com_built_add_remove_edit, 2, 5, 1, 1);
+
+        pushButton_com_add = new QPushButton(tab_com_edit);
+        pushButton_com_add->setObjectName(QStringLiteral("pushButton_com_add"));
+
+        gridLayout_7->addWidget(pushButton_com_add, 3, 0, 1, 1);
+
+        pushButton_com_remove = new QPushButton(tab_com_edit);
+        pushButton_com_remove->setObjectName(QStringLiteral("pushButton_com_remove"));
+
+        gridLayout_7->addWidget(pushButton_com_remove, 3, 1, 1, 1);
+
+        pushButton_com_edit = new QPushButton(tab_com_edit);
+        pushButton_com_edit->setObjectName(QStringLiteral("pushButton_com_edit"));
+
+        gridLayout_7->addWidget(pushButton_com_edit, 3, 2, 1, 1);
+
         tab_com_display_edit->addTab(tab_com_edit, QString());
+
+        gridLayout_3->addWidget(tab_com_display_edit, 0, 0, 1, 1);
+
         label_8 = new QLabel(tab_com);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(220, 0, 321, 21));
+
+        gridLayout_3->addWidget(label_8, 0, 1, 1, 1);
+
         tab_sci_com_conn->addTab(tab_com, QString());
         tab_conn = new QWidget();
         tab_conn->setObjectName(QStringLiteral("tab_conn"));
-        label_3 = new QLabel(tab_conn);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(220, 0, 321, 21));
+        gridLayout_4 = new QGridLayout(tab_conn);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         tab_connect_display_edit = new QTabWidget(tab_conn);
         tab_connect_display_edit->setObjectName(QStringLiteral("tab_connect_display_edit"));
-        tab_connect_display_edit->setGeometry(QRect(0, 0, 781, 471));
         tab_conn_display = new QWidget();
         tab_conn_display->setObjectName(QStringLiteral("tab_conn_display"));
+        gridLayout_5 = new QGridLayout(tab_conn_display);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         line_connect_search = new QLineEdit(tab_conn_display);
         line_connect_search->setObjectName(QStringLiteral("line_connect_search"));
-        line_connect_search->setGeometry(QRect(0, 10, 771, 31));
+
+        gridLayout_5->addWidget(line_connect_search, 0, 0, 1, 1);
+
         table_display_connect = new QTableWidget(tab_conn_display);
         if (table_display_connect->columnCount() < 2)
             table_display_connect->setColumnCount(2);
@@ -298,94 +373,138 @@ public:
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         table_display_connect->setHorizontalHeaderItem(1, __qtablewidgetitem17);
         table_display_connect->setObjectName(QStringLiteral("table_display_connect"));
-        table_display_connect->setGeometry(QRect(0, 50, 771, 391));
+
+        gridLayout_5->addWidget(table_display_connect, 1, 0, 1, 1);
+
         tab_connect_display_edit->addTab(tab_conn_display, QString());
         tab_conn_edit = new QWidget();
         tab_conn_edit->setObjectName(QStringLiteral("tab_conn_edit"));
-        label_13 = new QLabel(tab_conn_edit);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(650, 150, 55, 16));
-        line_connect_sci_birth_edit = new QLineEdit(tab_conn_edit);
-        line_connect_sci_birth_edit->setObjectName(QStringLiteral("line_connect_sci_birth_edit"));
-        line_connect_sci_birth_edit->setGeometry(QRect(360, 170, 113, 22));
-        label_14 = new QLabel(tab_conn_edit);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(510, 150, 81, 16));
+        gridLayout_8 = new QGridLayout(tab_conn_edit);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
         line_connect_sci_gender_edit = new QLineEdit(tab_conn_edit);
         line_connect_sci_gender_edit->setObjectName(QStringLiteral("line_connect_sci_gender_edit"));
-        line_connect_sci_gender_edit->setGeometry(QRect(640, 170, 113, 22));
-        line_connect_sci_name_edit = new QLineEdit(tab_conn_edit);
-        line_connect_sci_name_edit->setObjectName(QStringLiteral("line_connect_sci_name_edit"));
-        line_connect_sci_name_edit->setGeometry(QRect(10, 170, 321, 22));
-        table_edit_connect_sci = new QTableWidget(tab_conn_edit);
-        if (table_edit_connect_sci->columnCount() < 4)
-            table_edit_connect_sci->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        table_edit_connect_sci->setHorizontalHeaderItem(0, __qtablewidgetitem18);
-        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        table_edit_connect_sci->setHorizontalHeaderItem(1, __qtablewidgetitem19);
-        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        table_edit_connect_sci->setHorizontalHeaderItem(2, __qtablewidgetitem20);
-        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        table_edit_connect_sci->setHorizontalHeaderItem(3, __qtablewidgetitem21);
-        table_edit_connect_sci->setObjectName(QStringLiteral("table_edit_connect_sci"));
-        table_edit_connect_sci->setGeometry(QRect(0, 40, 771, 101));
-        label_15 = new QLabel(tab_conn_edit);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(370, 150, 81, 16));
-        line_connect_sci_death_edit = new QLineEdit(tab_conn_edit);
-        line_connect_sci_death_edit->setObjectName(QStringLiteral("line_connect_sci_death_edit"));
-        line_connect_sci_death_edit->setGeometry(QRect(500, 170, 113, 22));
-        label_16 = new QLabel(tab_conn_edit);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(20, 150, 55, 16));
-        label_20 = new QLabel(tab_conn_edit);
-        label_20->setObjectName(QStringLiteral("label_20"));
-        label_20->setGeometry(QRect(510, 350, 81, 16));
-        line_connect_com_year_edit = new QLineEdit(tab_conn_edit);
-        line_connect_com_year_edit->setObjectName(QStringLiteral("line_connect_com_year_edit"));
-        line_connect_com_year_edit->setGeometry(QRect(360, 370, 113, 22));
+
+        gridLayout_8->addWidget(line_connect_sci_gender_edit, 2, 3, 1, 1);
+
         table_edit_connect_com = new QTableWidget(tab_conn_edit);
         if (table_edit_connect_com->columnCount() < 4)
             table_edit_connect_com->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        table_edit_connect_com->setHorizontalHeaderItem(0, __qtablewidgetitem22);
-        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        table_edit_connect_com->setHorizontalHeaderItem(1, __qtablewidgetitem23);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        table_edit_connect_com->setHorizontalHeaderItem(2, __qtablewidgetitem24);
-        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        table_edit_connect_com->setHorizontalHeaderItem(3, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        table_edit_connect_com->setHorizontalHeaderItem(0, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        table_edit_connect_com->setHorizontalHeaderItem(1, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        table_edit_connect_com->setHorizontalHeaderItem(2, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        table_edit_connect_com->setHorizontalHeaderItem(3, __qtablewidgetitem21);
         table_edit_connect_com->setObjectName(QStringLiteral("table_edit_connect_com"));
-        table_edit_connect_com->setGeometry(QRect(0, 230, 771, 111));
-        label_17 = new QLabel(tab_conn_edit);
-        label_17->setObjectName(QStringLiteral("label_17"));
-        label_17->setGeometry(QRect(650, 350, 55, 16));
+
+        gridLayout_8->addWidget(table_edit_connect_com, 3, 0, 1, 4);
+
         label_18 = new QLabel(tab_conn_edit);
         label_18->setObjectName(QStringLiteral("label_18"));
-        label_18->setGeometry(QRect(20, 350, 55, 16));
+
+        gridLayout_8->addWidget(label_18, 4, 0, 1, 1);
+
+        line_connect_sci_death_edit = new QLineEdit(tab_conn_edit);
+        line_connect_sci_death_edit->setObjectName(QStringLiteral("line_connect_sci_death_edit"));
+
+        gridLayout_8->addWidget(line_connect_sci_death_edit, 2, 2, 1, 1);
+
+        line_connect_sci_name_edit = new QLineEdit(tab_conn_edit);
+        line_connect_sci_name_edit->setObjectName(QStringLiteral("line_connect_sci_name_edit"));
+
+        gridLayout_8->addWidget(line_connect_sci_name_edit, 2, 0, 1, 1);
+
+        line_connect_sci_birth_edit = new QLineEdit(tab_conn_edit);
+        line_connect_sci_birth_edit->setObjectName(QStringLiteral("line_connect_sci_birth_edit"));
+
+        gridLayout_8->addWidget(line_connect_sci_birth_edit, 2, 1, 1, 1);
+
         label_19 = new QLabel(tab_conn_edit);
         label_19->setObjectName(QStringLiteral("label_19"));
-        label_19->setGeometry(QRect(370, 350, 81, 16));
-        line_connect_com_name_edit = new QLineEdit(tab_conn_edit);
-        line_connect_com_name_edit->setObjectName(QStringLiteral("line_connect_com_name_edit"));
-        line_connect_com_name_edit->setGeometry(QRect(10, 370, 321, 22));
+
+        gridLayout_8->addWidget(label_19, 4, 1, 1, 1);
+
+        line_connect_com_year_edit = new QLineEdit(tab_conn_edit);
+        line_connect_com_year_edit->setObjectName(QStringLiteral("line_connect_com_year_edit"));
+
+        gridLayout_8->addWidget(line_connect_com_year_edit, 5, 1, 1, 1);
+
         line_connect_com_type_edit = new QLineEdit(tab_conn_edit);
         line_connect_com_type_edit->setObjectName(QStringLiteral("line_connect_com_type_edit"));
-        line_connect_com_type_edit->setGeometry(QRect(500, 370, 113, 22));
+
+        gridLayout_8->addWidget(line_connect_com_type_edit, 5, 2, 1, 1);
+
+        label_17 = new QLabel(tab_conn_edit);
+        label_17->setObjectName(QStringLiteral("label_17"));
+
+        gridLayout_8->addWidget(label_17, 4, 3, 1, 1);
+
+        label_20 = new QLabel(tab_conn_edit);
+        label_20->setObjectName(QStringLiteral("label_20"));
+
+        gridLayout_8->addWidget(label_20, 4, 2, 1, 1);
+
         line_connect_com_built_edit = new QLineEdit(tab_conn_edit);
         line_connect_com_built_edit->setObjectName(QStringLiteral("line_connect_com_built_edit"));
-        line_connect_com_built_edit->setGeometry(QRect(640, 370, 113, 22));
-        label_2 = new QLabel(tab_conn_edit);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(20, 10, 91, 21));
-        label_21 = new QLabel(tab_conn_edit);
-        label_21->setObjectName(QStringLiteral("label_21"));
-        label_21->setGeometry(QRect(20, 200, 101, 21));
+
+        gridLayout_8->addWidget(line_connect_com_built_edit, 5, 3, 1, 1);
+
+        line_connect_com_name_edit = new QLineEdit(tab_conn_edit);
+        line_connect_com_name_edit->setObjectName(QStringLiteral("line_connect_com_name_edit"));
+
+        gridLayout_8->addWidget(line_connect_com_name_edit, 5, 0, 1, 1);
+
         pushButton_connect = new QPushButton(tab_conn_edit);
         pushButton_connect->setObjectName(QStringLiteral("pushButton_connect"));
-        pushButton_connect->setGeometry(QRect(10, 400, 321, 28));
+
+        gridLayout_8->addWidget(pushButton_connect, 6, 0, 1, 1);
+
+        label_14 = new QLabel(tab_conn_edit);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        gridLayout_8->addWidget(label_14, 1, 2, 1, 1);
+
+        label_13 = new QLabel(tab_conn_edit);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        gridLayout_8->addWidget(label_13, 1, 3, 1, 1);
+
+        label_16 = new QLabel(tab_conn_edit);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        gridLayout_8->addWidget(label_16, 1, 0, 1, 1);
+
+        label_15 = new QLabel(tab_conn_edit);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        gridLayout_8->addWidget(label_15, 1, 1, 1, 1);
+
+        table_edit_connect_sci = new QTableWidget(tab_conn_edit);
+        if (table_edit_connect_sci->columnCount() < 4)
+            table_edit_connect_sci->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
+        table_edit_connect_sci->setHorizontalHeaderItem(0, __qtablewidgetitem22);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        table_edit_connect_sci->setHorizontalHeaderItem(1, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        table_edit_connect_sci->setHorizontalHeaderItem(2, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        table_edit_connect_sci->setHorizontalHeaderItem(3, __qtablewidgetitem25);
+        table_edit_connect_sci->setObjectName(QStringLiteral("table_edit_connect_sci"));
+
+        gridLayout_8->addWidget(table_edit_connect_sci, 0, 0, 1, 4);
+
         tab_connect_display_edit->addTab(tab_conn_edit, QString());
+
+        gridLayout_4->addWidget(tab_connect_display_edit, 0, 0, 1, 1);
+
+        label_3 = new QLabel(tab_conn);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_4->addWidget(label_3, 0, 1, 1, 1);
+
         tab_sci_com_conn->addTab(tab_conn, QString());
 
         gridLayout->addWidget(tab_sci_com_conn, 1, 0, 1, 1);
@@ -403,8 +522,8 @@ public:
 
         tab_sci_com_conn->setCurrentIndex(0);
         tab_sci_display_edit->setCurrentIndex(0);
-        tab_com_display_edit->setCurrentIndex(0);
-        tab_connect_display_edit->setCurrentIndex(0);
+        tab_com_display_edit->setCurrentIndex(1);
+        tab_connect_display_edit->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(DisplayWindow);
@@ -414,7 +533,6 @@ public:
     {
         DisplayWindow->setWindowTitle(QApplication::translate("DisplayWindow", "MainWindow", 0));
         pushButton_close->setText(QApplication::translate("DisplayWindow", "Close", 0));
-        label->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Scientists</span></p><p align=\"center\"><br/></p></body></html>", 0));
         QTableWidgetItem *___qtablewidgetitem = table_display_sci->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("DisplayWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem1 = table_display_sci->horizontalHeaderItem(1);
@@ -425,11 +543,6 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("DisplayWindow", "Gender", 0));
         line_search_sci->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         tab_sci_display_edit->setTabText(tab_sci_display_edit->indexOf(tab_sci_display), QApplication::translate("DisplayWindow", "Display", 0));
-        line_sci_name_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Full Name...", 0));
-        line_sci_birth_add_remove_edit->setText(QString());
-        line_sci_birth_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Birth...", 0));
-        line_sci_death_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
-        line_sci_gender_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
         QTableWidgetItem *___qtablewidgetitem4 = table_edit_sci->horizontalHeaderItem(0);
         ___qtablewidgetitem4->setText(QApplication::translate("DisplayWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem5 = table_edit_sci->horizontalHeaderItem(1);
@@ -442,10 +555,16 @@ public:
         label_5->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
         label_6->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
         label_7->setText(QApplication::translate("DisplayWindow", "Gender", 0));
+        line_sci_name_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Full Name...", 0));
+        line_sci_birth_add_remove_edit->setText(QString());
+        line_sci_birth_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Birth...", 0));
+        line_sci_death_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
+        line_sci_gender_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
         pushButton_add_sci->setText(QApplication::translate("DisplayWindow", "Add", 0));
         pushButton_remove_sci->setText(QApplication::translate("DisplayWindow", "Remove", 0));
         pushButton_edit_sci->setText(QApplication::translate("DisplayWindow", "Edit", 0));
         tab_sci_display_edit->setTabText(tab_sci_display_edit->indexOf(tab_sci_edit), QApplication::translate("DisplayWindow", "Edit", 0));
+        label->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Scientists</span></p><p align=\"center\"><br/></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_sci_main), QApplication::translate("DisplayWindow", "Scientists", 0));
         line_search_com->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_display_com->horizontalHeaderItem(0);
@@ -457,14 +576,6 @@ public:
         QTableWidgetItem *___qtablewidgetitem11 = table_display_com->horizontalHeaderItem(3);
         ___qtablewidgetitem11->setText(QApplication::translate("DisplayWindow", "Built", 0));
         tab_com_display_edit->setTabText(tab_com_display_edit->indexOf(tab_com_display), QApplication::translate("DisplayWindow", "Display", 0));
-        label_9->setText(QApplication::translate("DisplayWindow", "Built?", 0));
-        line_com_year_add_remove_edit->setText(QString());
-        line_com_year_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Year...", 0));
-        pushButton_com_remove->setText(QApplication::translate("DisplayWindow", "Remove", 0));
-        line_com_built_add_remove_edit->setText(QString());
-        line_com_built_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Yes/No", 0));
-        label_10->setText(QApplication::translate("DisplayWindow", "Type", 0));
-        line_com_name_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Computer Name...", 0));
         QTableWidgetItem *___qtablewidgetitem12 = table_edit_com->horizontalHeaderItem(0);
         ___qtablewidgetitem12->setText(QApplication::translate("DisplayWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem13 = table_edit_com->horizontalHeaderItem(1);
@@ -473,60 +584,66 @@ public:
         ___qtablewidgetitem14->setText(QApplication::translate("DisplayWindow", "Type", 0));
         QTableWidgetItem *___qtablewidgetitem15 = table_edit_com->horizontalHeaderItem(3);
         ___qtablewidgetitem15->setText(QApplication::translate("DisplayWindow", "Built", 0));
-        label_11->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
-        pushButton_com_edit->setText(QApplication::translate("DisplayWindow", "Edit", 0));
-        line_com_type_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Type...", 0));
-        pushButton_com_add->setText(QApplication::translate("DisplayWindow", "Add", 0));
         label_12->setText(QApplication::translate("DisplayWindow", "Name", 0));
+        label_11->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
+        label_10->setText(QApplication::translate("DisplayWindow", "Type", 0));
+        label_9->setText(QApplication::translate("DisplayWindow", "Built?", 0));
+        line_com_name_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Computer Name...", 0));
+        line_com_year_add_remove_edit->setText(QString());
+        line_com_year_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Year...", 0));
+        line_com_type_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Type...", 0));
+        line_com_built_add_remove_edit->setText(QString());
+        line_com_built_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Yes/No", 0));
+        pushButton_com_add->setText(QApplication::translate("DisplayWindow", "Add", 0));
+        pushButton_com_remove->setText(QApplication::translate("DisplayWindow", "Remove", 0));
+        pushButton_com_edit->setText(QApplication::translate("DisplayWindow", "Edit", 0));
         tab_com_display_edit->setTabText(tab_com_display_edit->indexOf(tab_com_edit), QApplication::translate("DisplayWindow", "Edit", 0));
         label_8->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Computers</span></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_com), QApplication::translate("DisplayWindow", "Computers", 0));
-        label_3->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Connections</span></p><p align=\"center\"><br/></p></body></html>", 0));
         line_connect_search->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem16 = table_display_connect->horizontalHeaderItem(0);
         ___qtablewidgetitem16->setText(QApplication::translate("DisplayWindow", "New Column", 0));
         QTableWidgetItem *___qtablewidgetitem17 = table_display_connect->horizontalHeaderItem(1);
         ___qtablewidgetitem17->setText(QApplication::translate("DisplayWindow", "Computer Name", 0));
         tab_connect_display_edit->setTabText(tab_connect_display_edit->indexOf(tab_conn_display), QApplication::translate("DisplayWindow", "Display", 0));
-        label_13->setText(QApplication::translate("DisplayWindow", "Gender", 0));
+        line_connect_sci_gender_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
+        QTableWidgetItem *___qtablewidgetitem18 = table_edit_connect_com->horizontalHeaderItem(0);
+        ___qtablewidgetitem18->setText(QApplication::translate("DisplayWindow", "Name", 0));
+        QTableWidgetItem *___qtablewidgetitem19 = table_edit_connect_com->horizontalHeaderItem(1);
+        ___qtablewidgetitem19->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
+        QTableWidgetItem *___qtablewidgetitem20 = table_edit_connect_com->horizontalHeaderItem(2);
+        ___qtablewidgetitem20->setText(QApplication::translate("DisplayWindow", "Type", 0));
+        QTableWidgetItem *___qtablewidgetitem21 = table_edit_connect_com->horizontalHeaderItem(3);
+        ___qtablewidgetitem21->setText(QApplication::translate("DisplayWindow", "Built", 0));
+        label_18->setText(QApplication::translate("DisplayWindow", "Computer Name", 0));
+        line_connect_sci_death_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
+        line_connect_sci_name_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Full Name...", 0));
         line_connect_sci_birth_edit->setText(QString());
         line_connect_sci_birth_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Birth...", 0));
-        label_14->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
-        line_connect_sci_gender_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
-        line_connect_sci_name_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Full Name...", 0));
-        QTableWidgetItem *___qtablewidgetitem18 = table_edit_connect_sci->horizontalHeaderItem(0);
-        ___qtablewidgetitem18->setText(QApplication::translate("DisplayWindow", "Name", 0));
-        QTableWidgetItem *___qtablewidgetitem19 = table_edit_connect_sci->horizontalHeaderItem(1);
-        ___qtablewidgetitem19->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
-        QTableWidgetItem *___qtablewidgetitem20 = table_edit_connect_sci->horizontalHeaderItem(2);
-        ___qtablewidgetitem20->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
-        QTableWidgetItem *___qtablewidgetitem21 = table_edit_connect_sci->horizontalHeaderItem(3);
-        ___qtablewidgetitem21->setText(QApplication::translate("DisplayWindow", "Gender", 0));
-        label_15->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
-        line_connect_sci_death_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
-        label_16->setText(QApplication::translate("DisplayWindow", "Name", 0));
-        label_20->setText(QApplication::translate("DisplayWindow", "Type", 0));
+        label_19->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
         line_connect_com_year_edit->setText(QString());
         line_connect_com_year_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Year...", 0));
-        QTableWidgetItem *___qtablewidgetitem22 = table_edit_connect_com->horizontalHeaderItem(0);
-        ___qtablewidgetitem22->setText(QApplication::translate("DisplayWindow", "Name", 0));
-        QTableWidgetItem *___qtablewidgetitem23 = table_edit_connect_com->horizontalHeaderItem(1);
-        ___qtablewidgetitem23->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
-        QTableWidgetItem *___qtablewidgetitem24 = table_edit_connect_com->horizontalHeaderItem(2);
-        ___qtablewidgetitem24->setText(QApplication::translate("DisplayWindow", "Type", 0));
-        QTableWidgetItem *___qtablewidgetitem25 = table_edit_connect_com->horizontalHeaderItem(3);
-        ___qtablewidgetitem25->setText(QApplication::translate("DisplayWindow", "Built", 0));
-        label_17->setText(QApplication::translate("DisplayWindow", "Built?", 0));
-        label_18->setText(QApplication::translate("DisplayWindow", "Name", 0));
-        label_19->setText(QApplication::translate("DisplayWindow", "Build Year", 0));
-        line_connect_com_name_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Computer Name...", 0));
         line_connect_com_type_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Type...", 0));
+        label_17->setText(QApplication::translate("DisplayWindow", "Built?", 0));
+        label_20->setText(QApplication::translate("DisplayWindow", "Type", 0));
         line_connect_com_built_edit->setText(QString());
         line_connect_com_built_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Yes/No", 0));
-        label_2->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Scientists</span></p><p align=\"center\"><br/></p></body></html>", 0));
-        label_21->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Computers</span></p><p align=\"center\"><br/></p></body></html>", 0));
+        line_connect_com_name_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Computer Name...", 0));
         pushButton_connect->setText(QApplication::translate("DisplayWindow", "Connect", 0));
+        label_14->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
+        label_13->setText(QApplication::translate("DisplayWindow", "Gender", 0));
+        label_16->setText(QApplication::translate("DisplayWindow", "Scientists Name", 0));
+        label_15->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
+        QTableWidgetItem *___qtablewidgetitem22 = table_edit_connect_sci->horizontalHeaderItem(0);
+        ___qtablewidgetitem22->setText(QApplication::translate("DisplayWindow", "Name", 0));
+        QTableWidgetItem *___qtablewidgetitem23 = table_edit_connect_sci->horizontalHeaderItem(1);
+        ___qtablewidgetitem23->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
+        QTableWidgetItem *___qtablewidgetitem24 = table_edit_connect_sci->horizontalHeaderItem(2);
+        ___qtablewidgetitem24->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
+        QTableWidgetItem *___qtablewidgetitem25 = table_edit_connect_sci->horizontalHeaderItem(3);
+        ___qtablewidgetitem25->setText(QApplication::translate("DisplayWindow", "Gender", 0));
         tab_connect_display_edit->setTabText(tab_connect_display_edit->indexOf(tab_conn_edit), QApplication::translate("DisplayWindow", "Edit", 0));
+        label_3->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Connections</span></p><p align=\"center\"><br/></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_conn), QApplication::translate("DisplayWindow", "Connections", 0));
     } // retranslateUi
 

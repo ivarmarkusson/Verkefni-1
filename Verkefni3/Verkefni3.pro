@@ -21,15 +21,7 @@ SOURCES += main.cpp\
     data.cpp \
     engine.cpp \
     scientist.cpp \
-    displayscientistswindow.cpp \
-    displaycomputerswindow.cpp \
-    searchscientistswindow.cpp \
-    searchcomputerswindow.cpp \
-    editscientistswindow.cpp \
-    editcomputerswindow.cpp \
-    connectionswindow.cpp \
-    displaywindow.cpp \
-    welcome.cpp
+    displaywindow.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -38,23 +30,7 @@ HEADERS  += mainwindow.h \
     engine.h \
     scientist.h \
     globalstrings.h \
-    displayscientistswindow.h \
-    displaycomputerswindow.h \
-    searchscientistswindow.h \
-    searchcomputerswindow.h \
-    editscientistswindow.h \
-    editcomputerswindow.h \
-    connectionswindow.h \
-    displaywindow.h \
-    welcome.h
+    displaywindow.h
 
 FORMS    += mainwindow.ui \
-    displayscientistswindow.ui \
-    displaycomputerswindow.ui \
-    searchscientistswindow.ui \
-    searchcomputerswindow.ui \
-    editscientistswindow.ui \
-    editcomputerswindow.ui \
-    connectionswindow.ui \
-    displaywindow.ui \
-    welcome.ui
+    displaywindow.ui

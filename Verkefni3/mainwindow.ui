@@ -6,76 +6,71 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>402</height>
+    <width>338</width>
+    <height>304</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Welcome To Our DataBase&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QGroupBox" name="groupBox_login">
+      <property name="title">
+       <string>Login</string>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="displayScientistsMenu_pushButton">
-      <property name="text">
-       <string>Display Computer Scientists</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="displayComputersMenu_pushButton">
-      <property name="text">
-       <string>Display Computers</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="editScientistsMenu_pushButton">
-      <property name="text">
-       <string>Edit Computer Scientists</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="editComputersMenu_pushButton">
-      <property name="text">
-       <string>Edit Computers</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="searchScientistsMenu_pushButton">
-      <property name="text">
-       <string>Search Computer Scientists</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="searchComputersMenu_pushButton">
-      <property name="text">
-       <string>Search Computers</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="connectionMenu_pushButton">
-      <property name="text">
-       <string>Connections</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="quit_pushButton">
-      <property name="text">
-       <string>Quit Program</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_username">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_username">
+         <property name="placeholderText">
+          <string>Enter Username</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_password">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_password">
+         <property name="placeholderText">
+          <string>Enter Password</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QLabel" name="label_status">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;[+]Status&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="pushButton_login">
+         <property name="text">
+          <string>Login</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+      <zorder>label_username</zorder>
+      <zorder>label_password</zorder>
+      <zorder>lineEdit_username</zorder>
+      <zorder>lineEdit_password</zorder>
+      <zorder>lineEdit_password</zorder>
+      <zorder>pushButton_login</zorder>
+      <zorder>label_status</zorder>
      </widget>
     </item>
    </layout>
@@ -85,13 +80,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>418</width>
-     <height>21</height>
+     <width>338</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMain_Menu">
     <property name="title">
-     <string>Main Menu</string>
+     <string>Login</string>
     </property>
    </widget>
    <addaction name="menuMain_Menu"/>
@@ -107,6 +102,11 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit_username</tabstop>
+  <tabstop>lineEdit_password</tabstop>
+  <tabstop>pushButton_login</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

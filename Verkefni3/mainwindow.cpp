@@ -7,18 +7,19 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->displayScientistsMenu_pushButton, SIGNAL(clicked()), this, SLOT(openDisplayScientistsWindow()));
-    connect(ui->displayComputersMenu_pushButton, SIGNAL(clicked()), this, SLOT(openDisplayComputersWindow()));
+    logindb = QSqlDatabase::addDatabase("QSQLITE");
+    logindb.setDatabaseName("login.sqlite");
 
-    connect(ui->editScientistsMenu_pushButton, SIGNAL(clicked()), this, SLOT(openEditScientistsWindow()));
-    connect(ui->editComputersMenu_pushButton, SIGNAL(clicked()), this, SLOT(openEditComputersWindow()));
+    if(!logindb.open())
+    {
+        ui->label_status->setText("User Database Could not Connect");
+    }
+    else
+    {
+        ui->label_status->setText("User Database Connected");
+    }
+    //connect(ui->pushButton_login,SIGNAL(clicked()), this, SLOT(login_menu()));
 
-    connect(ui->searchScientistsMenu_pushButton, SIGNAL(clicked()), this, SLOT(openSearchScientistsWindow()));
-    connect(ui->searchComputersMenu_pushButton, SIGNAL(clicked()), this, SLOT(openSearchComputersWindow()));
-
-    connect(ui->connectionMenu_pushButton, SIGNAL(clicked()), this, SLOT(openConnectionsWindow()));
-
-    connect(ui->quit_pushButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 
 MainWindow::~MainWindow()
@@ -26,89 +27,54 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-//ON BUTTON CLICKED FUNCTIONS
-void MainWindow::onDisplayScientistsMenu_buttonClicked()
+void MainWindow::login_menu()
 {
-    openDisplayScientistsWindow();
+    QString username, password;
+    username = ui->lineEdit_username->text();
+    password = ui->lineEdit_password->text();
+
+    if(!logindb.isOpen())
+    {
+        qDebug() << "User Database Failed to Connect";
+        return;
+    }
+
+    QSqlQuery qry;
+
+    if(qry.exec("SELECT * FROM users WHERE username='"+username+"'and password='"+password+"'"))
+    {
+        int count = 0;
+        while(qry.next())
+        {
+            count++;
+        }
+
+        if(count == 1)
+        {
+            ui->label_status->setText("Login Successful!");
+
+            open_display_window();
+        }
+        if(count > 1)
+        {
+            ui->label_status->setText("Duplicate Username and Password!");
+        }
+        if(count < 1)
+        {
+            ui->label_status->setText("Username or Password Incorrect, Try Again!");
+        }
+    }
 }
 
-void MainWindow::onDisplayComputersMenu_buttonClicked()
+void MainWindow::open_display_window()
 {
-    openDisplayComputersWindow();
-}
-
-void MainWindow::onSearchScientistsMenu_buttonClicked()
-{
-    openSearchScientistsWindow();
-}
-
-void MainWindow::onSearchComputersMenu_buttonClicked()
-{
-    openSearchComputersWindow();
-}
-
-void MainWindow::onEditScientistsMenu_buttonClicked()
-{
-    openEditScientistsWindow();
-}
-
-void MainWindow::onEditComputersMenu_buttonClicked()
-{
-    openEditComputersWindow();
-}
-
-void MainWindow::onConnectionsMenu_buttonClicked()
-{
-    openConnectionsWindow();
-}
-
-
-//OPEN WINDOWS FUNCTIONS
-void MainWindow::openDisplayScientistsWindow()
-{
-    displayScientistsWindowObj = new DisplayScientistsWindow();
-    displayScientistsWindowObj->show();
+    displaywindow_object = new DisplayWindow();
+    displaywindow_object->show();
     this->close();
 }
 
-void MainWindow::openDisplayComputersWindow()
+void MainWindow::on_pushButton_login_clicked()
 {
-    displayComputersWindowObj = new DisplayComputersWindow();
-    displayComputersWindowObj->show();
-    this->close();
+    login_menu();
 }
 
-void MainWindow::openSearchScientistsWindow()
-{
-    searchScientistsWindowObj = new SearchScientistsWindow();
-    searchScientistsWindowObj->show();
-    this->close();
-}
-void MainWindow::openSearchComputersWindow()
-{
-    searchComputersWindowObj = new SearchComputersWindow();
-    searchComputersWindowObj->show();
-    this->close();
-}
-
-void MainWindow::openEditScientistsWindow()
-{
-    editScientistsWindowObj = new EditScientistsWindow();
-    editScientistsWindowObj->show();
-    this->close();
-}
-
-void MainWindow::openEditComputersWindow()
-{
-    editComputersWindowObj = new EditComputersWindow();
-    editComputersWindowObj->show();
-    this->close();
-}
-
-void MainWindow::openConnectionsWindow()
-{
-    connectionsWindowObj = new ConnectionsWindow();
-    connectionsWindowObj->show();
-    this->close();
-}
