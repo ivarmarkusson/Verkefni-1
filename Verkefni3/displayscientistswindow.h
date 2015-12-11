@@ -2,6 +2,9 @@
 #define DISPLAYSCIENTISTSWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
+
+using namespace std;
 
 namespace Ui {
 class DisplayScientistsWindow;
@@ -15,8 +18,11 @@ public:
     explicit DisplayScientistsWindow(QWidget *parent = 0);
     ~DisplayScientistsWindow();
 
+private slots:
+
 private:
     Ui::DisplayScientistsWindow *ui;
+
 };
 
 #endif // DISPLAYSCIENTISTSWINDOW_H

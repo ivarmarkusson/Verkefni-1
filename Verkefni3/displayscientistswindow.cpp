@@ -12,3 +12,6 @@ DisplayScientistsWindow::~DisplayScientistsWindow()
 {
     delete ui;
 }
+
+
+

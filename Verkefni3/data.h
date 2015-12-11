@@ -45,9 +45,6 @@ class Data
         vector<Computer> SortCom(QString str);
         //Runs SQL database and returns a vector to be printed out
 
-        void pushScientistIntoVector(vector<Scientist>& v, QSqlQuery q);
-        //push Scientist into vector.
-
         void AddSci(QString str);
         void AddCom(QString str);
         void AddConnected(QString str);
