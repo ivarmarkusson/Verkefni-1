@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <iostream>
+#include <vector>
+#include "scientist.h"
+#include "data.h"
 
 using namespace std;
 
@@ -18,10 +21,18 @@ public:
     explicit DisplayScientistsWindow(QWidget *parent = 0);
     ~DisplayScientistsWindow();
 
+
 private slots:
+    void on_display_pushButton_clicked();
 
 private:
+    void displayAllScientists();
+    void displayScientists(vector<Scientist> scientists);
+
     Ui::DisplayScientistsWindow *ui;
+
+    Data dataObj;
+    vector<Scientist> currentlyDisplayedScientists;
 
 };
 

@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->searchComputersMenu_pushButton, SIGNAL(clicked()), this, SLOT(openSearchComputersWindow()));
 
     connect(ui->connectionMenu_pushButton, SIGNAL(clicked()), this, SLOT(openConnectionsWindow()));
+
+    connect(ui->quit_pushButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 
 MainWindow::~MainWindow()

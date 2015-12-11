@@ -37,7 +37,9 @@ void Data::openDatabase()
     db = QSqlDatabase::addDatabase ("QSQLITE");
     QString dbName = QString ("Database (4).sqlite");
     db.setDatabaseName(dbName);
-    db.open();
+    if(!db.open()) {
+        qDebug() << "Could not open db";
+    }
 }
 
 void Data::closeDatabase()
