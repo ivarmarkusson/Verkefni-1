@@ -2,6 +2,12 @@
 #define DISPLAYCOMPUTERSWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
+#include <vector>
+#include "computer.h"
+#include "data.h"
+
+using namespace std;
 
 namespace Ui {
 class DisplayComputersWindow;
@@ -16,7 +22,13 @@ public:
     ~DisplayComputersWindow();
 
 private:
+    void displayAllComputers();
+    void displayComputers(vector<Computer> computers);
+
     Ui::DisplayComputersWindow *ui;
+
+    Data dataObj;
+    vector<Computer> currentlyDisplayedComputers;
 };
 
 #endif // DISPLAYCOMPUTERSWINDOW_H

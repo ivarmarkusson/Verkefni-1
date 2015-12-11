@@ -9,7 +9,7 @@ DisplayScientistsWindow::DisplayScientistsWindow(QWidget *parent) :
     ui(new Ui::DisplayScientistsWindow)
 {
     ui->setupUi(this);
-
+    displayAllScientists();
     connect(ui->display_pushButton,SIGNAL(clicked()), this, SLOT(displayAllScientists()));
 }
 
@@ -20,17 +20,6 @@ DisplayScientistsWindow::~DisplayScientistsWindow()
 }
 
 
-
-
-
-void DisplayScientistsWindow::on_display_pushButton_clicked()
-{
-    //ná í upplýsingar
-    //vinna úr
-    //prenta út
-    displayAllScientists();
-
-}
 
 void DisplayScientistsWindow::displayAllScientists()
 {
@@ -52,17 +41,18 @@ void DisplayScientistsWindow::displayScientists(vector<Scientist> scientists)
         Scientist currentScientist = scientists.at(i);
 
         QString name = QString::fromStdString(currentScientist.getName_Scientist());
-        QString gender = QString::fromStdString(currentScientist.getGender_Scientist());
         QString yearborn = QString::fromStdString(currentScientist.getBirth_Scientist());
         QString yeardead = QString::fromStdString(currentScientist.getDeath_Scientist());
+        QString gender = QString::fromStdString(currentScientist.getGender_Scientist());
 
         qDebug() << "name:" << name;
 
         ui->displayTable_tableWidget->setItem(i, 0, new QTableWidgetItem(name));
-        ui->displayTable_tableWidget->setItem(i, 1, new QTableWidgetItem(gender));
-        ui->displayTable_tableWidget->setItem(i, 2, new QTableWidgetItem(yearborn));
-        ui->displayTable_tableWidget->setItem(i, 3, new QTableWidgetItem(yeardead));
+        ui->displayTable_tableWidget->setItem(i, 1, new QTableWidgetItem(yearborn));
+        ui->displayTable_tableWidget->setItem(i, 2, new QTableWidgetItem(yeardead));
+        ui->displayTable_tableWidget->setItem(i, 3, new QTableWidgetItem(gender));
     }
 
     currentlyDisplayedScientists = scientists;
 }
+
