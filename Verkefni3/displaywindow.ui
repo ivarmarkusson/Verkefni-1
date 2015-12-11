@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DisplayWindow</class>
+ <widget class="QMainWindow" name="DisplayWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="pushButton_close">
+      <property name="text">
+       <string>Close</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTabWidget" name="tab_sci_com_conn">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_sci_main">
+       <attribute name="title">
+        <string>Scientists</string>
+       </attribute>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>0</y>
+          <width>321</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Scientists&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTabWidget" name="tab_sci_display_edit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>781</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab_sci_display">
+         <attribute name="title">
+          <string>Display</string>
+         </attribute>
+         <widget class="QTableWidget" name="table_display_sci">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>50</y>
+            <width>771</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignCenter</set>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Birth</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignCenter</set>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Death</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Gender</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLineEdit" name="line_search_sci">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>771</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Search...</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_sci_edit">
+         <attribute name="title">
+          <string>Edit</string>
+         </attribute>
+         <widget class="QLineEdit" name="line_sci_name_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>340</y>
+            <width>321</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Full Name...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_sci_birth_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Birth...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_sci_death_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Death?...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_sci_gender_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Sex?...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_edit_sci">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>40</y>
+            <width>771</width>
+            <height>271</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Birth</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Death</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Gender</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>320</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>320</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Year of Birth</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>320</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Year of Death</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>650</x>
+            <y>320</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Gender</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_add_sci">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_remove_sci">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_edit_sci">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_com">
+       <attribute name="title">
+        <string>Computers</string>
+       </attribute>
+       <widget class="QTabWidget" name="tab_com_display_edit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>781</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab_com_display">
+         <attribute name="title">
+          <string>Display</string>
+         </attribute>
+         <widget class="QLineEdit" name="line_search_com">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>771</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Search...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_display_com">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>50</y>
+            <width>771</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Build Year</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Built</string>
+           </property>
+          </column>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_com_edit">
+         <attribute name="title">
+          <string>Edit</string>
+         </attribute>
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>650</x>
+            <y>320</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Built?</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_com_year_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Year...</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_com_remove">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_com_built_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Yes/No</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_10">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>320</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_com_name_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>340</y>
+            <width>321</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Computer Name...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_edit_com">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>40</y>
+            <width>771</width>
+            <height>271</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Build Year</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Built</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>320</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Build Year</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_com_edit">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_com_type_add_remove_edit">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>340</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Type...</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_com_add">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>370</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_12">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>320</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>0</y>
+          <width>321</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Computers&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_conn">
+       <attribute name="title">
+        <string>Connections</string>
+       </attribute>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>0</y>
+          <width>321</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Connections&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QTabWidget" name="tab_connect_display_edit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>781</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tab_conn_display">
+         <attribute name="title">
+          <string>Display</string>
+         </attribute>
+         <widget class="QLineEdit" name="line_connect_search">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>771</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Search...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_display_connect">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>50</y>
+            <width>771</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>New Column</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignCenter</set>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Computer Name</string>
+           </property>
+          </column>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_conn_edit">
+         <attribute name="title">
+          <string>Edit</string>
+         </attribute>
+         <widget class="QLabel" name="label_13">
+          <property name="geometry">
+           <rect>
+            <x>650</x>
+            <y>150</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Gender</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_sci_birth_edit">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>170</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Birth...</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>150</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Year of Death</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_sci_gender_edit">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>170</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Sex?...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_sci_name_edit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>321</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Full Name...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_edit_connect_sci">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>40</y>
+            <width>771</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Birth</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Year of Death</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Gender</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>150</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Year of Birth</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_sci_death_edit">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>170</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Death?...</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>150</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>350</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_com_year_edit">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>370</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Year...</string>
+          </property>
+         </widget>
+         <widget class="QTableWidget" name="table_edit_connect_com">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>230</y>
+            <width>771</width>
+            <height>111</height>
+           </rect>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Build Year</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Built</string>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>650</x>
+            <y>350</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Built?</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>350</y>
+            <width>55</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_19">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>350</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Build Year</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_com_name_edit">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>370</y>
+            <width>321</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Computer Name...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_com_type_edit">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>370</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>Enter Type...</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line_connect_com_built_edit">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>370</y>
+            <width>113</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Yes/No</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Scientists&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_21">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>200</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Computers&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_connect">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>400</y>
+            <width>321</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Connect</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

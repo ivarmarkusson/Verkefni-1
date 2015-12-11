@@ -13,6 +13,8 @@ INPUT(
 ./release\editscientistswindow.o
 ./release\editcomputerswindow.o
 ./release\connectionswindow.o
+./release\displaywindow.o
+./release\welcome.o
 ./release\moc_mainwindow.o
 ./release\moc_displayscientistswindow.o
 ./release\moc_displaycomputerswindow.o
@@ -21,4 +23,6 @@ INPUT(
 ./release\moc_editscientistswindow.o
 ./release\moc_editcomputerswindow.o
 ./release\moc_connectionswindow.o
+./release\moc_displaywindow.o
+./release\moc_welcome.o
 );

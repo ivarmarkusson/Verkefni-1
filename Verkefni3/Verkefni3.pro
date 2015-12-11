@@ -27,7 +27,9 @@ SOURCES += main.cpp\
     searchcomputerswindow.cpp \
     editscientistswindow.cpp \
     editcomputerswindow.cpp \
-    connectionswindow.cpp
+    connectionswindow.cpp \
+    displaywindow.cpp \
+    welcome.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -42,7 +44,9 @@ HEADERS  += mainwindow.h \
     searchcomputerswindow.h \
     editscientistswindow.h \
     editcomputerswindow.h \
-    connectionswindow.h
+    connectionswindow.h \
+    displaywindow.h \
+    welcome.h
 
 FORMS    += mainwindow.ui \
     displayscientistswindow.ui \
@@ -51,4 +55,6 @@ FORMS    += mainwindow.ui \
     searchcomputerswindow.ui \
     editscientistswindow.ui \
     editcomputerswindow.ui \
-    connectionswindow.ui
+    connectionswindow.ui \
+    displaywindow.ui \
+    welcome.ui

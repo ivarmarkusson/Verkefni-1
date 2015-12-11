@@ -13,6 +13,8 @@ INPUT(
 ./debug\editscientistswindow.o
 ./debug\editcomputerswindow.o
 ./debug\connectionswindow.o
+./debug\displaywindow.o
+./debug\welcome.o
 ./debug\moc_mainwindow.o
 ./debug\moc_displayscientistswindow.o
 ./debug\moc_displaycomputerswindow.o
@@ -21,4 +23,6 @@ INPUT(
 ./debug\moc_editscientistswindow.o
 ./debug\moc_editcomputerswindow.o
 ./debug\moc_connectionswindow.o
+./debug\moc_displaywindow.o
+./debug\moc_welcome.o
 );
