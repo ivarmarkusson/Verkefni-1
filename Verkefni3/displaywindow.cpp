@@ -13,6 +13,7 @@ DisplayWindow::DisplayWindow(QWidget *parent) :
     displayAllComputers();
     displayAllConnections();
     connect(ui->pushButton_close,SIGNAL(clicked()), this, SLOT(close()));
+    connect(ui->pushButton_add_sci, SIGNAL(clicked()), this, SLOT(addScientist()));
 }
 
 DisplayWindow::~DisplayWindow()
@@ -120,4 +121,25 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
         ui->table_display_sci->setItem(i, 3, new QTableWidgetItem(gender));
     }
 
+}
+
+void DisplayWindow::addScientist()
+{
+    string name = ui->line_sci_name_add_remove_edit->text().toStdString();
+    string gender = ui->line_sci_gender_add_remove_edit->text().toStdString();
+    string birth = ui->line_sci_birth_add_remove_edit->text().toStdString();
+    string death = ui->line_sci_death_add_remove_edit->text().toStdString();
+
+    Scientist newScientist;
+    newScientist.setName_Scientist(name);
+    newScientist.setGender_Scientist(gender);
+    newScientist.setBirth_Scientist(birth);
+    newScientist.setDeath_Scientist(death);
+    dataObj.AddSci("INSERT INTO persons (Name, Birth, Death, Gender, Hide) "
+                   "VALUES (:Name, :Birth, :Death, :Gender, :Hide)", newScientist);
+}
+
+void DisplayWindow::on_pushButton_add_sci_clicked()
+{
+    addScientist();
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <iostream>
 #include <vector>
+#include <QString>
 #include "scientist.h"
 #include "computer.h"
 #include "connection.h"
@@ -23,6 +24,9 @@ public:
     explicit DisplayWindow(QWidget *parent = 0);
     ~DisplayWindow();
 
+private slots:
+    void on_pushButton_add_sci_clicked();
+
 private:
     void displayScientists(vector<Scientist> scientists);
     void displayAllScientists();
@@ -32,6 +36,8 @@ private:
 
     void displayAllConnections();
     void displayConnections(vector<Connection> connections);
+
+    void addScientist();
 
     Ui::DisplayWindow *ui;
 

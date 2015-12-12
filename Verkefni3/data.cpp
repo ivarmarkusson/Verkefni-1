@@ -115,21 +115,17 @@ vector<Computer> Data::SortCom(QString str)
     return computerVector;
 }
 
-void Data::AddSci(QString str)
+void Data::AddSci(QString str, Scientist sci)
 {
     openDatabase();
     QSqlQuery query(db);
     string Name, Birth, Death, Gender;
     string Hide = "false";
 
-    cout << "Enter Firstname: ";
-    getline(cin, Name, '\n');
-    cout << "Enter Year Of Birth: ";
-    getline(cin, Birth, '\n');
-    cout << "Enter Year Of Death (Enter 'alive' If The Person Is Not Dead): ";
-    getline(cin, Death, '\n');
-    cout << "Enter Gender: ";
-    getline(cin, Gender, '\n');
+    Name = sci.getName_Scientist();
+    Gender = sci.getGender_Scientist();
+    Birth = sci.getBirth_Scientist();
+    Death = sci.getDeath_Scientist();
 
     query.prepare(str);
     query.bindValue(":Name", QString::fromStdString(Name));

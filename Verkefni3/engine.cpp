@@ -119,7 +119,7 @@ void Engine::editScientists(int i)
     switch(i)
     {
         case 1:
-            AddSci(INSERT_PERSON);
+            //AddSci(INSERT_PERSON);
             break;
         case 2:
             //RemoveSci();
