@@ -80,6 +80,7 @@ public:
 
         lineEdit_password = new QLineEdit(groupBox_login);
         lineEdit_password->setObjectName(QStringLiteral("lineEdit_password"));
+        lineEdit_password->setEchoMode(QLineEdit::Password);
 
         gridLayout_2->addWidget(lineEdit_password, 1, 1, 1, 1);
 
@@ -96,7 +97,6 @@ public:
         label_username->raise();
         label_password->raise();
         lineEdit_username->raise();
-        lineEdit_password->raise();
         lineEdit_password->raise();
         pushButton_login->raise();
         label_status->raise();

@@ -44,6 +44,9 @@
        </item>
        <item row="1" column="1">
         <widget class="QLineEdit" name="lineEdit_password">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
          <property name="placeholderText">
           <string>Enter Password</string>
          </property>
@@ -67,7 +70,6 @@
       <zorder>label_username</zorder>
       <zorder>label_password</zorder>
       <zorder>lineEdit_username</zorder>
-      <zorder>lineEdit_password</zorder>
       <zorder>lineEdit_password</zorder>
       <zorder>pushButton_login</zorder>
       <zorder>label_status</zorder>
