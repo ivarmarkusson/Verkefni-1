@@ -260,6 +260,10 @@ public:
         table_display_com->setHorizontalHeaderItem(3, __qtablewidgetitem11);
         table_display_com->setObjectName(QStringLiteral("table_display_com"));
         table_display_com->setGeometry(QRect(0, 50, 771, 391));
+        table_display_com->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_display_com->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_display_com->setSortingEnabled(true);
+        table_display_com->horizontalHeader()->setStretchLastSection(true);
         tab_com_display_edit->addTab(tab_com_display, QString());
         tab_com_edit = new QWidget();
         tab_com_edit->setObjectName(QStringLiteral("tab_com_edit"));
@@ -513,7 +517,7 @@ public:
         DisplayWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(DisplayWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         DisplayWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(DisplayWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -521,7 +525,7 @@ public:
 
         retranslateUi(DisplayWindow);
 
-        tab_sci_com_conn->setCurrentIndex(0);
+        tab_sci_com_conn->setCurrentIndex(1);
         tab_sci_display_edit->setCurrentIndex(0);
         tab_com_display_edit->setCurrentIndex(0);
         tab_connect_display_edit->setCurrentIndex(0);
