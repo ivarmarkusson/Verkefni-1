@@ -373,6 +373,10 @@ public:
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         table_display_connect->setHorizontalHeaderItem(1, __qtablewidgetitem17);
         table_display_connect->setObjectName(QStringLiteral("table_display_connect"));
+        table_display_connect->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_display_connect->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_display_connect->setSortingEnabled(true);
+        table_display_connect->horizontalHeader()->setStretchLastSection(true);
 
         gridLayout_5->addWidget(table_display_connect, 1, 0, 1, 1);
 
@@ -525,7 +529,7 @@ public:
 
         retranslateUi(DisplayWindow);
 
-        tab_sci_com_conn->setCurrentIndex(1);
+        tab_sci_com_conn->setCurrentIndex(2);
         tab_sci_display_edit->setCurrentIndex(0);
         tab_com_display_edit->setCurrentIndex(0);
         tab_connect_display_edit->setCurrentIndex(0);
@@ -606,7 +610,7 @@ public:
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_com), QApplication::translate("DisplayWindow", "Computers", 0));
         line_connect_search->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem16 = table_display_connect->horizontalHeaderItem(0);
-        ___qtablewidgetitem16->setText(QApplication::translate("DisplayWindow", "New Column", 0));
+        ___qtablewidgetitem16->setText(QApplication::translate("DisplayWindow", "Scientist Name", 0));
         QTableWidgetItem *___qtablewidgetitem17 = table_display_connect->horizontalHeaderItem(1);
         ___qtablewidgetitem17->setText(QApplication::translate("DisplayWindow", "Computer Name", 0));
         tab_connect_display_edit->setTabText(tab_connect_display_edit->indexOf(tab_conn_display), QApplication::translate("DisplayWindow", "Display", 0));

@@ -11,6 +11,7 @@ DisplayWindow::DisplayWindow(QWidget *parent) :
     ui->setupUi(this);
     displayAllScientists();
     displayAllComputers();
+    displayAllConnections();
     connect(ui->pushButton_close,SIGNAL(clicked()), this, SLOT(close()));
 }
 
@@ -60,6 +61,37 @@ void DisplayWindow::displayComputers(vector<Computer> computers)
     }
 
     currentlyDisplayedComputers = computers;
+}
+
+void DisplayWindow::displayAllConnections()
+{
+    vector<Connection> connections;
+    connections.clear();
+    connections = dataObj.viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons "
+                                        "INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER "
+                                        "JOIN Computers ON computers.ID = tengitafla.ID");
+    displayConnections(connections);
+}
+
+void DisplayWindow::displayConnections(vector<Connection> connections)
+{
+    ui->table_display_connect->clearContents();
+    ui->table_display_connect->setRowCount(connections.size());
+    ui->table_display_connect->setColumnCount(2);
+
+    qDebug() << "size" << connections.size();
+    qDebug() << "size of scientists vector" << dataObj.connectionVector.size();
+
+    for(unsigned int i = 0; i < connections.size(); i++)
+    {
+        Connection currentConnections = connections.at(i);
+
+        QString name_computer = QString::fromStdString(currentConnections.getName_Com());
+        QString name_scientist = QString::fromStdString(currentConnections.getName_Sci());
+
+        ui->table_display_connect->setItem(i, 0, new QTableWidgetItem(name_scientist));
+        ui->table_display_connect->setItem(i, 1, new QTableWidgetItem(name_computer));
+    }
 }
 
 void DisplayWindow::displayScientists(vector<Scientist> scientists)

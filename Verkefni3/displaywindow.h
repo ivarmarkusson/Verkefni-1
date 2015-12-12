@@ -6,6 +6,7 @@
 #include <vector>
 #include "scientist.h"
 #include "computer.h"
+#include "connection.h"
 #include "data.h"
 
 using namespace std;
@@ -29,12 +30,16 @@ private:
     void displayAllComputers();
     void displayComputers(vector<Computer> computers);
 
+    void displayAllConnections();
+    void displayConnections(vector<Connection> connections);
+
     Ui::DisplayWindow *ui;
 
     Data dataObj;
 
     vector<Computer> currentlyDisplayedComputers;
     vector<Scientist> currentlyDisplayedScientists;
+    vector<Connection> currentlyDisplayedConnections;
 };
 
 #endif // DISPLAYWINDOW_H
