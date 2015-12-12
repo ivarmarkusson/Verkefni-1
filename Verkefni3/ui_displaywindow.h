@@ -32,29 +32,28 @@ class Ui_DisplayWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_close;
     QTabWidget *tab_sci_com_conn;
     QWidget *tab_sci_main;
     QGridLayout *gridLayout_2;
+    QLabel *label;
     QTabWidget *tab_sci_display_edit;
     QWidget *tab_sci_display;
     QTableWidget *table_display_sci;
     QLineEdit *line_search_sci;
     QWidget *tab_sci_edit;
     QGridLayout *gridLayout_6;
-    QTableWidget *table_edit_sci;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
-    QLineEdit *line_sci_name_add_remove_edit;
     QLineEdit *line_sci_birth_add_remove_edit;
+    QLabel *label_6;
     QLineEdit *line_sci_death_add_remove_edit;
     QLineEdit *line_sci_gender_add_remove_edit;
     QPushButton *pushButton_add_sci;
-    QPushButton *pushButton_remove_sci;
+    QTableWidget *table_edit_sci;
+    QLabel *label_7;
+    QLineEdit *line_sci_name_add_remove_edit;
+    QLabel *label_4;
+    QLabel *label_5;
     QPushButton *pushButton_edit_sci;
-    QLabel *label;
+    QPushButton *pushButton_remove_sci;
     QWidget *tab_com;
     QGridLayout *gridLayout_3;
     QTabWidget *tab_com_display_edit;
@@ -105,6 +104,7 @@ public:
     QLabel *label_15;
     QTableWidget *table_edit_connect_sci;
     QLabel *label_3;
+    QPushButton *pushButton_close;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -117,11 +117,6 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        pushButton_close = new QPushButton(centralwidget);
-        pushButton_close->setObjectName(QStringLiteral("pushButton_close"));
-
-        gridLayout->addWidget(pushButton_close, 2, 0, 1, 1);
-
         tab_sci_com_conn = new QTabWidget(centralwidget);
         tab_sci_com_conn->setObjectName(QStringLiteral("tab_sci_com_conn"));
         tab_sci_com_conn->setEnabled(true);
@@ -129,6 +124,11 @@ public:
         tab_sci_main->setObjectName(QStringLiteral("tab_sci_main"));
         gridLayout_2 = new QGridLayout(tab_sci_main);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        label = new QLabel(tab_sci_main);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
+
         tab_sci_display_edit = new QTabWidget(tab_sci_main);
         tab_sci_display_edit->setObjectName(QStringLiteral("tab_sci_display_edit"));
         tab_sci_display = new QWidget();
@@ -149,6 +149,7 @@ public:
         table_display_sci->setObjectName(QStringLiteral("table_display_sci"));
         table_display_sci->setGeometry(QRect(0, 50, 771, 391));
         table_display_sci->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_display_sci->setAlternatingRowColors(false);
         table_display_sci->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_display_sci->setSortingEnabled(true);
         table_display_sci->horizontalHeader()->setStretchLastSection(true);
@@ -160,50 +161,15 @@ public:
         tab_sci_edit->setObjectName(QStringLiteral("tab_sci_edit"));
         gridLayout_6 = new QGridLayout(tab_sci_edit);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        table_edit_sci = new QTableWidget(tab_sci_edit);
-        if (table_edit_sci->columnCount() < 4)
-            table_edit_sci->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        table_edit_sci->setHorizontalHeaderItem(0, __qtablewidgetitem4);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        table_edit_sci->setHorizontalHeaderItem(1, __qtablewidgetitem5);
-        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        table_edit_sci->setHorizontalHeaderItem(2, __qtablewidgetitem6);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        table_edit_sci->setHorizontalHeaderItem(3, __qtablewidgetitem7);
-        table_edit_sci->setObjectName(QStringLiteral("table_edit_sci"));
+        line_sci_birth_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_birth_add_remove_edit->setObjectName(QStringLiteral("line_sci_birth_add_remove_edit"));
 
-        gridLayout_6->addWidget(table_edit_sci, 0, 0, 1, 6);
-
-        label_4 = new QLabel(tab_sci_edit);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        gridLayout_6->addWidget(label_4, 1, 0, 1, 1);
-
-        label_5 = new QLabel(tab_sci_edit);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        gridLayout_6->addWidget(label_5, 1, 3, 1, 1);
+        gridLayout_6->addWidget(line_sci_birth_add_remove_edit, 2, 3, 1, 1);
 
         label_6 = new QLabel(tab_sci_edit);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         gridLayout_6->addWidget(label_6, 1, 4, 1, 1);
-
-        label_7 = new QLabel(tab_sci_edit);
-        label_7->setObjectName(QStringLiteral("label_7"));
-
-        gridLayout_6->addWidget(label_7, 1, 5, 1, 1);
-
-        line_sci_name_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_name_add_remove_edit->setObjectName(QStringLiteral("line_sci_name_add_remove_edit"));
-
-        gridLayout_6->addWidget(line_sci_name_add_remove_edit, 2, 0, 1, 3);
-
-        line_sci_birth_add_remove_edit = new QLineEdit(tab_sci_edit);
-        line_sci_birth_add_remove_edit->setObjectName(QStringLiteral("line_sci_birth_add_remove_edit"));
-
-        gridLayout_6->addWidget(line_sci_birth_add_remove_edit, 2, 3, 1, 1);
 
         line_sci_death_add_remove_edit = new QLineEdit(tab_sci_edit);
         line_sci_death_add_remove_edit->setObjectName(QStringLiteral("line_sci_death_add_remove_edit"));
@@ -220,24 +186,54 @@ public:
 
         gridLayout_6->addWidget(pushButton_add_sci, 3, 0, 1, 1);
 
-        pushButton_remove_sci = new QPushButton(tab_sci_edit);
-        pushButton_remove_sci->setObjectName(QStringLiteral("pushButton_remove_sci"));
+        table_edit_sci = new QTableWidget(tab_sci_edit);
+        if (table_edit_sci->columnCount() < 4)
+            table_edit_sci->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        table_edit_sci->setHorizontalHeaderItem(0, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        table_edit_sci->setHorizontalHeaderItem(1, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        table_edit_sci->setHorizontalHeaderItem(2, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        table_edit_sci->setHorizontalHeaderItem(3, __qtablewidgetitem7);
+        table_edit_sci->setObjectName(QStringLiteral("table_edit_sci"));
 
-        gridLayout_6->addWidget(pushButton_remove_sci, 3, 1, 1, 1);
+        gridLayout_6->addWidget(table_edit_sci, 0, 0, 1, 6);
+
+        label_7 = new QLabel(tab_sci_edit);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        gridLayout_6->addWidget(label_7, 1, 5, 1, 1);
+
+        line_sci_name_add_remove_edit = new QLineEdit(tab_sci_edit);
+        line_sci_name_add_remove_edit->setObjectName(QStringLiteral("line_sci_name_add_remove_edit"));
+
+        gridLayout_6->addWidget(line_sci_name_add_remove_edit, 2, 0, 1, 3);
+
+        label_4 = new QLabel(tab_sci_edit);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout_6->addWidget(label_4, 1, 0, 1, 1);
+
+        label_5 = new QLabel(tab_sci_edit);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout_6->addWidget(label_5, 1, 3, 1, 1);
 
         pushButton_edit_sci = new QPushButton(tab_sci_edit);
         pushButton_edit_sci->setObjectName(QStringLiteral("pushButton_edit_sci"));
 
         gridLayout_6->addWidget(pushButton_edit_sci, 3, 2, 1, 1);
 
+        pushButton_remove_sci = new QPushButton(tab_sci_edit);
+        pushButton_remove_sci->setObjectName(QStringLiteral("pushButton_remove_sci"));
+
+        gridLayout_6->addWidget(pushButton_remove_sci, 3, 1, 1, 1);
+
         tab_sci_display_edit->addTab(tab_sci_edit, QString());
 
         gridLayout_2->addWidget(tab_sci_display_edit, 0, 0, 1, 1);
-
-        label = new QLabel(tab_sci_main);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout_2->addWidget(label, 0, 1, 1, 1);
 
         tab_sci_com_conn->addTab(tab_sci_main, QString());
         tab_com = new QWidget();
@@ -509,6 +505,11 @@ public:
 
         gridLayout->addWidget(tab_sci_com_conn, 1, 0, 1, 1);
 
+        pushButton_close = new QPushButton(centralwidget);
+        pushButton_close->setObjectName(QStringLiteral("pushButton_close"));
+
+        gridLayout->addWidget(pushButton_close, 2, 0, 1, 1);
+
         DisplayWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(DisplayWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -522,8 +523,8 @@ public:
 
         tab_sci_com_conn->setCurrentIndex(0);
         tab_sci_display_edit->setCurrentIndex(0);
-        tab_com_display_edit->setCurrentIndex(1);
-        tab_connect_display_edit->setCurrentIndex(1);
+        tab_com_display_edit->setCurrentIndex(0);
+        tab_connect_display_edit->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(DisplayWindow);
@@ -532,7 +533,7 @@ public:
     void retranslateUi(QMainWindow *DisplayWindow)
     {
         DisplayWindow->setWindowTitle(QApplication::translate("DisplayWindow", "MainWindow", 0));
-        pushButton_close->setText(QApplication::translate("DisplayWindow", "Close", 0));
+        label->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\"><br/><br/>S</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">C</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">I</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">E</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">N</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">T</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">I</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">S</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">T</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">S</span></p></body></html>", 0));
         QTableWidgetItem *___qtablewidgetitem = table_display_sci->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("DisplayWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem1 = table_display_sci->horizontalHeaderItem(1);
@@ -543,6 +544,12 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("DisplayWindow", "Gender", 0));
         line_search_sci->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         tab_sci_display_edit->setTabText(tab_sci_display_edit->indexOf(tab_sci_display), QApplication::translate("DisplayWindow", "Display", 0));
+        line_sci_birth_add_remove_edit->setText(QString());
+        line_sci_birth_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Birth...", 0));
+        label_6->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
+        line_sci_death_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
+        line_sci_gender_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
+        pushButton_add_sci->setText(QApplication::translate("DisplayWindow", "Add", 0));
         QTableWidgetItem *___qtablewidgetitem4 = table_edit_sci->horizontalHeaderItem(0);
         ___qtablewidgetitem4->setText(QApplication::translate("DisplayWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem5 = table_edit_sci->horizontalHeaderItem(1);
@@ -551,20 +558,13 @@ public:
         ___qtablewidgetitem6->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
         QTableWidgetItem *___qtablewidgetitem7 = table_edit_sci->horizontalHeaderItem(3);
         ___qtablewidgetitem7->setText(QApplication::translate("DisplayWindow", "Gender", 0));
-        label_4->setText(QApplication::translate("DisplayWindow", "Name", 0));
-        label_5->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
-        label_6->setText(QApplication::translate("DisplayWindow", "Year of Death", 0));
         label_7->setText(QApplication::translate("DisplayWindow", "Gender", 0));
         line_sci_name_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Enter Full Name...", 0));
-        line_sci_birth_add_remove_edit->setText(QString());
-        line_sci_birth_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Birth...", 0));
-        line_sci_death_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Death?...", 0));
-        line_sci_gender_add_remove_edit->setPlaceholderText(QApplication::translate("DisplayWindow", "Sex?...", 0));
-        pushButton_add_sci->setText(QApplication::translate("DisplayWindow", "Add", 0));
-        pushButton_remove_sci->setText(QApplication::translate("DisplayWindow", "Remove", 0));
+        label_4->setText(QApplication::translate("DisplayWindow", "Name", 0));
+        label_5->setText(QApplication::translate("DisplayWindow", "Year of Birth", 0));
         pushButton_edit_sci->setText(QApplication::translate("DisplayWindow", "Edit", 0));
+        pushButton_remove_sci->setText(QApplication::translate("DisplayWindow", "Remove", 0));
         tab_sci_display_edit->setTabText(tab_sci_display_edit->indexOf(tab_sci_edit), QApplication::translate("DisplayWindow", "Edit", 0));
-        label->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Scientists</span></p><p align=\"center\"><br/></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_sci_main), QApplication::translate("DisplayWindow", "Scientists", 0));
         line_search_com->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_display_com->horizontalHeaderItem(0);
@@ -598,7 +598,7 @@ public:
         pushButton_com_remove->setText(QApplication::translate("DisplayWindow", "Remove", 0));
         pushButton_com_edit->setText(QApplication::translate("DisplayWindow", "Edit", 0));
         tab_com_display_edit->setTabText(tab_com_display_edit->indexOf(tab_com_edit), QApplication::translate("DisplayWindow", "Edit", 0));
-        label_8->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Computers</span></p></body></html>", 0));
+        label_8->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">C</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">O</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">M</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">P</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">U</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">T</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">E</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">R</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">S</span></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_com), QApplication::translate("DisplayWindow", "Computers", 0));
         line_connect_search->setPlaceholderText(QApplication::translate("DisplayWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem16 = table_display_connect->horizontalHeaderItem(0);
@@ -643,8 +643,10 @@ public:
         QTableWidgetItem *___qtablewidgetitem25 = table_edit_connect_sci->horizontalHeaderItem(3);
         ___qtablewidgetitem25->setText(QApplication::translate("DisplayWindow", "Gender", 0));
         tab_connect_display_edit->setTabText(tab_connect_display_edit->indexOf(tab_conn_edit), QApplication::translate("DisplayWindow", "Edit", 0));
-        label_3->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Connections</span></p><p align=\"center\"><br/></p></body></html>", 0));
+        label_3->setText(QApplication::translate("DisplayWindow", "<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">C</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">O</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">N</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">N</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">E</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">C</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">T</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">I</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">O</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">N</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">S</span><span style=\" font-size:10pt;\"><br/></span></p><p align=\"center\"><span styl"
+                        "e=\" font-size:10pt;\"><br/></span></p></body></html>", 0));
         tab_sci_com_conn->setTabText(tab_sci_com_conn->indexOf(tab_conn), QApplication::translate("DisplayWindow", "Connections", 0));
+        pushButton_close->setText(QApplication::translate("DisplayWindow", "Close", 0));
     } // retranslateUi
 
 };

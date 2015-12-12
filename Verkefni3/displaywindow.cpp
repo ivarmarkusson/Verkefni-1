@@ -12,3 +12,5 @@ DisplayWindow::~DisplayWindow()
 {
     delete ui;
 }
+
+//Here can we connect GUI to Engine(Domain)

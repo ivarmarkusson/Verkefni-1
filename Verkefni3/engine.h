@@ -24,7 +24,7 @@ public:
 
     void sortSientists(int i);
     void sortComputers(int i);
-    //Sort Functions, for sort choices
+    //Sort Functions, for sort choices.
 
     void searchScientists();
     void searchComputers();
@@ -35,13 +35,8 @@ public:
     //edit (add or remove) scientists or computers.
 
     void connectScientistAndComputer(int i);
+    //For connecting scientists and computers
 
-    void printScientistsVector(vector<Scientist> sci);
-    void printComputersVector(vector<Computer> comp);
-    void printConnectionVector(vector<Connection> con);
-    //Print Functions that print out the current vector
-
-    int userInput();
 };
 
 #endif // ENGINE_H

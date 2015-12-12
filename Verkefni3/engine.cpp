@@ -16,14 +16,6 @@ Engine::Engine()
 
 }
 
-int Engine::userInput()
-{
-    int i;
-    cin >> i;
-    cin.ignore();
-    return i;
-}
-
 void Engine::sortSientists(int i)
 {
     vector<Scientist> temp;
@@ -58,7 +50,6 @@ void Engine::sortSientists(int i)
             return;
             break;
         }
-    printScientistsVector(temp);
     clearSciVector();
     temp.clear();
 }
@@ -98,7 +89,7 @@ void Engine::sortComputers(int i)
             break;
         }
 
-    printComputersVector(temp);
+    //Needs to return vector to mainWindowClass
     clearComVector();
     temp.clear();
 }
@@ -107,7 +98,7 @@ void Engine::searchScientists()
 {
     vector<Scientist> temp = searchSci(SEARCH_SCIENTIST);
 
-    printScientistsVector(temp);
+    //Needs to return vector to mainWindowClass
 
     temp.clear();
     scientistVector.clear();
@@ -117,7 +108,7 @@ void Engine::searchComputers()
 {
     vector<Computer> temp = searchCom(SEARCH_COMPUTER);
 
-    printComputersVector(temp);
+    //Needs to return vector to mainWindowClass
 
     temp.clear();
     computerVector.clear();
@@ -137,6 +128,9 @@ void Engine::editScientists(int i)
             cout << "Invalid Input, Try again!" << endl;
             return;
     }
+
+    //Needs to return vector to mainWindowClass
+
 }
 
 void Engine::editComputers(int i)
@@ -153,6 +147,8 @@ void Engine::editComputers(int i)
             cout << "Invalid Input, Try again!" << endl;
             return;
     }
+
+    //Needs to return vector to mainWindowClass
 }
 
 void Engine::connectScientistAndComputer(int i)
@@ -163,7 +159,6 @@ void Engine::connectScientistAndComputer(int i)
         {
             case 1:
                 temp = viewConnected(PRINT_CONNECTION);
-                printConnectionVector(temp);
                 break;
             case 2:
                 AddConnected(ADD_CONNECTION);
@@ -172,58 +167,9 @@ void Engine::connectScientistAndComputer(int i)
                 cout << "Invalid Input, Try Again!" << endl;
                 break;
         }
+
+    //Needs to return vector to mainWindowClass
     clearConnectVector();
     temp.clear();
 }
 
-//Print functions to print vectors
-void Engine::printScientistsVector(vector<Scientist> sci)
-{
-    cout << setw(15) << left << "ID." << setw(20) << left << "Name" << setw(20)
-         << left << "Year of birth" << setw(20) << left << "Year of death"
-         << setw(20) << left << "Gender" << endl;
-    cout << setfill ('-') << setw(85)<< "-" << endl;
-    cout << setfill(' ');
-
-    for (unsigned int i = 0; i < sci.size(); i++)
-    {
-        cout << setw(10) << left << sci.at(i).getID_Scientist()
-             << setw(30) << left << sci.at(i).getName_Scientist()
-             << setw(15) << left << sci.at(i).getBirth_Scientist()
-             << setw(10) << right << sci.at(i).getDeath_Scientist()
-             << setw(15) << right << sci.at(i).getGender_Scientist()
-             << endl;
-    }
-}
-
-void Engine::printComputersVector(vector<Computer> comp)
-{
-
-    cout << " " <<setw(15) << left  << "ID." << setw(25) << left << "Name"
-         << setw(20) << left << "Year Built" << setw(21) << left << "Type"
-         << setw(18) << left << "Built" << endl;
-
-    cout << setfill ('-') << setw(100)<< "-"<< setfill(' ' ) <<endl;
-
-    for(unsigned int i = 0; i < comp.size(); i++)
-    {
-        cout << " "
-             << setw(5) << left << comp.at(i).getID_Computer()
-             << setw(37) << left << comp.at(i).getName_Computer()
-             << setw(15) << left << comp.at(i).getYearBuilt_Computer()
-             << setw(25) << left << comp.at(i).getType_Computer()
-             << setw(15) << left << comp.at(i).getBuilt_Computer()
-             << endl;
-    }
-}
-
-void Engine::printConnectionVector(vector<Connection> con)
-{
-    cout << "Scientist " << "\t\t\t" << "Computers" << endl;
-    cout << setfill('-') << setw(65) << "-" << setfill(' ') << endl;
-
-    for(unsigned int i = 0; i < con.size(); i++)
-    {
-        cout << setw(30) << left<< con.at(i).getName_Sci() << setw(30) << left << con.at(i).getName_Com() << endl;
-    }
-}

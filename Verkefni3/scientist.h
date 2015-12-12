@@ -11,6 +11,8 @@ public:
     Scientist();
     Scientist(int i, string n, string b, string d, string g);
     //Constructor with parameters
+    //Initializes s_ID to i, s_name to n, s_birth to b
+    //s_death to d and s_gender to g
 
     int getID_Scientist();
     string getName_Scientist();

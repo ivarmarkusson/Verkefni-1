@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//Constructor - more info later
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -22,11 +23,27 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+//Deconstructor
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+//LoginIn button that takes you to mainWindow
+void MainWindow::on_pushButton_login_clicked()
+{
+    login_menu();
+}
+
+//Creates pointer and displays mainWindow
+void MainWindow::open_display_window()
+{
+    displaywindow_object = new DisplayWindow();
+    displaywindow_object->show();
+    this->close();
+}
+
+//Connects to SQLite Database to get users logIn info
 void MainWindow::login_menu()
 {
     QString username, password;
@@ -53,6 +70,7 @@ void MainWindow::login_menu()
         {
             ui->label_status->setText("Login Successful!");
 
+            logindb.close();
             open_display_window();
         }
         if(count > 1)
@@ -65,16 +83,3 @@ void MainWindow::login_menu()
         }
     }
 }
-
-void MainWindow::open_display_window()
-{
-    displaywindow_object = new DisplayWindow();
-    displaywindow_object->show();
-    this->close();
-}
-
-void MainWindow::on_pushButton_login_clicked()
-{
-    login_menu();
-}
-

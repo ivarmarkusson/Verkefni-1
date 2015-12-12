@@ -10,8 +10,8 @@ class Computer
 public:
     Computer();
     Computer(int i, string n, string y, string t, string b);
-    //Initializes c_ID to i, c_name to n,c_yearBuilt to y, c_type to t and c_built to b.
     //Constructor with parameters.
+    //Initializes c_ID to i, c_name to n,c_yearBuilt to y, c_type to t and c_built to b.
 
     int getID_Computer();
     string getName_Computer();

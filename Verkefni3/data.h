@@ -61,8 +61,11 @@ class Data
 
         vector<Scientist> searchSci(QString str);
         vector<Computer> searchCom(QString str);
-
         vector<Connection> viewConnected(QString str);
+        //Opens SQLite Database, pushes to vectors below and
+        //returns them in Engine(DOMAIN) Class
+
+        //PRIVATE:
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
