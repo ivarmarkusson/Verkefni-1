@@ -203,3 +203,19 @@ void DisplayWindow::on_line_search_sci_textChanged(const QString &arg1)
                                                         "OR (Gender LIKE '%'||:Gender||'%')", input);
     displayScientists(searchResults);
 }
+
+void DisplayWindow::on_line_search_com_textChanged(const QString &arg1)
+{
+    string input = ui->line_search_com->text().toStdString();
+
+    vector<Computer> searchResults;
+    searchResults.clear();
+    dataObj.computerVector.clear();
+
+    searchResults = dataObj.searchCom("SELECT * FROM Computers WHERE "
+                                      "(Name LIKE '%'||:Name||'%') "
+                                      "OR (Year LIKE '%'||:Year||'%') "
+                                      "OR (Type LIKE '%'||:Type||'%') "
+                                      "OR (Built LIKE '%'||:Built||'%')", input);
+    displayComputers(searchResults);
+}

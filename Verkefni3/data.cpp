@@ -306,23 +306,17 @@ vector <Scientist> Data::searchSci (QString str, string searchText)
     return scientistVector;
 }
 
-vector<Computer> Data::searchCom(QString str)
+vector<Computer> Data::searchCom(QString str, string searchText)
 {
     openDatabase();
     QSqlQuery query(db);
 
-    cout << "Press Enter to Get All" << endl;
-    cout << endl;
-
     string n,y,t,b;
-    cout << "Search Name: ";
-    getline(cin,n,'\n');
-    cout << "Search Year of Build: ";
-    getline(cin,y,'\n');
-    cout << "Search Type: ";
-    getline(cin,t,'\n');
-    cout << "Search if Built: ";
-    getline(cin,b,'\n');
+
+    n = searchText;
+    y = searchText;
+    t = searchText;
+    b = searchText;
 
     query.prepare(str);
 

@@ -103,7 +103,7 @@ void Engine::searchScientists()
     temp.clear();
     scientistVector.clear();
 }
-*/
+
 void Engine::searchComputers()
 {
     vector<Computer> temp = searchCom(SEARCH_COMPUTER);
@@ -113,7 +113,7 @@ void Engine::searchComputers()
     temp.clear();
     computerVector.clear();
 }
-
+*/
 void Engine::editScientists(int i)
 {
     switch(i)

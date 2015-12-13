@@ -60,7 +60,7 @@ class Data
         //Clears vector in Data Class
 
         vector<Scientist> searchSci(QString str, string searchText);
-        vector<Computer> searchCom(QString str);
+        vector<Computer> searchCom(QString str, string searchText);
         vector<Connection> viewConnected(QString str);
         //Opens SQLite Database, pushes to vectors below and
         //returns them in Engine(DOMAIN) Class
