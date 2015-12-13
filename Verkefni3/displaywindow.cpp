@@ -26,7 +26,11 @@ DisplayWindow::~DisplayWindow()
 
 void DisplayWindow::displayAllScientists()
 {
-    vector<Scientist> scientists = dataObj.SortSci("SELECT * FROM Persons Order By Name ASC");
+    vector<Scientist> scientists;
+    scientists.clear();
+    currentlyDisplayedScientists.clear();
+    dataObj.scientistVector.clear();
+    scientists = dataObj.SortSci("SELECT * FROM Persons Order By Name ASC");
     displayScientists(scientists);
 }
 
@@ -34,6 +38,8 @@ void DisplayWindow::displayAllComputers()
 {
     vector<Computer> computers;
     computers.clear();
+    currentlyDisplayedComputers.clear();
+    dataObj.computerVector.clear();
     computers = dataObj.SortCom("SELECT * FROM computers Order By Name ASC");
     displayComputers(computers);
 }
@@ -106,12 +112,10 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
 
     for(unsigned int i = 0; i < scientists.size(); i++)
     {
-        Scientist currentScientist = scientists.at(i);
-
-        QString name = QString::fromStdString(currentScientist.getName_Scientist());
-        QString yearborn = QString::fromStdString(currentScientist.getBirth_Scientist());
-        QString yeardead = QString::fromStdString(currentScientist.getDeath_Scientist());
-        QString gender = QString::fromStdString(currentScientist.getGender_Scientist());
+        QString name = QString::fromStdString(scientists.at(i).getName_Scientist());
+        QString yearborn = QString::fromStdString(scientists.at(i).getBirth_Scientist());
+        QString yeardead = QString::fromStdString(scientists.at(i).getDeath_Scientist());
+        QString gender = QString::fromStdString(scientists.at(i).getGender_Scientist());
 
         qDebug() << "name:" << name;
 
@@ -131,15 +135,43 @@ void DisplayWindow::addScientist()
     string death = ui->line_sci_death_add_remove_edit->text().toStdString();
 
     Scientist newScientist;
+
     newScientist.setName_Scientist(name);
     newScientist.setGender_Scientist(gender);
     newScientist.setBirth_Scientist(birth);
     newScientist.setDeath_Scientist(death);
+
     dataObj.AddSci("INSERT INTO persons (Name, Birth, Death, Gender, Hide) "
                    "VALUES (:Name, :Birth, :Death, :Gender, :Hide)", newScientist);
+}
+
+
+void DisplayWindow::addComputer()
+{
+    string name = ui->line_com_name_add_remove_edit->text().toStdString();
+    string type = ui->line_com_type_add_remove_edit->text().toStdString();
+    string year = ui->line_com_year_add_remove_edit->text().toStdString();
+    string built = ui->line_com_built_add_remove_edit->text().toStdString();
+
+    Computer newComputer;
+
+    newComputer.setName_Computer(name);
+    newComputer.setType_Computer(type);
+    newComputer.setYearBuilt_Computer(year);
+    newComputer.setBuilt_Computer(built);
+
+    dataObj.AddCom("INSERT INTO Computers (Name, Year, Type, Built, Hide) "
+                   "VALUES (:Name, :Year, :Type, :Built, :Hide)", newComputer);
 }
 
 void DisplayWindow::on_pushButton_add_sci_clicked()
 {
     addScientist();
+    displayAllScientists();
+}
+
+void DisplayWindow::on_pushButton_com_add_clicked()
+{
+    addComputer();
+    displayAllComputers();
 }

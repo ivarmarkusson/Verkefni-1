@@ -138,7 +138,7 @@ void Engine::editComputers(int i)
     switch(i)
     {
         case 1:
-            AddCom(INSERT_COMPUTER);
+            //AddCom(INSERT_COMPUTER);
             break;
         case 2:
             //RemoveCom();

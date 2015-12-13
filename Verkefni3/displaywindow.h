@@ -27,6 +27,8 @@ public:
 private slots:
     void on_pushButton_add_sci_clicked();
 
+    void on_pushButton_com_add_clicked();
+
 private:
     void displayScientists(vector<Scientist> scientists);
     void displayAllScientists();
@@ -38,6 +40,7 @@ private:
     void displayConnections(vector<Connection> connections);
 
     void addScientist();
+    void addComputer();
 
     Ui::DisplayWindow *ui;
 

@@ -138,22 +138,17 @@ void Data::AddSci(QString str, Scientist sci)
     closeDatabase();
 }
 
-void Data::AddCom(QString str)
+void Data::AddCom(QString str, Computer com)
 {
     openDatabase();
     QSqlQuery query(db);
     string Name, Year, Type, Built;
     string Hide = "false";
 
-    cout << "Enter Name of Computer: ";
-    getline(cin, Name, '\n');
-    cout << "Enter Build Year: ";
-    getline(cin, Year, '\n');
-    cout << "Enter Type: ";
-    getline(cin, Type, '\n');
-    cout << "Enter If Built(Yes) Or Not(No): ";
-    getline(cin, Built, '\n');
-    Built[0] = toupper(Built[0]);
+    Name = com.getName_Computer();
+    Year = com.getYearBuilt_Computer();
+    Type = com.getType_Computer();
+    Built = com.getBuilt_Computer();
 
     query.prepare(str);
     query.bindValue(":Name", QString::fromStdString(Name));

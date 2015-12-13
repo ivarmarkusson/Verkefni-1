@@ -46,7 +46,7 @@ class Data
         //Runs SQL database and returns a vector to be printed out
 
         void AddSci(QString str, Scientist sci);
-        void AddCom(QString str);
+        void AddCom(QString str,  Computer com);
         void AddConnected(QString str);
         //Adds new scientist, computer and connection to the list.
 
