@@ -21,16 +21,13 @@ DisplayWindow::~DisplayWindow()
     delete ui;
 }
 
-//Here can we connect GUI to Engine(Domain)
-
 
 void DisplayWindow::displayAllScientists()
 {
     vector<Scientist> scientists;
     scientists.clear();
     currentlyDisplayedScientists.clear();
-    dataObj.scientistVector.clear();
-    scientists = dataObj.SortSci("SELECT * FROM Persons Order By Name ASC");
+    scientists = engineObj.sortSientists(1);
     displayScientists(scientists);
 }
 
@@ -39,8 +36,7 @@ void DisplayWindow::displayAllComputers()
     vector<Computer> computers;
     computers.clear();
     currentlyDisplayedComputers.clear();
-    dataObj.computerVector.clear();
-    computers = dataObj.SortCom("SELECT * FROM computers Order By Name ASC");
+    computers = engineObj.sortComputers(1);
     displayComputers(computers);
 }
 
@@ -51,8 +47,8 @@ void DisplayWindow::displayComputers(vector<Computer> computers)
     ui->table_display_com->setRowCount(computers.size());
     ui->table_display_com->setColumnCount(4);
 
-    qDebug() << "size" << computers.size();
-    qDebug() << "size of scientists vector" << computers.size();
+    //qDebug() << "size" << computers.size();
+    //qDebug() << "size of scientists vector" << computers.size();
 
     ui->table_display_com->setSortingEnabled(false);
 
@@ -78,9 +74,7 @@ void DisplayWindow::displayAllConnections()
 {
     vector<Connection> connections;
     connections.clear();
-    connections = dataObj.viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons "
-                                        "INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER "
-                                        "JOIN Computers ON computers.ID = tengitafla.ID");
+    connections = engineObj.sortConnections();
     displayConnections(connections);
 }
 
@@ -90,8 +84,8 @@ void DisplayWindow::displayConnections(vector<Connection> connections)
     ui->table_display_connect->setRowCount(connections.size());
     ui->table_display_connect->setColumnCount(2);
 
-    qDebug() << "size" << connections.size();
-    qDebug() << "size of scientists vector" << dataObj.connectionVector.size();
+    //qDebug() << "size" << connections.size();
+    //qDebug() << "size of scientists vector" << dataObj.connectionVector.size();
 
     ui->table_display_connect->setSortingEnabled(false);
 
@@ -116,7 +110,7 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
     ui->table_display_sci->setColumnCount(4);
 
     qDebug() << "size" << scientists.size();
-    qDebug() << "size of scientists vector" << dataObj.scientistVector.size();
+    //qDebug() << "size of scientists vector" << dataObj.scientistVector.size();
 
     ui->table_display_sci->setSortingEnabled(false);
 
@@ -127,7 +121,7 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
         QString yeardead = QString::fromStdString(scientists.at(i).getDeath_Scientist());
         QString gender = QString::fromStdString(scientists.at(i).getGender_Scientist());
 
-        qDebug() << "name:" << name;
+        //qDebug() << "name:" << name;
 
         ui->table_display_sci->setItem(i, 0, new QTableWidgetItem(name));
         ui->table_display_sci->setItem(i, 1, new QTableWidgetItem(yearborn));
@@ -148,13 +142,30 @@ void DisplayWindow::addScientist()
 
     Scientist newScientist;
 
-    newScientist.setName_Scientist(name);
-    newScientist.setGender_Scientist(gender);
-    newScientist.setBirth_Scientist(birth);
-    newScientist.setDeath_Scientist(death);
+    if(name.empty()|| birth.empty() || gender.empty()
+                || atoi(birth.c_str()) > 2015 || atoi(death.c_str()) > 2015
+                || ((atoi(birth.c_str()) > atoi(death.c_str())) && death != "")
+                || gender != "Male" && gender != "male" && gender != "Female" && gender != "female")
+        {
+            ui->statusbar->showMessage("Invalid Input, Try Again!", 3000);
+        }
+        else
+        {
+            if(death == "")
+            {
+                death = "Alive";
+            }
+            newScientist.setName_Scientist(name);
+            newScientist.setGender_Scientist(gender);
+            newScientist.setBirth_Scientist(birth);
+            newScientist.setDeath_Scientist(death);
 
-    dataObj.AddSci("INSERT INTO persons (Name, Birth, Death, Gender, Hide) "
-                   "VALUES (:Name, :Birth, :Death, :Gender, :Hide)", newScientist);
+            engineObj.addScientists(newScientist);
+            ui->statusbar->showMessage("Scientist Has Been Added!", 3000);
+        }
+
+
+
 }
 
 
@@ -172,8 +183,18 @@ void DisplayWindow::addComputer()
     newComputer.setYearBuilt_Computer(year);
     newComputer.setBuilt_Computer(built);
 
-    dataObj.AddCom("INSERT INTO Computers (Name, Year, Type, Built, Hide) "
-                   "VALUES (:Name, :Year, :Type, :Built, :Hide)", newComputer);
+    if(name.empty() || type.empty() || year.empty() || built.empty()
+            || (built != "Yes" && built != "yes" && built != "No" && built != "no"
+            || atoi(year.c_str()) > 2015))
+        {
+            ui->statusbar->showMessage("Invalid Input, Try Again!", 3000);
+        }
+        else
+        {
+            engineObj.addComputers(newComputer);
+
+            ui->statusbar->showMessage("Computer Has Been Added", 3000);
+        }
 }
 
 void DisplayWindow::on_pushButton_add_sci_clicked()
@@ -194,13 +215,8 @@ void DisplayWindow::on_line_search_sci_textChanged(const QString &arg1)
 
     vector<Scientist> searchResults;
     searchResults.clear();
-    dataObj.scientistVector.clear();
 
-    searchResults = dataObj.searchSci("SELECT * FROM Persons WHERE "
-                                                        "(Name LIKE '%'||:Name||'%') "
-                                                        "OR (Birth LIKE '%'||:Birth||'%') "
-                                                        "OR (Death LIKE '%'||:Death||'%') "
-                                                        "OR (Gender LIKE '%'||:Gender||'%')", input);
+    searchResults = engineObj.searchScientists(input);
     displayScientists(searchResults);
 }
 
@@ -210,12 +226,7 @@ void DisplayWindow::on_line_search_com_textChanged(const QString &arg1)
 
     vector<Computer> searchResults;
     searchResults.clear();
-    dataObj.computerVector.clear();
 
-    searchResults = dataObj.searchCom("SELECT * FROM Computers WHERE "
-                                      "(Name LIKE '%'||:Name||'%') "
-                                      "OR (Year LIKE '%'||:Year||'%') "
-                                      "OR (Type LIKE '%'||:Type||'%') "
-                                      "OR (Built LIKE '%'||:Built||'%')", input);
+    searchResults = engineObj.searchComputers(input);
     displayComputers(searchResults);
 }

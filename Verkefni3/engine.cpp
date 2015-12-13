@@ -16,9 +16,10 @@ Engine::Engine()
 
 }
 
-void Engine::sortSientists(int i)
+vector<Scientist> Engine::sortSientists(int i)
 {
     vector<Scientist> temp;
+    temp.clear();
 
     switch (i) {
         case 1:
@@ -47,16 +48,15 @@ void Engine::sortSientists(int i)
             break;
         default:
             cout << "Invalid Input! Try Again!" << endl;
-            return;
             break;
         }
-    clearSciVector();
-    temp.clear();
+    return temp;
 }
 
-void Engine::sortComputers(int i)
+vector<Computer> Engine::sortComputers(int i)
 {
     vector<Computer> temp;
+    temp.clear();
 
     switch (i) {
         case 1:
@@ -85,53 +85,56 @@ void Engine::sortComputers(int i)
             break;
         default:
             cout << "Invalid Input! Try Again!" << endl;
-            return;
             break;
         }
-
-    //Needs to return vector to mainWindowClass
     clearComVector();
-    temp.clear();
+    return temp;
 }
-/*
-void Engine::searchScientists()
+
+vector<Connection> Engine::sortConnections()
 {
-    vector<Scientist> temp = searchSci(SEARCH_SCIENTIST);
-
-    //Needs to return vector to mainWindowClass
-
+    vector<Connection> temp;
     temp.clear();
+    temp = viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons "
+                         "INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER "
+                         "JOIN Computers ON computers.ID = tengitafla.ID");
+    clearConnectVector();
+    return temp;
+}
+
+
+vector<Scientist> Engine::searchScientists(const string input)
+{
+    vector<Scientist> temp;
+    temp.clear();
+    temp = searchSci(SEARCH_SCIENTIST, input);
+
     scientistVector.clear();
+    return temp;
 }
 
-void Engine::searchComputers()
+vector<Computer> Engine::searchComputers(const string input)
 {
-    vector<Computer> temp = searchCom(SEARCH_COMPUTER);
-
-    //Needs to return vector to mainWindowClass
-
+    vector<Computer> temp;
     temp.clear();
+    temp = searchCom(SEARCH_COMPUTER, input);
+
     computerVector.clear();
+    return temp;
 }
-*/
-void Engine::editScientists(int i)
+
+
+void Engine::addScientists(Scientist& newScientist)
 {
-    switch(i)
-    {
-        case 1:
-            //AddSci(INSERT_PERSON);
-            break;
-        case 2:
-            //RemoveSci();
-            break;
-        default:
-            cout << "Invalid Input, Try again!" << endl;
-            return;
-    }
-
-    //Needs to return vector to mainWindowClass
-
+    AddSci(INSERT_PERSON,newScientist);
 }
+
+void Engine::addComputers(Computer& newComputer)
+{
+    AddCom(INSERT_COMPUTER, newComputer);
+}
+
+
 
 void Engine::editComputers(int i)
 {

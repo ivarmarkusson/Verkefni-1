@@ -102,7 +102,7 @@ public:
     {
         if (DisplayWindow->objectName().isEmpty())
             DisplayWindow->setObjectName(QStringLiteral("DisplayWindow"));
-        DisplayWindow->resize(800, 600);
+        DisplayWindow->resize(800, 616);
         centralwidget = new QWidget(DisplayWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -463,7 +463,7 @@ public:
         DisplayWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(DisplayWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         DisplayWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(DisplayWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -504,7 +504,7 @@ public:
 
         retranslateUi(DisplayWindow);
 
-        tab_sci_com_conn->setCurrentIndex(1);
+        tab_sci_com_conn->setCurrentIndex(0);
         tab_connect_display_edit->setCurrentIndex(1);
 
 

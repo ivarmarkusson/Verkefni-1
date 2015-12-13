@@ -265,7 +265,7 @@ vector <Connection> Data::viewConnected (QString str)
     return connectionVector;
 }
 
-vector <Scientist> Data::searchSci (QString str, string searchText)
+vector <Scientist> Data::searchSci (QString str, const string searchText)
 {
     openDatabase();
     QSqlQuery query(db);

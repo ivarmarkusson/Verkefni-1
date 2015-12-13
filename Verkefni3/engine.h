@@ -15,22 +15,24 @@ using namespace std;
 class Scientist;
 class Computer;
 class Connection;
-class UI;
+
 
 class Engine:Data
 {
 public:
     Engine();
 
-    void sortSientists(int i);
-    void sortComputers(int i);
+    vector<Scientist> sortSientists(int i);
+    vector<Computer> sortComputers(int i);
+    vector<Connection> sortConnections();
     //Sort Functions, for sort choices.
 
-    void searchScientists();
-    void searchComputers();
+    vector<Scientist> searchScientists(const string input);
+    vector<Computer> searchComputers(const string input);
     //search for scientists or computers from the list.
 
-    void editScientists(int i);
+    void addScientists(Scientist& newScientist);
+    void addComputers(Computer& newComputer);
     void editComputers(int i);
     //edit (add or remove) scientists or computers.
 

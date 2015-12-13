@@ -8,7 +8,8 @@
 #include "scientist.h"
 #include "computer.h"
 #include "connection.h"
-#include "data.h"
+#include "engine.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -48,7 +49,7 @@ private:
 
     Ui::DisplayWindow *ui;
 
-    Data dataObj;
+    Engine engineObj;
 
     vector<Computer> currentlyDisplayedComputers;
     vector<Scientist> currentlyDisplayedScientists;

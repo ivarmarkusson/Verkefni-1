@@ -27,16 +27,16 @@ QString COM_ORDER_BY_BUILT_DESC = "SELECT * FROM Computers ORDER BY Built DESC, 
 //SEARCH SCIENTISTS
 QString SEARCH_SCIENTIST = "SELECT * FROM Persons WHERE "
                            "(Name LIKE '%'||:Name||'%') "
-                           "AND (Birth LIKE '%'||:Birth||'%') "
-                           "AND (Death LIKE '%'||:Death||'%') "
-                           "AND (Gender LIKE '%'||:Gender||'%')";
+                           "OR (Birth LIKE '%'||:Birth||'%') "
+                           "OR (Death LIKE '%'||:Death||'%') "
+                           "OR (Gender LIKE '%'||:Gender||'%')";
 
 //SEARCH COMPUTERS
 QString SEARCH_COMPUTER = "SELECT * FROM Computers WHERE "
                           "(Name LIKE '%'||:Name||'%') "
-                          "AND (Year LIKE '%'||:Year||'%') "
-                          "AND (Type LIKE '%'||:Type||'%') "
-                          "AND (Built LIKE '%'||:Built||'%')";
+                          "OR (Year LIKE '%'||:Year||'%') "
+                          "OR (Type LIKE '%'||:Type||'%') "
+                          "OR (Built LIKE '%'||:Built||'%')";
 
 //ADD SCIENTIST
 QString INSERT_PERSON = "INSERT INTO persons (Name, Birth, Death, Gender, Hide) "
