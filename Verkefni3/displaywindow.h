@@ -10,6 +10,7 @@
 #include "connection.h"
 #include "engine.h"
 #include <stdlib.h>
+#include <QTableWidgetItem>
 
 using namespace std;
 
@@ -30,19 +31,32 @@ private slots:
 
     void on_pushButton_com_add_clicked();
 
-    void on_line_search_sci_textChanged(const QString &arg1);
+    void on_line_search_sci_textChanged();
 
-    void on_line_search_com_textChanged(const QString &arg1);
+    void on_line_search_com_textChanged();
+
+    void on_line_connect_search_sci_textChanged();
+
+    void on_line_connect_search_com_textChanged();
+
+
+    void on_table_edit_connect_sci_clicked(const QModelIndex &index);
+
+    void on_table_edit_connect_com_clicked(const QModelIndex &index);
 
 private:
-    void displayScientists(vector<Scientist> scientists);
     void displayAllScientists();
+    void displayScientists(vector<Scientist> scientists);
+    void displaySciConnections(vector<Scientist> scientists);
 
     void displayAllComputers();
     void displayComputers(vector<Computer> computers);
+    void displayComConnections(vector<Computer> computers);
 
     void displayAllConnections();
     void displayConnections(vector<Connection> connections);
+
+
 
     void addScientist();
     void addComputer();

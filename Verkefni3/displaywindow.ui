@@ -6,29 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>616</height>
+    <width>849</width>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
-     <widget class="QPushButton" name="pushButton_close">
-      <property name="text">
-       <string>Close</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="0">
      <widget class="QTabWidget" name="tab_sci_com_conn">
       <property name="enabled">
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_sci_main">
        <attribute name="title">
@@ -373,16 +366,74 @@
            <attribute name="title">
             <string>Edit</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_8">
-            <item row="2" column="3">
-             <widget class="QLineEdit" name="line_connect_sci_gender_edit">
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLineEdit" name="line_connect_search_sci">
               <property name="placeholderText">
-               <string>Sex?...</string>
+               <string>Search...</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="0" colspan="4">
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="table_edit_connect_sci">
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Year of Birth</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Year of Death</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Gender</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLineEdit" name="line_connect_search_com">
+              <property name="placeholderText">
+               <string>Search...</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
              <widget class="QTableWidget" name="table_edit_connect_com">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
               <column>
                <property name="text">
                 <string>Name</string>
@@ -406,148 +457,13 @@
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QLabel" name="label_18">
-              <property name="text">
-               <string>Computer Name</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QLineEdit" name="line_connect_sci_death_edit">
-              <property name="placeholderText">
-               <string>Death?...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLineEdit" name="line_connect_sci_name_edit">
-              <property name="placeholderText">
-               <string>Enter Full Name...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="line_connect_sci_birth_edit">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="placeholderText">
-               <string>Birth...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLabel" name="label_19">
-              <property name="text">
-               <string>Build Year</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="line_connect_com_year_edit">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="placeholderText">
-               <string>Enter Year...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2">
-             <widget class="QLineEdit" name="line_connect_com_type_edit">
-              <property name="placeholderText">
-               <string>Enter Type...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="3">
-             <widget class="QLabel" name="label_17">
-              <property name="text">
-               <string>Built?</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="2">
-             <widget class="QLabel" name="label_20">
-              <property name="text">
-               <string>Type</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="3">
-             <widget class="QLineEdit" name="line_connect_com_built_edit">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="placeholderText">
-               <string>Yes/No</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLineEdit" name="line_connect_com_name_edit">
-              <property name="placeholderText">
-               <string>Enter Computer Name...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
              <widget class="QPushButton" name="pushButton_connect">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Connect</string>
               </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="label_14">
-              <property name="text">
-               <string>Year of Death</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <widget class="QLabel" name="label_13">
-              <property name="text">
-               <string>Gender</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_16">
-              <property name="text">
-               <string>Scientists Name</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="label_15">
-              <property name="text">
-               <string>Year of Birth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0" colspan="4">
-             <widget class="QTableWidget" name="table_edit_connect_sci">
-              <column>
-               <property name="text">
-                <string>Name</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Year of Birth</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Year of Death</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Gender</string>
-               </property>
-              </column>
              </widget>
             </item>
            </layout>
@@ -565,6 +481,13 @@
       </widget>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton_close">
+      <property name="text">
+       <string>Close</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -572,7 +495,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>849</width>
      <height>26</height>
     </rect>
    </property>
@@ -602,15 +525,7 @@
   <tabstop>tab_connect_display_edit</tabstop>
   <tabstop>line_connect_search</tabstop>
   <tabstop>table_display_connect</tabstop>
-  <tabstop>line_connect_sci_gender_edit</tabstop>
   <tabstop>table_edit_connect_com</tabstop>
-  <tabstop>line_connect_sci_death_edit</tabstop>
-  <tabstop>line_connect_sci_name_edit</tabstop>
-  <tabstop>line_connect_sci_birth_edit</tabstop>
-  <tabstop>line_connect_com_year_edit</tabstop>
-  <tabstop>line_connect_com_type_edit</tabstop>
-  <tabstop>line_connect_com_built_edit</tabstop>
-  <tabstop>line_connect_com_name_edit</tabstop>
   <tabstop>pushButton_connect</tabstop>
   <tabstop>table_edit_connect_sci</tabstop>
   <tabstop>pushButton_close</tabstop>
