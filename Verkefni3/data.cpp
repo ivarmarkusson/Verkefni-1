@@ -160,7 +160,7 @@ void Data::AddCom(QString str, Computer com)
 
     closeDatabase();
 }
-
+/*
 void Data::AddConnected(QString str)
 {
 
@@ -239,7 +239,7 @@ void Data::AddConnected(QString str)
     cout << "Connection Added!" << endl;
     closeDatabase();
 }
-
+*/
 /*
 void Data::RemoveSci(QString str)
 {
@@ -265,23 +265,17 @@ vector <Connection> Data::viewConnected (QString str)
     return connectionVector;
 }
 
-vector <Scientist> Data::searchSci (QString str)
+vector <Scientist> Data::searchSci (QString str, string searchText)
 {
     openDatabase();
     QSqlQuery query(db);
 
-    cout << "Press Enter to Get All" << endl;
-    cout << endl;
-
     string n,b,d,g;
-    cout << "Search Name: ";
-    getline(cin,n,'\n');
-    cout << "Search Year of Birth: ";
-    getline(cin,b,'\n');
-    cout << "Search Year of Death: ";
-    getline(cin,d,'\n');
-    cout << "Search Gender: ";
-    getline(cin,g,'\n');
+
+    n = searchText;
+    b = searchText;
+    d = searchText;
+    g = searchText;
 
     query.prepare(str);
 

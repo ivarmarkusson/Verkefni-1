@@ -54,6 +54,8 @@ void DisplayWindow::displayComputers(vector<Computer> computers)
     qDebug() << "size" << computers.size();
     qDebug() << "size of scientists vector" << computers.size();
 
+    ui->table_display_com->setSortingEnabled(false);
+
     for(unsigned int i = 0; i < computers.size(); i++)
     {
         QString name = QString::fromStdString(computers.at(i).getName_Computer());
@@ -66,6 +68,8 @@ void DisplayWindow::displayComputers(vector<Computer> computers)
         ui->table_display_com->setItem(i, 2, new QTableWidgetItem(year));
         ui->table_display_com->setItem(i, 3, new QTableWidgetItem(built));
     }
+
+    ui->table_display_com->setSortingEnabled(true);
 
     currentlyDisplayedComputers = computers;
 }
@@ -89,6 +93,8 @@ void DisplayWindow::displayConnections(vector<Connection> connections)
     qDebug() << "size" << connections.size();
     qDebug() << "size of scientists vector" << dataObj.connectionVector.size();
 
+    ui->table_display_connect->setSortingEnabled(false);
+
     for(unsigned int i = 0; i < connections.size(); i++)
     {
         Connection currentConnections = connections.at(i);
@@ -99,6 +105,8 @@ void DisplayWindow::displayConnections(vector<Connection> connections)
         ui->table_display_connect->setItem(i, 0, new QTableWidgetItem(name_scientist));
         ui->table_display_connect->setItem(i, 1, new QTableWidgetItem(name_computer));
     }
+
+    ui->table_display_connect->setSortingEnabled(true);
 }
 
 void DisplayWindow::displayScientists(vector<Scientist> scientists)
@@ -109,6 +117,8 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
 
     qDebug() << "size" << scientists.size();
     qDebug() << "size of scientists vector" << dataObj.scientistVector.size();
+
+    ui->table_display_sci->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < scientists.size(); i++)
     {
@@ -124,6 +134,8 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
         ui->table_display_sci->setItem(i, 2, new QTableWidgetItem(yeardead));
         ui->table_display_sci->setItem(i, 3, new QTableWidgetItem(gender));
     }
+
+    ui->table_display_sci->setSortingEnabled(true);
 
 }
 
@@ -174,4 +186,20 @@ void DisplayWindow::on_pushButton_com_add_clicked()
 {
     addComputer();
     displayAllComputers();
+}
+
+void DisplayWindow::on_line_search_sci_textChanged(const QString &arg1)
+{
+    string input = ui->line_search_sci->text().toStdString();
+
+    vector<Scientist> searchResults;
+    searchResults.clear();
+    dataObj.scientistVector.clear();
+
+    searchResults = dataObj.searchSci("SELECT * FROM Persons WHERE "
+                                                        "(Name LIKE '%'||:Name||'%') "
+                                                        "OR (Birth LIKE '%'||:Birth||'%') "
+                                                        "OR (Death LIKE '%'||:Death||'%') "
+                                                        "OR (Gender LIKE '%'||:Gender||'%')", input);
+    displayScientists(searchResults);
 }

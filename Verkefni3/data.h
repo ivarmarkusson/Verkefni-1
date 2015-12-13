@@ -59,7 +59,7 @@ class Data
         void clearConnectVector();
         //Clears vector in Data Class
 
-        vector<Scientist> searchSci(QString str);
+        vector<Scientist> searchSci(QString str, string searchText);
         vector<Computer> searchCom(QString str);
         vector<Connection> viewConnected(QString str);
         //Opens SQLite Database, pushes to vectors below and

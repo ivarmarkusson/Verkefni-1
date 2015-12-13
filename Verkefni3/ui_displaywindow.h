@@ -504,7 +504,7 @@ public:
 
         retranslateUi(DisplayWindow);
 
-        tab_sci_com_conn->setCurrentIndex(2);
+        tab_sci_com_conn->setCurrentIndex(0);
         tab_connect_display_edit->setCurrentIndex(1);
 
 

@@ -93,7 +93,7 @@ void Engine::sortComputers(int i)
     clearComVector();
     temp.clear();
 }
-
+/*
 void Engine::searchScientists()
 {
     vector<Scientist> temp = searchSci(SEARCH_SCIENTIST);
@@ -103,7 +103,7 @@ void Engine::searchScientists()
     temp.clear();
     scientistVector.clear();
 }
-
+*/
 void Engine::searchComputers()
 {
     vector<Computer> temp = searchCom(SEARCH_COMPUTER);
@@ -161,7 +161,7 @@ void Engine::connectScientistAndComputer(int i)
                 temp = viewConnected(PRINT_CONNECTION);
                 break;
             case 2:
-                AddConnected(ADD_CONNECTION);
+                //AddConnected(ADD_CONNECTION);
                 break;
             default:
                 cout << "Invalid Input, Try Again!" << endl;

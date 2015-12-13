@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_com_add_clicked();
 
+    void on_line_search_sci_textChanged(const QString &arg1);
+
 private:
     void displayScientists(vector<Scientist> scientists);
     void displayAllScientists();
