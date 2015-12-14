@@ -123,8 +123,6 @@ void DisplayWindow::displayConnections(vector<Connection> connections)
     ui->table_display_connect->setSortingEnabled(true);
 }
 
-
-
 void DisplayWindow::displayScientists(vector<Scientist> scientists)
 {
     ui->table_display_sci->clearContents();
@@ -265,8 +263,6 @@ void DisplayWindow::on_line_search_com_textChanged()
     displayComputers(searchResults);
 }
 
-
-
 //Sma bug hér með set enabled true
 
 void DisplayWindow::on_line_connect_search_sci_textChanged()
@@ -289,14 +285,4 @@ void DisplayWindow::on_line_connect_search_com_textChanged()
 
     searchResults = engineObj.searchComputers(input);
     displayComConnections(searchResults);
-}
-
-void DisplayWindow::on_table_edit_connect_sci_clicked(const QModelIndex &index)
-{
-    ui->table_edit_connect_com->setEnabled(true);
-}
-
-void DisplayWindow::on_table_edit_connect_com_clicked(const QModelIndex &index)
-{
-    ui->pushButton_connect->setEnabled(true);
 }

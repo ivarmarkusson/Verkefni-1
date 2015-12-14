@@ -420,7 +420,7 @@
             <item row="3" column="0">
              <widget class="QTableWidget" name="table_edit_connect_com">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="editTriggers">
                <set>QAbstractItemView::NoEditTriggers</set>

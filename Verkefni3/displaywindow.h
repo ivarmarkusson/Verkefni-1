@@ -39,11 +39,6 @@ private slots:
 
     void on_line_connect_search_com_textChanged();
 
-
-    void on_table_edit_connect_sci_clicked(const QModelIndex &index);
-
-    void on_table_edit_connect_com_clicked(const QModelIndex &index);
-
 private:
     void displayAllScientists();
     void displayScientists(vector<Scientist> scientists);

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_DisplayWindow_t {
-    QByteArrayData data[11];
-    char stringdata0[289];
+    QByteArrayData data[8];
+    char stringdata0[215];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,10 +36,7 @@ QT_MOC_LITERAL(3, 45, 29), // "on_pushButton_com_add_clicked"
 QT_MOC_LITERAL(4, 75, 30), // "on_line_search_sci_textChanged"
 QT_MOC_LITERAL(5, 106, 30), // "on_line_search_com_textChanged"
 QT_MOC_LITERAL(6, 137, 38), // "on_line_connect_search_sci_te..."
-QT_MOC_LITERAL(7, 176, 38), // "on_line_connect_search_com_te..."
-QT_MOC_LITERAL(8, 215, 33), // "on_table_edit_connect_sci_cli..."
-QT_MOC_LITERAL(9, 249, 5), // "index"
-QT_MOC_LITERAL(10, 255, 33) // "on_table_edit_connect_com_cli..."
+QT_MOC_LITERAL(7, 176, 38) // "on_line_connect_search_com_te..."
 
     },
     "DisplayWindow\0on_pushButton_add_sci_clicked\0"
@@ -47,9 +44,7 @@ QT_MOC_LITERAL(10, 255, 33) // "on_table_edit_connect_com_cli..."
     "on_line_search_sci_textChanged\0"
     "on_line_search_com_textChanged\0"
     "on_line_connect_search_sci_textChanged\0"
-    "on_line_connect_search_com_textChanged\0"
-    "on_table_edit_connect_sci_clicked\0"
-    "index\0on_table_edit_connect_com_clicked"
+    "on_line_connect_search_com_textChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,7 +54,7 @@ static const uint qt_meta_data_DisplayWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -67,14 +62,12 @@ static const uint qt_meta_data_DisplayWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    0,   56,    2, 0x08 /* Private */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
-       8,    1,   60,    2, 0x08 /* Private */,
-      10,    1,   63,    2, 0x08 /* Private */,
+       1,    0,   44,    2, 0x08 /* Private */,
+       3,    0,   45,    2, 0x08 /* Private */,
+       4,    0,   46,    2, 0x08 /* Private */,
+       5,    0,   47,    2, 0x08 /* Private */,
+       6,    0,   48,    2, 0x08 /* Private */,
+       7,    0,   49,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -83,8 +76,6 @@ static const uint qt_meta_data_DisplayWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QModelIndex,    9,
-    QMetaType::Void, QMetaType::QModelIndex,    9,
 
        0        // eod
 };
@@ -101,11 +92,10 @@ void DisplayWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 3: _t->on_line_search_com_textChanged(); break;
         case 4: _t->on_line_connect_search_sci_textChanged(); break;
         case 5: _t->on_line_connect_search_com_textChanged(); break;
-        case 6: _t->on_table_edit_connect_sci_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 7: _t->on_table_edit_connect_com_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject DisplayWindow::staticMetaObject = {
@@ -133,13 +123,13 @@ int DisplayWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 6;
     }
     return _id;
 }

@@ -354,7 +354,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         table_edit_connect_com->setHorizontalHeaderItem(3, __qtablewidgetitem17);
         table_edit_connect_com->setObjectName(QStringLiteral("table_edit_connect_com"));
-        table_edit_connect_com->setEnabled(false);
+        table_edit_connect_com->setEnabled(true);
         table_edit_connect_com->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_edit_connect_com->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_edit_connect_com->setSortingEnabled(true);
