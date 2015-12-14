@@ -10,6 +10,9 @@ DisplayWindow::DisplayWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    computerTableClicked = false;
+    scientistTableClicked = false;
+
     displayAllScientists();
     displayAllComputers();
     displayAllConnections();
@@ -142,7 +145,7 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
         ui->table_display_sci->setItem(i, 2, new QTableWidgetItem(yeardead));
         ui->table_display_sci->setItem(i, 3, new QTableWidgetItem(gender));
     }
-
+    currentlyDisplayedScientists = scientists;
     ui->table_display_sci->setSortingEnabled(true);
 }
 
@@ -285,4 +288,55 @@ void DisplayWindow::on_line_connect_search_com_textChanged()
 
     searchResults = engineObj.searchComputers(input);
     displayComConnections(searchResults);
+}
+
+void DisplayWindow::on_table_display_sci_clicked()
+{
+    ui->pushButton_remove_sci->setEnabled(true);
+
+        int scientistIndex = ui->table_display_sci->currentIndex().row();
+        Scientist selectedScientist = currentlyDisplayedScientists.at(scientistIndex);
+
+        string name = selectedScientist.getName_Scientist();
+        string gender = selectedScientist.getGender_Scientist();
+        string death = selectedScientist.getDeath_Scientist();
+        string birth = selectedScientist.getBirth_Scientist();
+
+        QString qName = QString::fromStdString(name);
+        QString qGender = QString::fromStdString(gender);
+        QString qDeath = QString::fromStdString(death);
+        QString qBirth = QString::fromStdString(birth);
+
+        ui->line_sci_name_add_remove_edit->setText(qName);
+        ui->line_sci_gender_add_remove_edit->setText(qGender);
+        ui->line_sci_birth_add_remove_edit->setText(qBirth);
+        ui->line_sci_death_add_remove_edit->setText(qDeath);
+}
+
+void DisplayWindow::on_table_edit_connect_sci_clicked()
+{
+    scientistTableClicked = true;
+        if(computerTableClicked && scientistTableClicked)
+        {
+            ui->pushButton_connect->setEnabled(true);
+        }
+}
+
+void DisplayWindow::on_table_edit_connect_com_clicked()
+{
+    computerTableClicked = true;
+        if(computerTableClicked && scientistTableClicked)
+        {
+            ui->pushButton_connect->setEnabled(true);
+        }
+}
+
+void DisplayWindow::on_pushButton_remove_sci_clicked()
+{
+    int scientistIndex = ui->table_display_sci->currentIndex().row();
+        Scientist selectedScientist = currentlyDisplayedScientists.at(scientistIndex);
+
+
+
+        ui->pushButton_remove_sci->setEnabled(false);
 }

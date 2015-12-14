@@ -39,6 +39,14 @@ private slots:
 
     void on_line_connect_search_com_textChanged();
 
+    void on_table_display_sci_clicked();
+
+    void on_table_edit_connect_sci_clicked();
+
+    void on_table_edit_connect_com_clicked();
+
+    void on_pushButton_remove_sci_clicked();
+
 private:
     void displayAllScientists();
     void displayScientists(vector<Scientist> scientists);
@@ -59,6 +67,9 @@ private:
     Ui::DisplayWindow *ui;
 
     Engine engineObj;
+
+    bool computerTableClicked;
+    bool scientistTableClicked;
 
     vector<Computer> currentlyDisplayedComputers;
     vector<Scientist> currentlyDisplayedScientists;
