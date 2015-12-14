@@ -265,6 +265,36 @@ vector <Connection> Data::viewConnected (QString str)
     return connectionVector;
 }
 
+vector<Scientist> Data::getScientistVector()
+{
+    return scientistVector;
+}
+
+vector<Computer> Data::getComputerVector()
+{
+    return computerVector;
+}
+
+vector<Connection> Data::getConnectionVector()
+{
+    return connectionVector;
+}
+
+void Data::setSientistVector(vector<Scientist> sci)
+{
+    scientistVector = sci;
+}
+
+void Data::setComputerVector(vector<Computer> com)
+{
+    computerVector = com;
+}
+
+void Data::setConnection(vector<Connection> con)
+{
+    connectionVector = con;
+}
+
 vector <Scientist> Data::searchSci (QString str, const string searchText)
 {
     openDatabase();

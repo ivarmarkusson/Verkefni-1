@@ -65,7 +65,16 @@ class Data
         //Opens SQLite Database, pushes to vectors below and
         //returns them in Engine(DOMAIN) Class
 
-        //PRIVATE:
+        vector<Scientist> getScientistVector();
+        vector<Computer> getComputerVector();
+        vector<Connection> getConnectionVector();
+        //get functions that get private vectors
+
+        void setSientistVector(vector<Scientist> sci);
+        void setComputerVector(vector<Computer> com);
+        void setConnection(vector<Connection> con);
+        //set functions that set private vectors
+    private:
 
         vector<Scientist> scientistVector;
         vector<Computer> computerVector;
