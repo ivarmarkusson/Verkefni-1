@@ -9,9 +9,11 @@ DisplayWindow::DisplayWindow(QWidget *parent) :
     ui(new Ui::DisplayWindow)
 {
     ui->setupUi(this);
+
     displayAllScientists();
     displayAllComputers();
     displayAllConnections();
+
     connect(ui->pushButton_close,SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->pushButton_add_sci, SIGNAL(clicked()), this, SLOT(addScientist()));
 }
@@ -55,10 +57,6 @@ void DisplayWindow::displayComputers(vector<Computer> computers)
     ui->table_display_com->clearContents();
     ui->table_display_com->setRowCount(computers.size());
     ui->table_display_com->setColumnCount(4);
-
-    //qDebug() << "size" << computers.size();
-    //qDebug() << "size of scientists vector" << computers.size();
-
     ui->table_display_com->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < computers.size(); i++)
@@ -84,10 +82,6 @@ void DisplayWindow::displayComConnections(vector<Computer> computers)
     ui->table_edit_connect_com->clearContents();
     ui->table_edit_connect_com->setRowCount(computers.size());
     ui->table_edit_connect_com->setColumnCount(4);
-
-    //qDebug() << "size" << computers.size();
-    //qDebug() << "size of scientists vector" << computers.size();
-
     ui->table_edit_connect_com->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < computers.size(); i++)
@@ -108,17 +102,11 @@ void DisplayWindow::displayComConnections(vector<Computer> computers)
     currentlyDisplayedComputers = computers;
 }
 
-
-
 void DisplayWindow::displayConnections(vector<Connection> connections)
 {
     ui->table_display_connect->clearContents();
     ui->table_display_connect->setRowCount(connections.size());
     ui->table_display_connect->setColumnCount(2);
-
-    //qDebug() << "size" << connections.size();
-    //qDebug() << "size of scientists vector" << dataObj.connectionVector.size();
-
     ui->table_display_connect->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < connections.size(); i++)
@@ -142,10 +130,6 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
     ui->table_display_sci->clearContents();
     ui->table_display_sci->setRowCount(scientists.size());
     ui->table_display_sci->setColumnCount(4);
-
-    qDebug() << "size" << scientists.size();
-    //qDebug() << "size of scientists vector" << dataObj.scientistVector.size();
-
     ui->table_display_sci->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < scientists.size(); i++)
@@ -155,8 +139,6 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
         QString yeardead = QString::fromStdString(scientists.at(i).getDeath_Scientist());
         QString gender = QString::fromStdString(scientists.at(i).getGender_Scientist());
 
-        //qDebug() << "name:" << name;
-
         ui->table_display_sci->setItem(i, 0, new QTableWidgetItem(name));
         ui->table_display_sci->setItem(i, 1, new QTableWidgetItem(yearborn));
         ui->table_display_sci->setItem(i, 2, new QTableWidgetItem(yeardead));
@@ -164,7 +146,6 @@ void DisplayWindow::displayScientists(vector<Scientist> scientists)
     }
 
     ui->table_display_sci->setSortingEnabled(true);
-
 }
 
 void DisplayWindow::displaySciConnections(vector<Scientist> scientists)
@@ -172,10 +153,6 @@ void DisplayWindow::displaySciConnections(vector<Scientist> scientists)
     ui->table_edit_connect_sci->clearContents();
     ui->table_edit_connect_sci->setRowCount(scientists.size());
     ui->table_edit_connect_sci->setColumnCount(4);
-
-    qDebug() << "size" << scientists.size();
-    //qDebug() << "size of scientists vector" << dataObj.scientistVector.size();
-
     ui->table_edit_connect_sci->setSortingEnabled(false);
 
     for(unsigned int i = 0; i < scientists.size(); i++)
@@ -185,8 +162,6 @@ void DisplayWindow::displaySciConnections(vector<Scientist> scientists)
         QString yeardead = QString::fromStdString(scientists.at(i).getDeath_Scientist());
         QString gender = QString::fromStdString(scientists.at(i).getGender_Scientist());
 
-        //qDebug() << "name:" << name;
-
         ui->table_edit_connect_sci->setItem(i, 0, new QTableWidgetItem(name));
         ui->table_edit_connect_sci->setItem(i, 1, new QTableWidgetItem(yearborn));
         ui->table_edit_connect_sci->setItem(i, 2, new QTableWidgetItem(yeardead));
@@ -195,8 +170,6 @@ void DisplayWindow::displaySciConnections(vector<Scientist> scientists)
 
     ui->table_edit_connect_sci->setSortingEnabled(true);
 }
-
-
 
 void DisplayWindow::addScientist()
 {
@@ -292,11 +265,9 @@ void DisplayWindow::on_line_search_com_textChanged()
     displayComputers(searchResults);
 }
 
+
+
 //Sma bug hér með set enabled true
-
-
-
-
 
 void DisplayWindow::on_line_connect_search_sci_textChanged()
 {

@@ -95,13 +95,10 @@ vector<Connection> Engine::sortConnections()
 {
     vector<Connection> temp;
     temp.clear();
-    temp = viewConnected("SELECT persons.Name as pName, ComPutErs.Name FROM Persons "
-                         "INNER JOIN tengitafla ON persons.ID = tengitafla.ID INNER "
-                         "JOIN Computers ON computers.ID = tengitafla.ID");
+    temp = viewConnected(SORT_CONNECTIONS);
     clearConnectVector();
     return temp;
 }
-
 
 vector<Scientist> Engine::searchScientists(const string input)
 {
@@ -133,8 +130,6 @@ void Engine::addComputers(Computer& newComputer)
 {
     AddCom(INSERT_COMPUTER, newComputer);
 }
-
-
 
 void Engine::editComputers(int i)
 {

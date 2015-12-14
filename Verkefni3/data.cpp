@@ -300,7 +300,6 @@ vector <Scientist> Data::searchSci (QString str, const string searchText)
             scientistVector.push_back(sci);
         }
     }
-    system("CLS");
     query.clear();
     closeDatabase();
     return scientistVector;
@@ -342,7 +341,6 @@ vector<Computer> Data::searchCom(QString str, string searchText)
             computerVector.push_back(com);
         }
     }
-    system("CLS");
     query.clear();
     closeDatabase();
     return computerVector;
